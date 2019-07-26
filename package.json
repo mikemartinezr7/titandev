@@ -1,0 +1,26 @@
+{
+  "name": "titandev",
+  "version": "1.0.0",
+  "description": "Project 1 for Cenfotec",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikemartinezr7/titandev.git"
+  },
+  "author": "TitanDev Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikemartinezr7/titandev/issues"
+  },
+  "homepage": "https://github.com/mikemartinezr7/titandev#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "mongoose": "5.6.7",
+    "nodemon": "1.19.1"
+  }
+}
