@@ -13,7 +13,7 @@ Proyecto 1 para Cenfotec
 |  |-middlewares/
 |  |-routes.js
 |
-|-core/
+|-controllers/
 |  |-users.js
 |  |-clubs.js
 |  |-books.js
@@ -22,11 +22,10 @@ Proyecto 1 para Cenfotec
 |
 |-db/
 |  |-models/
-|    |-users/
-|    |-clubs/
-|    |-books/
-|    |-libraries/
-|    |-index.js
+|    |-users.js
+|    |-clubs.js
+|    |-books.js
+|    |-libraries.js
 |
 |-app.js
 |-.gitignore
