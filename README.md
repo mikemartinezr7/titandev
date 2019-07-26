@@ -8,17 +8,11 @@ Proyecto 1 para Cenfotec
 |-config/
 |  |- config.json
 |
-|-routes/
-|  |-controllers/
-|  |-middlewares/
-|  |-routes.js
-|
 |-controllers/
 |  |-users.js
 |  |-clubs.js
 |  |-books.js
 |  |-libraries.js
-|  |-core.js
 |
 |-db/
 |  |-models/
