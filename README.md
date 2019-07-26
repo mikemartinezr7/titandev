@@ -1,7 +1,7 @@
-# titandev
-Project 1 for Cenfotec
+# TitanDev
+Proyecto 1 para Cenfotec
 
-##Estructura de carpetas del proyecto
+## Estructura de carpetas del proyecto
 ```
 .
 |
@@ -9,26 +9,27 @@ Project 1 for Cenfotec
 |  |- config.json
 |
 |-routes
-|  |- controllers/
-|  |- middlewares/
-|  |- routes.js
+|  |-controllers/
+|  |-middlewares/
+|  |-routes.js
 |
 |-core
-|  |- users.js
-|  |- clubs.js
-|  |- books.js
-|  |- libraries.js
+|  |-users.js
+|  |-clubs.js
+|  |-books.js
+|  |-libraries.js
+|  |-core.js
 |
 |-db
-|  |- models/
-|    |- users/
-|    |- clubs/
-|    |- books/
-|    |- libraries/
-|    |- index.js
+|  |-models/
+|    |-users/
+|    |-clubs/
+|    |-books/
+|    |-libraries/
+|    |-index.js
 |
-|- app.js
-|- .gitignore
-|- README.md
-|- packages.json
+|-app.js
+|-.gitignore
+|-README.md
+|-packages.json
 ```
