@@ -1,6 +1,8 @@
 # titandev
 Project 1 for Cenfotec
 
+##Estructura de carpetas del proyecto
+```
 .
 |
 |-config/
@@ -29,3 +31,4 @@ Project 1 for Cenfotec
 |- .gitignore
 |- README.md
 |- packages.json
+```
