@@ -1,0 +1,12 @@
+{
+    "server": {
+        "name": "localhost",
+        "port": "3000"
+    },
+    "db": {
+        "server": "localhost",
+        "port": "27017",
+        "name": "library"
+    }
+}
+

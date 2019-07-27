@@ -26,3 +26,5 @@ Proyecto 1 para Cenfotec
 |-README.md
 |-packages.json
 ```
+
+## Rutas 
