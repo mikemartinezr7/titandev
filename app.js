@@ -25,10 +25,7 @@ db.on('open', function(err) {
 
 
 //Routes definition
-libraryRouter = require('./routes/userRoutes')();
-app.use('/api/users', userRouter);
-
-const libraryRouter = express.Router();
+const libraryRouter = require('./controllers/libraries.js');
 app.use('/api/library', libraryRouter);
 
 app.get('/api', (req, res) => {
