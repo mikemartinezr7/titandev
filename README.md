@@ -89,6 +89,8 @@ PUT | /api/library/:libraryid/promo/:promoid | Edita la info de una promocion
 DELETE | /api/library/:libraryid/promo/:promoid | Elimina una promocion
 
 ### Usuarios
+HTTP | Ruta | Descripcion 
+---- | ---- | -------------
 GET | /api/user | Obtiene todos los usuarios
 GET | /api/user/:userid | Obtiene los datos de un unico usuario
 PUT | /api/user | Actualiza los datos de un usuario
@@ -102,6 +104,8 @@ PUT | /api/user/:userid/books/:bookid | Actualiza los datos de los libros del us
 POST | /api/user/:userid/rate | Califica al usuario de intercambio
 
 ### Compras
+HTTP | Ruta | Descripcion 
+---- | ---- | -------------
 POST | /api/shop | Crea un carrito de compra
 POST | /api/shop/:shopid/add | Agrega un item al carro de compras
 PUT | /api/shop/:shopid | Actualiza la informacion del carrito de compras
