@@ -45,8 +45,8 @@ Proyecto 1 para Cenfotec
 ## Rutas pare el backend (API)
 
 ### Libros
-`GET         /api/book         //Obtener todos los libros`
-`GET         /api/book/:bookid     //Obtener un solo libro`
+`GET         /api/book         //Obtener todos los libros` \n
+`GET         /api/book/:bookid     //Obtener un solo libro` \n
 `POST            /api/book         //Crear un libro nuevo`
 `PUT         /api/book/:bookid     //Actualiza la informacion de un libro`
 `DELETE          /api/book/:bookid     //Elimina un libro`
