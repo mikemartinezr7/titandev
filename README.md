@@ -45,13 +45,16 @@ Proyecto 1 para Cenfotec
 ## Rutas pare el backend (API)
 
 ### Libros
-`GET         /api/book         //Obtener todos los libros` \n
-`GET         /api/book/:bookid     //Obtener un solo libro` \n
-`POST            /api/book         //Crear un libro nuevo`
-`PUT         /api/book/:bookid     //Actualiza la informacion de un libro`
-`DELETE          /api/book/:bookid     //Elimina un libro`
-`POST            /api/book/:bookid/exchange      //Crea una solicitud de intercambio de libro`
-`PUT            /api/book/:bookid/exchange      //Actualiza la informacion del intercambio de libro (Aceptar y rechazar intercambio)`
+
+HTTP Verb | Ruta | Descripcion 
+--------- | ---- | -------------
+GET | /api/book | Obtener todos los libros
+GET | /api/book/:bookid | Obtener un solo libro
+POST | /api/book | Crear un libro nuevo
+PUT  | /api/book/:bookid | Actualiza la informacion de un libro
+DELETE | /api/book/:bookid | Elimina un libro
+POST | /api/book/:bookid/exchange | Crea una solicitud de intercambio de libro
+PUT | /api/book/:bookid/exchange | Actualiza la informacion del intercambio de libro (Aceptar y rechazar intercambio)
 
 ### Clubes de lectura
 `GET         /api/club         //Obtener todos los clubes`
