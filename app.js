@@ -26,13 +26,16 @@ db.on('open', function (err) {
 
 //Routes definition
 const libraryRouter = require('./api/routes/library.routes');
-const bookRouter = require('./api/routes/book.routes');
-const clubRouter = require('./api/routes/club.routes');
-
-app.use('/api/book', bookRouter);
-app.use('/api/club', clubRouter);
 app.use('/api/library', libraryRouter);
 
+const bookRouter = require('./api/routes/book.routes');
+app.use('/api/book', bookRouter);
+
+const clubRouter = require('./api/routes/club.routes');
+app.use('/api/club', clubRouter);
+
+const userRouter = require('./api/routes/user.routes');
+app.use('/api/user', userRouter);
 
 app.get('/api', (req, res) => {
   res.send('Hello World!');
