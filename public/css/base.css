@@ -1,6 +1,8 @@
 body{
   padding: 0;
   margin: 0;
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #topmenu{
@@ -10,17 +12,73 @@ body{
   width: 100%;
 }
 
-#leftmenu{
+.hidden {
+  display: none;
+}
+
+.left-menu-item-text {
+  margin-left: 5px;
+}
+
+.left-menu-open {
   background-color: darkolivegreen;
   display: block;
-  height: 800px;
+  height: 100%;
+  width: 150px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.left-menu-open ul {
+  list-style: none;
+  padding-left: 0; 
+}
+
+.left-menu-open ul li {
+  padding: 10px;
+}
+
+.left-menu-open ul li a {
+  
+}
+
+.left-menu-close {
+  background-color: darkolivegreen;
+  display: block;
+  height: 100%;
   width: 50px;
   left: 0;
   top: 0;
+  position: absolute;
   padding: 5px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-#leftmenu ul {
+.left-menu-close ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0; 
+}
+
+.left-menu-close ul li {
+  padding: 10px;
+}
+
+.left-menu-close ul li a {
+  
+}
+
+.left-menu-toggle {
+  display: block;
+  height: 30px;
+  width: 60px;
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+  border: solid 1px;
+  border-radius: 5%;
 }
