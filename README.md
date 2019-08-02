@@ -112,3 +112,14 @@ PUT | /api/shop/:shopid | Actualiza la informacion del carrito de compras
 POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago: info de tarjeta)
 
 ### Administracion
+
+
+
+@TODO
+- Backends de librerias
+- Templates en EJS
+- Redirect to html
+- Layout del index
+- Animacion en css
+- Corregir rutas de Lua
+- Terminar lo de las rutas de admin

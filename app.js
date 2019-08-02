@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 const appConfig = require('./config/config');
 
 const app = express();
@@ -10,7 +11,7 @@ const db = mongoose.connection;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, '/public/')));
 
 //Database initialization
 mongoose.connect('mongodb://' + appConfig.db.server + ':' + appConfig.db.port + '/' + appConfig.db.name, { useNewUrlParser: true });
@@ -37,8 +38,12 @@ app.use('/api/club', clubRouter);
 const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
-app.get('/api', (req, res) => {
-  res.send('Hello World!');
+app.get('/api', function (req, res) {
+  res.send('Hello from /api');
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 
