@@ -51,6 +51,9 @@ app.use('/api/district', districtRouter);
 const countyRouter = require('./api/routes/county.routes');
 app.use('/api/county',countyRouter);
 
+const provinceRouter = require('./api/routes/province.routes');
+app.use('/api/province',provinceRouter);
+
 app.get('/api', (req, res) => {
   res.send('Hello World!');
 });
