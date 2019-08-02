@@ -4,7 +4,8 @@ const districtModel = require('../db/models/district.model');
 
 module.exports.create = function(req,res){
     let newDistrict = new districtModel({
-        name : req.body.name
+        name : req.body.name,
+        postalCode: req.body.postalCode
     });
 
     newDistrict.save(function(error){
