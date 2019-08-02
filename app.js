@@ -45,6 +45,9 @@ app.use('/api/club', clubRouter);
 const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
+const districtRouter = require('./api/routes/district.routes');
+app.use('/api/district', districtRouter);
+
 app.get('/api', (req, res) => {
   res.send('Hello World!');
 });
