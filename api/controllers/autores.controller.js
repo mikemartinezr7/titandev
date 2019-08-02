@@ -1,10 +1,10 @@
 'use strict';
 
-const nuevo_autor = required('../db/models/autores.model');
+const new_author = required('../db/models/authors.model');
 //guardar autores
 module.exports.create = function(req, res)
 {
- let add_autor = new nuevo_autor
+ let add_author = new new_author
  (
      {
          nombre: req.body.nombre,
@@ -13,7 +13,7 @@ module.exports.create = function(req, res)
          biografia: req.body.biografia
     }
 ) ;
-    add_autor.save
+    add_author.save
     (
         function (error) 
         {
@@ -29,17 +29,17 @@ module.exports.create = function(req, res)
 //ver autores
 module.exports.list = function(req,res)
 {
-    nuevo_autor.find().then
+    new_author.find().then
     (
-        function(autoresregistrados)
+        function(regAuthors)
         {
-            if(autoresregistrados.length >0)
+            if(regAuthors.length >0)
             {
-                res.json({success: true, autores_lista : autoresregistrados});            
+                res.json({success: true, authors_list : regAuthors});            
             }
             else 
             {
-                res.json({success :false, sutores_lista : autoresregistrados});
+                res.json({success :false, authors_list : regAuthors});
             }
         
         }

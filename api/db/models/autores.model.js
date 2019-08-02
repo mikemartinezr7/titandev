@@ -2,7 +2,7 @@
 
 const  mongoose = require ('mongoose');
 
-let schema_autores = mongoose.schema ({
+let schema_authors = mongoose.schema ({
 
 	nombre : { type : string, required : true},
     apellido :  { type : string, required : true},
