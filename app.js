@@ -50,6 +50,8 @@ app.use('/api/user', userRouter);
 const provinceRouter = require('./api/routes/province.routes');
 app.use('/api/province', provinceRouter);
 
+const genreRouter = require('./api/routes/genre.routes');
+app.use('/api/genre', genreRouter);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));

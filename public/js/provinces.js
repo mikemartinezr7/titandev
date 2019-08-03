@@ -2,6 +2,7 @@
 
 const provinces = get_Provinces();
 
+<<<<<<< Updated upstream
 function get_Provinces() {
   let provinces = "";
   let request = $.ajax({
@@ -21,6 +22,30 @@ function get_Provinces() {
   });
 
   request.fail(function () {
+=======
+function get_Provinces (){
+
+    let provinces = "";
+
+    let request = $.ajax({
+        url: 'http://localhost:3000/api/province',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async:false,
+        data:{
+        }
+      });
+    
+    request.done(function(response){
+        provinces = response;
+        
+    });
+    
+    request.fail(function(){
+    
+    });
+>>>>>>> Stashed changes
 
   });
 
