@@ -28,6 +28,7 @@
             <div>
                 <label for="sltGender">Género *</label>
                 <select id="sltGender">
+                    <option value=""></option>
                     <option value="Femenino">Femenino</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Otro">Otro</option>
@@ -53,6 +54,43 @@
                 <select id="sltDistrict">
                     <option value="">Distrito</option>
                 </select>
+            </div>
+            <div>
+                    <label for="txtAdditionalDetails">Otras Señas *</label>
+                    <input type="text" id="txtAdditionalDetails">
+            </div>
+            <div>
+                    Géneros Favoritos *<br>
+                    <input type="checkbox" id="fiction">Ficcion
+                    <input type="checkbox" id="terror">Terror
+                    <input type="checkbox" id="comedy">Comedia
+                    <input type="checkbox" id="drama">Drama
+                    <input type="checkbox" id="romance">Romance
+                    <input type="checkbox" id="novel">Novela
+                    <input type="checkbox" id="story">Cuento
+                    <input type="checkbox" id="thriller">Thriller
+                    <input type="checkbox" id="tale">Fábula
+                    <input type="checkbox" id="didacticNovel">Novela Didáctica
+            </div>
+            <div>
+                    <label for="txtFavoriteBook">Libro Favorito</label>
+                    <input type="text" id="txtFavoriteBook">
+            </div>
+            <div>
+                    <label for="txtFavoriteAuthor">Autor Favorito</label>
+                    <input type="text" id="txtFavoriteAuthor">
+            </div>
+            <div>
+                    <label for="txtNickname">Sobrenombre</label>
+                    <input type="text" id="txtNickname">
+            </div>
+            <div>
+                    <label for="avatar">Foto de perfil</label>
+                    <input type="file" id="avatar" accept="image/png, image/jpeg">
+            </div>
+            <div>
+                    <label for="Exchange">Deseo intercambiar librzos</label>
+                    <input type="checkbox" id="Exchange">
             </div>
             <button type="button" id="btnSignUp">Registrar</button>
         </form>
