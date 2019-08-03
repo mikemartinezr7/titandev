@@ -13,6 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/public/')));
 
+app.use( function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+
 //Database initialization
 mongoose.connect('mongodb://' + appConfig.db.server + ':' + appConfig.db.port + '/' + appConfig.db.name, { useNewUrlParser: true });
 
@@ -38,12 +47,21 @@ app.use('/api/club', clubRouter);
 const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
-app.get('/api', function (req, res) {
-  res.send('Hello from /api');
-});
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+const districtRouter = require('./api/routes/district.routes');
+app.use('/api/district', districtRouter);
+
+const countyRouter = require('./api/routes/county.routes');
+app.use('/api/county',countyRouter);
+
+const provinceRouter = require('./api/routes/province.routes');
+app.use('/api/province',provinceRouter);
+
+app.get('/api', (req, res) => {
+  res.send('Hello World!');
 });
 
 
