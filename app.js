@@ -47,18 +47,13 @@ app.use('/api/club', clubRouter);
 const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
+const provinceRouter = require('./api/routes/province.routes');
+app.use('/api/province',provinceRouter);
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
-
-const districtRouter = require('./api/routes/district.routes');
-app.use('/api/district', districtRouter);
-
-const countyRouter = require('./api/routes/county.routes');
-app.use('/api/county',countyRouter);
-
-const provinceRouter = require('./api/routes/province.routes');
-app.use('/api/province',provinceRouter);
 
 app.get('/api', (req, res) => {
   res.send('Hello World!');

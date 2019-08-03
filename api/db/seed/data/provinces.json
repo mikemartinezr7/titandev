@@ -1,0 +1,39 @@
+{
+  "name": "San Jose",
+  "counties": [
+    {
+      "name": "Escazu",
+      "districts": [
+        {
+          "name": "Escazu",
+          "postalCode": "10201"
+        },
+        {
+          "name": "San Antonio",
+          "postalCode": "10202"
+        },
+        {
+          "name": "San Rafael",
+          "postalCode": "10203"
+        }
+      ]
+    },
+    {
+      "name": "Desamparados",
+      "districts": [
+        {
+          "name": "San Miguel",
+          "postalCode": "10302"
+        },
+        {
+          "name": "San Juan De Dios",
+          "postalCode": "10303"
+        },
+        {
+          "name": "San Rafael Arriba",
+          "postalCode": "10304"
+        }
+      ]
+    }
+  ]
+}

@@ -2,9 +2,30 @@
 
 let mongoose = require("mongoose");
 
-let ProvinceSchema = new mongoose.Schema({
-    name : {type: String, required: true},
-    counties : [{type: mongoose.Schema.Types.ObjectId, ref: 'County', required: true}]
+let DistrictSchema = new mongoose.Schema({
+  name: { 
+      type: String, 
+      required: true 
+  },
+  postalCode: { 
+    type: String, 
+    required: true 
+  }
 });
 
-module.exports = mongoose.model('Province',ProvinceSchema);
+let CountySchema = new mongoose.Schema({
+  name: { 
+    type: String, 
+    required: true 
+  },
+  districts: [DistrictSchema]
+});
+
+let ProvinceSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  counties: [CountySchema]
+});
+
+module.exports = mongoose.model('Province', ProvinceSchema);
+
+
