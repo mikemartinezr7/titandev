@@ -1,6 +1,6 @@
 'use strict';
 
-const new_author = required('../db/models/authors.model');
+const new_author = require('../db/models/authors.model');
 //guardar autores
 module.exports.create = function(req, res)
 {
