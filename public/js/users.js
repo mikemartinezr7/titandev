@@ -35,7 +35,7 @@ function validate_Password(){
 function obtain_User_Password(psinputEmail){
     let userPassword = "";
     let request = $.ajax({
-        url: 'http://localhost:3000/api/user/password',
+        url: '/api/user/password',
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
