@@ -24,7 +24,7 @@ module.exports.create = function(req,res){
 };
 
 module.exports.list = function(req,res){
-    provinceModel.find().populate('counties','name').then(
+    provinceModel.find().then(
         function(provinces){
             res.send(provinces);
         }
