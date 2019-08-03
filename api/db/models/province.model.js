@@ -27,5 +27,3 @@ let ProvinceSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Province', ProvinceSchema);
-
-

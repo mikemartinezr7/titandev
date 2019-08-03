@@ -43,7 +43,7 @@ Province.collection.insertMany([newProvinces], { upsert: true }, function(error,
 
 //Server initalization
 const server = app.listen(appConfig.server.port, function () {
-  console.log('[ OK ] Servicor corriendo en puerto ' + appConfig.server.port);
+  console.log('[ OK ] Servidor corriendo en puerto ' + appConfig.server.port);
 });
 
 

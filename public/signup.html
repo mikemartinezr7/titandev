@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrarse</title>
+</head>
+<body>
+    <body>
+        <form>
+            <div>
+                <label for="txtFirstName">Primer Nombre *</label>
+                <input type="text" id="txtFirstName">
+            </div>
+            <div>
+                <label for="txtMiddleName">Segundo Nombre</label>
+                <input type="text" id="txtMiddleName">
+            </div>
+            <div>
+                <label for="txtLastName">Primer Apellido *</label>
+                <input type="text" id="txtLastName">
+            </div>
+            <div>
+                <label for="txtSecondLastName">Segundo Apellido</label>
+                <input type="text" id="txtSecondLastName">
+            </div>
+            <div>
+                <label for="sltGender">Género *</label>
+                <select id="sltGender">
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Otro">Otro</option>
+                    <option value="Prefiero no decir">Prefiero no decir</option>
+                </select>
+            </div>
+            <div>
+                <label for="txtID">Identificación *</label>
+                <input type="text" id="txtID">
+            </div>
+            <div>
+                <label for="txtEmail">Correo Electrónico *</label>
+                <input type="text" id="txtEmail">
+            </div>
+            <div>
+                Dirección *<br>
+                <select id="sltProvince">
+                    <option value="">Provincia</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Limón">Limón</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="San José">San José</option>
+                </select>
+                <select id="sltCounty">
+                    <option value="">Cantón</option>
+                </select>
+                <select id="sltDistrict">
+                    <option value="">Distrito</option>
+                </select>
+            </div>
+            <button type="button" id="btnSignUp">Registrar</button>
+        </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/users.js"></script>
+
+</html>
