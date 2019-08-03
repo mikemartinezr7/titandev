@@ -4,7 +4,7 @@ let buttonSignIn = document.querySelector('#btnSignIn');
 let inputEmail = document.querySelector('#txtEmail');
 let inputPassword = document.querySelector('#passPassword');
 
-buttonSignIn.addEventListener('click',sign_in);
+//buttonSignIn.addEventListener('click',sign_in);
 
 function sign_in(){
 

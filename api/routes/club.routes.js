@@ -2,19 +2,24 @@
 
 const express = require('express');
 const router = express.Router();
-const api_clubs = require('../controllers/club.controller');
+const clubsController = require('../controllers/club.controller');
 
-router.route('/create_club')
-    .post(
-        function(req, res){
-            api_clubs.create(req, res);
-        }
-    );
+router.route('/')
+    .post(function(req, res){
+            clubsController.create(req, res);
+        });
 
-router.route('/list_clubs')
+router.route('/')
     .get(
         function(req, res){
-            api_clubs.list(req, res);
+            clubsController.list(req, res);
+        }
+    ),
+
+router.route('/name')
+    .get(
+        function(req, res){
+            clubsController.findClub(req, res);
         }
     ),
 

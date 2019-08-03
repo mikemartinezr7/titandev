@@ -8,8 +8,8 @@ module.exports.create = function(req, res){
             name : req.body.name,
             type : req.body.type,
             genre : req.body.genre,
-            start_time : req.body.start_time,
-            end_time : req.body.end_time,   
+            startTime : req.body.startTime,
+            endTime : req.body.endTime,   
             day : req.body.day,
             branch : req.body.branch
         }
@@ -33,6 +33,17 @@ module.exports.list = function(req, res){
             }else{
                 res.json({success: false, clubs_list : clubs});
             }
+        }
+    );
+};
+
+module.exports.findClub = function(req, res){
+
+    let clubName = req.query.name
+
+    club_model.find({name:clubName}, {name: 1, type: 1, branch:1, day: 1, startTime:1, endTime:1, _id:0}).then(
+        function(clubs){
+            res.send(clubs);
         }
     );
 };

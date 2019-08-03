@@ -111,4 +111,16 @@ POST | /api/shop/:shopid/add | Agrega un item al carro de compras
 PUT | /api/shop/:shopid | Actualiza la informacion del carrito de compras
 POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago: info de tarjeta)
 
-### Administracion
+
+## Cargar datos de provincias
+1. Abrir la consola en la raiz del repositorio
+2. Ejecutar la siguientes instruccion `node ./api/db/seed/index.js`
+3. Comprobar los datos insertados usando MongoDB Compass
+
+
+@TODO
+- Backends de librerias
+- Layout del index
+- Animacion en css
+- Corregir rutas de Lua
+- Terminar lo de las rutas de admin

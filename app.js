@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 const appConfig = require('./config/config');
 
 const app = express();
@@ -10,6 +11,7 @@ const db = mongoose.connection;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '/public/')));
 
 app.use( function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -45,11 +47,13 @@ app.use('/api/club', clubRouter);
 const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
-const districtRouter = require('./api/routes/district.routes');
-app.use('/api/district', districtRouter);
+const provinceRouter = require('./api/routes/province.routes');
+app.use('/api/province', provinceRouter);
 
-const countyRouter = require('./api/routes/county.routes');
-app.use('/api/county',countyRouter);
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
 
 const authorsRouter = require('./api/routes/authors.routes');
 app.use('/api/authors', authorsRouter);
