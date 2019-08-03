@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de libreria</title>
+</head>
+
+<body>
+  <form>
+    <fieldset>
+      <legend>Informacion de libreria:</legend>
+      <p>
+      <label for="txtComercialName">Nombre comercial: </label>
+      <input type="text" name="txtComercialName" id="txtComercialName">
+      </p>
+
+      <p>
+      <label for="txtComercialName">Marca (Nombre fantasia): </label>
+      <input type="text" name="txtBrandName" id="txtBrandName">
+      </p>
+      
+      <p>
+      <label for="sltProvince">Provincia:</label>
+      <select name="sltProvince" id="sltProvince"></select>
+      
+      <label for="selCounty">Canton:</label>
+      <select name="sltCounty" id="sltCounty"></select>
+      
+      <label for="sltDistrict">Distrito:</label>
+      <select name="sltDistrict" id="sltDistrict"></select>
+      <br>
+
+      <label for="txtAddress">Senas particulares:</label>
+      <textarea name="txtAddress" id="txtAddress" rows="10" cols="40"></textarea>
+      </p>
+      
+      <label for="txtAddress">Ubicacion por Mapa:</label>
+      <input type="text" name="txtLocation" id="txtLocation">
+    </fieldset>
+  </form>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/libraries.js"></script>
+  <script type="text/javascript" src="../js/provinces.js"></script>
+</body>
+
+</html>

@@ -48,7 +48,7 @@ const userRouter = require('./api/routes/user.routes');
 app.use('/api/user', userRouter);
 
 const provinceRouter = require('./api/routes/province.routes');
-app.use('/api/province',provinceRouter);
+app.use('/api/province', provinceRouter);
 
 
 app.get('/', function (req, res) {

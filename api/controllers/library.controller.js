@@ -10,12 +10,13 @@ const controller = {
   },
 
   create: function(req, res) {
-    let newLibrary =  new libraryModel({
+    /*let newLibrary =  new libraryModel({
       commercialName: req.body.commercialName,
       brandName: req.body.brandName,
       address: req.body.address,
       location: req.body.location
-    });
+    });*/
+    console.log(req.body);
   }
 }
 
