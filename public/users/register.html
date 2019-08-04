@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrarse</title>
+</head>
+<body>
+    <body>
+        <form>
+            <div>
+                <label for="txtFirstName">Primer Nombre *</label>
+                <input type="text" id="txtFirstName">
+            </div>
+            <div>
+                <label for="txtMiddleName">Segundo Nombre</label>
+                <input type="text" id="txtMiddleName">
+            </div>
+            <div>
+                <label for="txtLastName">Primer Apellido *</label>
+                <input type="text" id="txtLastName">
+            </div>
+            <div>
+                <label for="txtSecondLastName">Segundo Apellido</label>
+                <input type="text" id="txtSecondLastName">
+            </div>
+            <div>
+                <label for="sltGender">Género *</label>
+                <select id="sltGender">
+                    <option value=""></option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Otro">Otro</option>
+                    <option value="Prefiero no decir">Prefiero no decir</option>
+                </select>
+            </div>
+            <div>
+                <label for="txtID">Identificación *</label>
+                <input type="text" id="txtID">
+            </div>
+            <div>
+                <label for="txtEmail">Correo Electrónico *</label>
+                <input type="text" id="txtEmail">
+            </div>
+            <div>
+                Dirección *<br>
+                <label for="sltProvince">Provincia</label>
+                <select id="sltProvince">
+                </select>
+                <label for="sltCounty">Cantón</label>
+                <select id="sltCounty">
+                </select>
+                <label for="sltDistrict">Distrito</label>
+                <select id="sltDistrict">
+                </select>
+            </div>
+            <div>
+                    <label for="txtAdditionalDetails">Otras Señas *</label>
+                    <input type="text" id="txtAdditionalDetails">
+            </div>
+            <div>
+                    Géneros Favoritos *<br>
+                    <input type="checkbox" id="fiction">Ficcion
+                    <input type="checkbox" id="terror">Terror
+                    <input type="checkbox" id="comedy">Comedia
+                    <input type="checkbox" id="drama">Drama
+                    <input type="checkbox" id="tragedy">Tragedia
+                    <input type="checkbox" id="romance">Romance
+                    <input type="checkbox" id="novel">Novela
+                    <input type="checkbox" id="story">Cuento
+                    <input type="checkbox" id="thriller">Thriller
+                    <input type="checkbox" id="tale">Fábula
+                    <input type="checkbox" id="didacticNovel">Novela Didáctica
+            </div>
+            <div>
+                    <label for="txtFavoriteBook">Libro Favorito</label>
+                    <input type="text" id="txtFavoriteBook">
+            </div>
+            <div>
+                    <label for="txtFavoriteAuthor">Autor Favorito</label>
+                    <input type="text" id="txtFavoriteAuthor">
+            </div>
+            <div>
+                    <label for="txtNickname">Sobrenombre</label>
+                    <input type="text" id="txtNickname">
+            </div>
+            <div>
+                    <label for="avatar">Foto de perfil</label>
+                    <input type="file" accept="image/png, image/jpeg" style="display:none" id="upload-file" >
+                    <button id="choose-button">Seleccionar Imagen</button>
+            </div>
+            <div>
+                    <label for="Exchange">Deseo intercambiar libros</label>
+                    <input type="checkbox" id="Exchange">
+            </div>
+            <button type="button" id="btnRegister">Registrar</button>
+        </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="../js/provinces.js"></script>
+<script src="../js/users/register.js"></script>
+
+</html>
