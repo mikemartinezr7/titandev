@@ -14,13 +14,14 @@ module.exports.create = function(req,res){
         county : req.body.county,
         district : req.body.district,
         additionalDetails : req.body.additionalDetails,
-        favoriteGenre : req.body.favoriteGenre,
+        favoriteGenres : req.body.favoriteGenres,
         favoriteBook : req.body.favoriteBook,
         favoriteAuthor : req.body.favoriteAuthor,
         email : req.body.email,
-        avatarURL : req.body.avatarURL,
+        avatar : req.body.avatar,
         nickname:  req.body.nickname,
-        password: req.body.password
+        type: req.body.type,
+        exchange: req.body.exchange
     });
 
     newUser.save(function(error){
@@ -39,7 +40,7 @@ module.exports.create = function(req,res){
 };
 
 module.exports.list = function(req,res){
-    userModel.find().populate('favoriteGenre','name').then(
+    userModel.find().populate('favoriteGenres','name').then(
         function(users){
             res.send(users);
         }

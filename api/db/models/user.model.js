@@ -31,7 +31,7 @@ let UserSchema = new mongoose.Schema({
   },
   idType: { 
     type: String, 
-    required: true 
+    required: false 
   },
   birthDate: { 
     type: Date, 
@@ -69,7 +69,7 @@ let UserSchema = new mongoose.Schema({
     unique: true, 
     required: true 
   },
-  avatarURL: { 
+  avatar: { 
     type: String,
     required: false 
   },
@@ -80,7 +80,7 @@ let UserSchema = new mongoose.Schema({
   },
   password: { 
     type: String, 
-    required: false 
+    default: "" 
   },
   randomToken: { 
     type: String, 
@@ -92,6 +92,9 @@ let UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['admin', 'library', 'client']
+  },
+  exchange: {
+    type: Boolean,
   }
 });
 
