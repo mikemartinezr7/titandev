@@ -22,8 +22,15 @@ let CountySchema = new mongoose.Schema({
 });
 
 let ProvinceSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { 
+    type: String, 
+    required: true 
+  },
   counties: [CountySchema]
 });
 
-module.exports = mongoose.model('Province', ProvinceSchema);
+let ProvinceModel = mongoose.model('Province', ProvinceSchema);
+let CountyModel = mongoose.model('County', CountySchema);
+let DistrictModel = mongoose.model('District', DistrictSchema);
+
+module.exports = { ProvinceSchema, ProvinceModel, CountySchema, CountyModel, DistrictSchema, DistrictModel };

@@ -15,13 +15,11 @@ function get_Provinces() {
   });
 
   request.done(function (response) {
-    console.log(response);
     provinces = response;
-
   });
 
-  request.fail(function () {
-
+  request.fail(function (error) {
+    console.log('Error al cargar datos de provincias. ' + error);
   });
 
   return provinces;
@@ -40,7 +38,7 @@ let add_Provinces = () => {
   for (let i = 0; i < provinces.length; i++) {
     let newOption = new Option(provinces[i]['name']);
     
-    newOption.value = provinces[i]['name'];
+    newOption.value = provinces[i]['_id'];
     select_provinces.appendChild(newOption);
   }
 };
@@ -52,16 +50,15 @@ let add_Counties = () => {
 
   let blankOption = new Option('');
   blankOption.value = '';
-  
   select_counties.appendChild(blankOption);
 
   for (let i = 0; i < provinces.length; i++) {
-    if (province == provinces[i]['name']) {
+    if (province == provinces[i]['_id']) {
       let counties = provinces[i]['counties'];
       
       for (i = 0; i < counties.length; i++) {
         let newOption = new Option(counties[i]['name']);
-        newOption.value = counties[i]['name'];
+        newOption.value = counties[i]['_id'];
         select_counties.appendChild(newOption);
       }
 
@@ -82,20 +79,20 @@ let add_Districts = () => {
   select_districts.appendChild(blankOption);
 
   for (let i = 0; i < provinces.length; i++) {
-    if (province == provinces[i]['name']) {
+    if (province == provinces[i]['_id']) {
       counties = provinces[i]['counties'];
       break;
     }
   }
 
   for (let i = 0; i < counties.length; i++) {
-    if (county == counties[i]['name']) {
+    if (county == counties[i]['_id']) {
       let districts = counties[i]['districts'];
       
       for (let i = 0; i < districts.length; i++) {
         let newOption = new Option(districts[i]['name']);
        
-        newOption.value = districts[i]['name'];
+        newOption.value = districts[i]['_id'];
         select_districts.appendChild(newOption);
       }
     }

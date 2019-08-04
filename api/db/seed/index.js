@@ -24,10 +24,10 @@ db.on('open', function (err) {
 
 
 //Get data for provinces, counties and districts
-const Province = require("../models/province.model");
-const newProvinces = new Province(provincesData);
+const {ProvinceModel} = require("../models/province.model");
+const newProvinces = new ProvinceModel(provincesData);
 
-Province.collection.insertMany([newProvinces], { upsert: true }, function(error, data) {
+ProvinceModel.collection.insertMany([newProvinces], { upsert: true }, function(error, data) {
   if (error) {
       console.log('[ ERROR ] Insertar datos de provincias (' + error + ')');
       process.exit();
