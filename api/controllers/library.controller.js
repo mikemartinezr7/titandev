@@ -32,6 +32,7 @@ const controller = {
       province: req.body.sltProvince,
       county: req.body.sltCounty,
       district: req.body.sltDistrict,
+      nickname: req.body.txtFirstName,
       email: req.body.txtEmail,
       password: req.body.txtPassword,
       type: 'library'
