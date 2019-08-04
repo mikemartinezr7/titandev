@@ -10,31 +10,34 @@ function validateDate(d) {
   }
 }
 
-function validation() {
-  let isValid = true;
+function isValidData() {
+ let isValid = true;
 
-  if ($('#txtComercialName').val() == '') {
-    isValid = false;
-    
-  }
+  $('.required').each(function(index) { 
+    if ($(this).val() == '') {
+      isValid = false;
+      $(this).addClass('error');
+    } else {
+      $(this).removeClass('error');
+    }
+  });
 
+  console.log(isValid);
   return isValid;
 }
 
 $('#btnSubmit').click(function (event) {
   event.preventDefault();
 
+  if (isValidData()) {
+    let data = $('#frmAddUser').serialize();
 
-
-
-  console.log('Submit clicked');
-  let data = $('#frmAddUser').serialize();
-
-  var request = $.post('/api/library', data)
-    .done(function() {
-      console.log('Done');
-    })
-    .fail(function () {
-      console.log('fail');
-    });
+    var request = $.post('/api/library', data)
+      .done(function () {
+        console.log('Done');
+      })
+      .fail(function () {
+        console.log('fail');
+      });
+  }
 });

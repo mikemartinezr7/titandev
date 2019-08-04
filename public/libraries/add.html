@@ -17,7 +17,7 @@
       <legend>Datos generales:</legend>
       <p>
         <label for="txtComercialName">Nombre comercial: </label>
-        <input type="text" name="txtComercialName" id="txtComercialName" class="control-error">
+        <input type="text" name="txtComercialName" id="txtComercialName" class="required">
       </p>
 
       <p>
@@ -27,21 +27,21 @@
 
       <p>
         <label for="sltProvince">Provincia:</label>
-        <select name="sltProvince" id="sltProvince"></select>
+        <select name="sltProvince" id="sltProvince" class="required"></select>
 
         <label for="sltCounty">Canton:</label>
-        <select name="sltCounty" id="sltCounty"></select>
+        <select name="sltCounty" id="sltCounty" class="required"></select>
 
         <label for="sltDistrict">Distrito:</label>
-        <select name="sltDistrict" id="sltDistrict"></select>
+        <select name="sltDistrict" id="sltDistrict" class="required"></select>
         <br>
 
         <label for="txtAddress">Senas particulares:</label>
-        <textarea name="txtAddress" id="txtAddress" rows="10" cols="40"></textarea>
+        <textarea name="txtAddress" id="txtAddress" rows="10" cols="40" class="required"></textarea>
       </p>
 
-      <label for="txtAddress">Ubicacion por Mapa:</label>
-      <input type="text" name="txtLocation" id="txtLocation">
+      <label for="txtLocation">Ubicacion por Mapa:</label>
+      <input type="text" name="txtLocation" id="txtLocation" class="required">
     </fieldset> 
 
     <fieldset>
@@ -49,21 +49,21 @@
 
       <p>
         <label for="txtFirstName">Nombre 1: </label>
-        <input type="text" name="txtFirstName" id="txtFirstName">
+        <input type="text" name="txtFirstName" id="txtFirstName" class="required">
 
         <label for="txtMiddleName">Nombre 2: </label>
         <input type="text" name="txtMiddleName" id="txtMiddleName">
 
         <label for="txtLastName1">Apellido 1: </label>
-        <input type="text" name="txtLastName1" id="txtLastName1">
+        <input type="text" name="txtLastName1" id="txtLastName1" class="required">
 
         <label for="txtLastName1">Apellido 2: </label>
-        <input type="text" name="txtLastName2" id="txtLastName2">
+        <input type="text" name="txtLastName2" id="txtLastName2" class="required">
       </p>
 
       <p>
         <label for="sltIdType">Tipo de identificacion:</label>
-        <select name="sltIdType" id="sltIdType">
+        <select name="sltIdType" id="sltIdType" class="required">
           <option value=""></option>
           <option value="nacional">Nacional</option>
           <option value="residente">Residente</option>
@@ -74,11 +74,11 @@
 
       <p>
         <label for="txtId">Numero de identificacion:</label>
-        <input type="text" name="txtId" id="txtId">
+        <input type="text" name="txtId" id="txtId" class="required">
       </p>
       <p>
         <label for="selGender">Genero:</label>
-        <select name="selGender" id="selGender">
+        <select name="selGender" id="selGender" class="required">
           <option value=""></option>
           <option value="F">Femenino</option>
           <option value="M">Masculino</option>
@@ -87,15 +87,15 @@
       </p>
       <p>
         <label for="txtEmail">Email:</label>
-        <input type="text" name="txtEmail" id="txtEmail">
+        <input type="text" name="txtEmail" id="txtEmail" class="required">
       </p>
       <p>
         <label for="txtPassword">Contrasena:</label>
-        <input type="password" name="txtPassword" id="txtPassword">
+        <input type="password" name="txtPassword" id="txtPassword" class="required">
       </p>
       <p>
         <label for="txtBirthDate">Fecha de Nacimiento:</label>
-        <input type="date" name="txtBirthDate" id="txtBirthDate">
+        <input type="date" name="txtBirthDate" id="txtBirthDate" class="required">
       </p>
     </fieldset>
 
