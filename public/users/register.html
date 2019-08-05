@@ -65,6 +65,7 @@
                     <input type="checkbox" id="terror">Terror
                     <input type="checkbox" id="comedy">Comedia
                     <input type="checkbox" id="drama">Drama
+                    <input type="checkbox" id="tragedy">Tragedia
                     <input type="checkbox" id="romance">Romance
                     <input type="checkbox" id="novel">Novela
                     <input type="checkbox" id="story">Cuento
@@ -86,19 +87,19 @@
             </div>
             <div>
                     <label for="avatar">Foto de perfil</label>
-                    <input type="file" id="avatar" accept="image/png, image/jpeg">
+                    <input type="file" accept="image/png, image/jpeg" style="display:none" id="upload-file" >
+                    <button id="choose-button">Seleccionar Imagen</button>
             </div>
             <div>
-                    <label for="Exchange">Deseo intercambiar librzos</label>
+                    <label for="Exchange">Deseo intercambiar libros</label>
                     <input type="checkbox" id="Exchange">
             </div>
-            <button type="button" id="btnSignUp">Registrar</button>
+            <button type="button" id="btnRegister">Registrar</button>
         </form>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="js/provinces.js"></script>
-<script src="js/users.js"></script>
-
+<script src="../js/provinces.js"></script>
+<script src="../js/users/register.js"></script>
 
 </html>

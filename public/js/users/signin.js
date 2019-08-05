@@ -1,10 +1,15 @@
-'use strict';
+'use strict'
+
+//Variables para inicio de sesión
 
 let buttonSignIn = document.querySelector('#btnSignIn');
-let inputEmail = document.querySelector('#txtEmail');
 let inputPassword = document.querySelector('#passPassword');
 
+
+//Cuando se hace click en buttonSignIn, se llama a la función sign_in
 //buttonSignIn.addEventListener('click',sign_in);
+
+//Inicio de sesión (valida contraseña y responde con éxito o error)
 
 function sign_in(){
 
@@ -20,6 +25,8 @@ function sign_in(){
 
 };
 
+//Valida que la contraseña ingresada coincida con la contraseña guardada para el usuario
+
 function validate_Password(){
     
     let bError = false;
@@ -31,6 +38,8 @@ function validate_Password(){
 
     return bError;
 };
+
+//Solicita a la base de datos la contraseña del usuario con base en el correo electrónico ingresado
 
 function obtain_User_Password(psinputEmail){
     let userPassword = "";
@@ -44,16 +53,11 @@ function obtain_User_Password(psinputEmail){
             email: psinputEmail
         }
       });
-    
     request.done(function(response){
         console.log(response);
         userPassword = response[0].password;
-        
     });
-    
     request.fail(function(){
-    
     });
-
     return userPassword;
 };

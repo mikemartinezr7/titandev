@@ -4,43 +4,107 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro de libreria</title>
+  
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
 </head>
 
 <body>
-  <form>
+  <h1>Librerias</h1>
+  <h3>Crear una nueva libreria</h3>
+
+  <form name="frmAddUser" id="frmAddUser" method="POST">
     <fieldset>
-      <legend>Informacion de libreria:</legend>
+      <legend>Datos generales:</legend>
       <p>
-      <label for="txtComercialName">Nombre comercial: </label>
-      <input type="text" name="txtComercialName" id="txtComercialName">
+        <label for="txtComercialName">Nombre comercial: </label>
+        <input type="text" name="txtComercialName" id="txtComercialName" class="required">
       </p>
 
       <p>
-      <label for="txtComercialName">Marca (Nombre fantasia): </label>
-      <input type="text" name="txtBrandName" id="txtBrandName">
+        <label for="txtComercialName">Marca (Nombre fantasia): </label>
+        <input type="text" name="txtBrandName" id="txtBrandName">
       </p>
-      
-      <p>
-      <label for="sltProvince">Provincia:</label>
-      <select name="sltProvince" id="sltProvince"></select>
-      
-      <label for="selCounty">Canton:</label>
-      <select name="sltCounty" id="sltCounty"></select>
-      
-      <label for="sltDistrict">Distrito:</label>
-      <select name="sltDistrict" id="sltDistrict"></select>
-      <br>
 
-      <label for="txtAddress">Senas particulares:</label>
-      <textarea name="txtAddress" id="txtAddress" rows="10" cols="40"></textarea>
+      <p>
+        <label for="sltProvince">Provincia:</label>
+        <select name="sltProvince" id="sltProvince" class="required"></select>
+
+        <label for="sltCounty">Canton:</label>
+        <select name="sltCounty" id="sltCounty" class="required"></select>
+
+        <label for="sltDistrict">Distrito:</label>
+        <select name="sltDistrict" id="sltDistrict" class="required"></select>
+        <br>
+
+        <label for="txtAddress">Senas particulares:</label>
+        <textarea name="txtAddress" id="txtAddress" rows="10" cols="40" class="required"></textarea>
       </p>
-      
-      <label for="txtAddress">Ubicacion por Mapa:</label>
-      <input type="text" name="txtLocation" id="txtLocation">
+
+      <label for="txtLocation">Ubicacion por Mapa:</label>
+      <input type="text" name="txtLocation" id="txtLocation" class="required">
+    </fieldset> 
+
+    <fieldset>
+      <legend>Datos de administrador:</legend>
+
+      <p>
+        <label for="txtFirstName">Nombre 1: </label>
+        <input type="text" name="txtFirstName" id="txtFirstName" class="required">
+
+        <label for="txtMiddleName">Nombre 2: </label>
+        <input type="text" name="txtMiddleName" id="txtMiddleName">
+
+        <label for="txtLastName1">Apellido 1: </label>
+        <input type="text" name="txtLastName1" id="txtLastName1" class="required">
+
+        <label for="txtLastName1">Apellido 2: </label>
+        <input type="text" name="txtLastName2" id="txtLastName2" class="required">
+      </p>
+
+      <p>
+        <label for="sltIdType">Tipo de identificacion:</label>
+        <select name="sltIdType" id="sltIdType" class="required">
+          <option value=""></option>
+          <option value="nacional">Nacional</option>
+          <option value="residente">Residente</option>
+          <option value="nacionalizado">Nacionalizado</option>
+          <option value="extranjero">Extranjero</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="txtId">Numero de identificacion:</label>
+        <input type="text" name="txtId" id="txtId" class="required">
+      </p>
+      <p>
+        <label for="selGender">Genero:</label>
+        <select name="selGender" id="selGender" class="required">
+          <option value=""></option>
+          <option value="F">Femenino</option>
+          <option value="M">Masculino</option>
+          <option value="O">Otro</option>
+        </select>
+      </p>
+      <p>
+        <label for="txtEmail">Email:</label>
+        <input type="text" name="txtEmail" id="txtEmail" class="required">
+      </p>
+      <p>
+        <label for="txtPassword">Contrasena:</label>
+        <input type="password" name="txtPassword" id="txtPassword" class="required">
+      </p>
+      <p>
+        <label for="txtBirthDate">Fecha de Nacimiento:</label>
+        <input type="date" name="txtBirthDate" id="txtBirthDate" class="required">
+      </p>
     </fieldset>
+
+    <input type="submit" id="btnSubmit" value="Aceptar" class="button">
+    <input type="reset" id="btnReset" value="Limpiar" class="button">
   </form>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/libraries.js"></script>
   <script type="text/javascript" src="../js/provinces.js"></script>
 </body>
