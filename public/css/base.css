@@ -5,6 +5,7 @@ body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   color: #333;
+  background-color: #f5f8fa
 }
 
 #topmenu{
@@ -135,4 +136,41 @@ fieldset {
 legend {
   font-weight: bold;
   padding: 0 10px;
+}
+
+.library-item {
+  border-radius: 5px;
+  border: solid 1px #CED4DA;
+  background-color: #fff;
+  padding: 0;
+  height: 250px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.library-image {
+  float: left;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-right: 15px;
+}
+
+.library-details {
+  float: left;
+  text-align: left;
+  width: 800px;
+  height: 250px;
+  display: block;
+  margin-left: 100px;
+}
+
+.library-details-rigth {
+  float: right;
+  display: block;
+  height: 250px;
+  width: 250px;
+  background-color: #fff;
+  text-align: center;
+  background-color: #CED4DA;
 }

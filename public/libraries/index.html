@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Librerias</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+
+<body onload="loadLibraries()">
+  <h1>Librerias</h1>
+
+  <div class="search">
+    <input type="text" id="search" name="search">
+  </div>
+
+  <div id="libraries">
+  </div>
+
+  <script id="libraryTemplate" type="text/x-jQuery-tmpl">
+    <div class="library-item">
+        <div class="library-image">
+          <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" width="350" height="250">
+        </div> 
+        <div class="library-details">
+          <h3>${commercialName}</h3>
+          <p><img src="../img/location.png" alt="Ubicacion">
+            <strong>Ubicacion: </strong>
+            ${province}, ${county}, ${district}, ${address}
+          </p>
+          <p><img src="../img/user.png" alt="Usuario"> <strong>Propietario: </strong> Jorge Perez Gomez</p>
+        </div>
+        <div class="library-details-rigth">
+          <button class="button">Ver Detalles</button>
+        </div>
+      </div>
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript" src="../js/libraries.js"></script>
+</body>
+
+</html>

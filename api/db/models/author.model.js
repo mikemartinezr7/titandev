@@ -2,8 +2,7 @@
 
 const  mongoose = require ('mongoose');
 
-let schema_authors = mongoose.Schema ({
-
+let AuthorSchema = mongoose.Schema ({
 	firstname : { type : String, require : true},
     lastname :  { type : String, require : true},
     birthyear : { type : Date, require : true},
@@ -11,4 +10,4 @@ let schema_authors = mongoose.Schema ({
 
 });
 
-module.exports = mongoose.model('Autores', schema_authors)
+module.exports = mongoose.model('Author', AuthorSchema)

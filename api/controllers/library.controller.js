@@ -5,9 +5,13 @@ const UserModel = require('../db/models/user.model');
 
 const controller = {
   list: function (req, res) {
-    console.log(`GET from library Controller`);
+    LibraryModel.find({  }, function (error, libraries) {
+      if (error) {
+        res.status(400).send(error);
+      }
 
-    return res.send('get from library controller');
+      res.status(200).json(libraries);
+    });
   },
 
   create: function (req, res) {

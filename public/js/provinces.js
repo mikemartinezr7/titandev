@@ -58,7 +58,7 @@ let add_Counties = () => {
       
       for (i = 0; i < counties.length; i++) {
         let newOption = new Option(counties[i]['name']);
-        newOption.value = counties[i]['_id'];
+        newOption.value = counties[i]['name'];
         select_counties.appendChild(newOption);
       }
 
@@ -79,7 +79,7 @@ let add_Districts = () => {
   select_districts.appendChild(blankOption);
 
   for (let i = 0; i < provinces.length; i++) {
-    if (province == provinces[i]['_id']) {
+    if (province == provinces[i]['name']) {
       counties = provinces[i]['counties'];
       break;
     }
@@ -92,7 +92,7 @@ let add_Districts = () => {
       for (let i = 0; i < districts.length; i++) {
         let newOption = new Option(districts[i]['name']);
        
-        newOption.value = districts[i]['_id'];
+        newOption.value = districts[i]['name  '];
         select_districts.appendChild(newOption);
       }
     }

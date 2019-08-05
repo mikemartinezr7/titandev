@@ -41,3 +41,13 @@ $('#btnSubmit').click(function (event) {
       });
   }
 });
+
+function loadLibraries() {
+  $.get('/api/library', function (libraries) {
+    
+    let libraryTemplate = $('#library-template').clone();
+
+    $("#libraryTemplate").tmpl(libraries).appendTo("#libraries");
+    console.log(libraryTemplate);
+  });
+}
