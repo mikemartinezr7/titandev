@@ -57,8 +57,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-const authorsRouter = require('./api/routes/authors.routes');
-app.use('/api/authors', authorsRouter);
+const authorRouter = require('./api/routes/author.routes');
+app.use('/api/author', authorRouter);
 
 app.get('/api', (req, res) => {
   res.send('Hello World!');
