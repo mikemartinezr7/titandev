@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro de Autores</title>
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
+    </head>
+    <body>
+        <h1>Autores</h1>
+        <h3>Agregar un autor:</h3>
+    
+        <form name="authorsForm" id="authorsForm" method="POST">
+            <fieldset>
+                <p>
+                <div>
+                    <label for="txt_firstname">Nombre de Autor</label>
+                    <input type="text" id="txt_firstname" class = "required">
+                </div>
+                </p>    
+            
+                <p>    
+                <div>
+                    <label for="txt_lastname">Apellidos</label>
+                    <input type="text" id="txt_lastname" class = required>
+                </div>
+                </p>
+
+                <p>
+                <div>
+                    <label for="txt_biography">Biografia</label>
+                    <textarea name= "biography" id="txt_biography" class = "required" ></textarea>
+                
+                </div>
+                </p>    
+
+                <p>
+                <div>
+                    <label for="slt_birthyear">Año de Nacimiento</label>
+                    <input type="date" name="slt_birthyear" id="slt_birthyeare" class="required">
+                </div>
+                </p>
+            </fieldset>
+
+        <input type="submit" id="btnSubmit" value="Aceptar" class="button">
+        <input type="reset" id="btnReset" value="Caneclar" class="button">
+        </form>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../js/authors.js"></script>
+        
+        
+
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2'></script> 
+        <script src='js/authors.js'></script>
+
+
+
+
+    </body>
+
+</html>

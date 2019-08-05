@@ -4,7 +4,7 @@ const express = require ('express');
 const router  = express.Router();
 const controller_authors = require('../controllers/authors.controller');
 
-router.route ('/create_authors')
+router.route ('/')
 .post
 (
     function(req,res)
@@ -14,7 +14,7 @@ router.route ('/create_authors')
 
 );
 
-router.route('/list_authors')
+router.route('/')
 .get
 (
     function(req, res)
@@ -23,5 +23,10 @@ router.route('/list_authors')
     }
 
 );
+
+router.route('/firstname')
+    .get(function(req, res){
+        authorsController.findAuthor(req, res);
+    })
 
 module.exports = router;
