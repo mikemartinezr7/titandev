@@ -10,9 +10,7 @@ module.exports.create = function (req, res) {
     biography: req.body.biography
   });
 
-  console.log(req.body);
-
-  /*add_author.save(function (error) {
+  add_author.save(function (error) {
     if (error) {
       res.json({ success: false, msg: 'Autor o informacion incompleta' });
     }
@@ -20,24 +18,18 @@ module.exports.create = function (req, res) {
       res.json({ success: true, msg: 'autor registrado correctamente' });
     }
   }
-  );*/
-
-  res.end();
+  );
 };
 
 //ver autores
 module.exports.list = function (req, res) {
-  /*new_author.find().then
-    (
-      function (regAuthors) {
-        if (regAuthors.length > 0) {
-          res.json({ success: true, authors_list: regAuthors });
-        }
-        else {
-          res.json({ success: false, authors_list: regAuthors });
-        }
+  let param = req.query.firstname;
 
-      }
-    );*/
-    
+  Author.find({ firstname : param }, 'firstname lastname', function (error, authors) {
+    if (error) {
+      res.json({ success: false, message: error, mensaje: "Ha ocurrido un errorr"  });  
+    }
+
+    res.json(authors);
+  });
 };

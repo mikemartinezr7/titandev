@@ -21,8 +21,7 @@ function isValidData() {
       $(this).removeClass('error');
     }
   });
-
-  console.log(isValid);
+  
   return isValid;
 }
 
@@ -32,7 +31,7 @@ $('#btnSubmit').click(function (event) {
   if (isValidData()) {
     let data = $('#frmAddUser').serialize();
 
-    var request = $.post('/api/library', data)
+    const request = $.post('/api/library', data)
       .done(function () {
         console.log('Done');
       })

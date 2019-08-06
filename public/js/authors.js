@@ -1,42 +1,59 @@
 'use strict';
 
-const authors_button   = document.querySelector('#btn_create');
-const input_authorname = document.querySelector('#txt_authorname');
-const input_authorlastname= document.querySelector( '#txt_authorlastname')
-const input_biography = document.querySelector('#txt_biography');
-const slt_birthyear = document.querySelector('#slt_birthyearr');
+const submit = document.getElementById('btnSubmit');
+submit.addEventListener('click', createAuthors);
 
+function isValidData() {
+  let isValid = true;
 
-function get_data(){
+  const firstname = document.getElementById('firstname');
+  const lastname = document.getElementById('lastname');
+  const biography = document.getElementById('biography');
+  const birthyear = document.getElementById('birthyear');
 
-    let input_authorname = input_authorname.value;
-    let input_authorlastname = input_authorlastname.value;
-    let input_biography = input_biography.value;
-    let slt_birthyear = slt_birthyear.selectedOptions[0].textContent;
+  if (firstname.value == '') {
+    isValid = false;
+    firstname.classList.add('error');
+  } else {
+    firstname.classList.remove('error');
+  }
+
+  if (lastname.value == '') {
+    isValid = false;
+    lastname.classList.add('error');
+  } else {
+    lastname.classList.remove('error');
+  }
+
+  return isValid;
 }
 
-author_button.addEventListener('click', get_data);
+function createAuthors(event) {
+  event.preventDefault();
 
-function create_authors(pauthorname, pauthorlastname, pbiography, pbirthyear){
-    let request = $.ajax({
-        url: 'localhost:3000/api/authors',
-        method: "POST",
-        data: {
-            authorname : pauthorname,
-            authorlastname : pauthorlastname,
-            biography : pbiography,
-            birthyear : pbirthyear
-        },
-        dataType : "json",
-        contentType : 'application/x-www-form-urlencoded; charset=UTF-8'
-    });
+  const firstname = document.getElementById('firstname').value;
+  const lastname = document.getElementById('lastname').value;
+  const biography = document.getElementById('biography').value;
+  const birthyear = document.getElementById('birthyear').value;
 
-    request.done(funtion(res)
-    {
-        swal.fire({type : 'success', title : 'El autor se ha registrado', text : res.msg})
-    });
-
-    request.fail(funtion(res){
-        swal.fire({type : 'error', title : 'error al registrar, verificar datos', text : res.msg});
-    });
-};
+  if (isValidData()) {
+  let request = $.ajax({
+    url: '/api/author',
+    method: 'POST',
+    data: {
+      firstname: firstname,
+      lastname: lastname,
+      biography: biography,
+      birthyear: birthyear
+    },
+    dataType: 'json',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+  }).done(function(data) {
+    console.log('Done' + data.success);
+  }).fail(function(error) {
+    console.log('Fail ' + error);
+  });
+} else {
+  console.log('Erro sus datos son invalidos');
+}
+}
