@@ -80,7 +80,7 @@ let UserSchema = new mongoose.Schema({
   },
   password: { 
     type: String, 
-    default: "" 
+    default: '' 
   },
   randomToken: { 
     type: String, 
@@ -98,4 +98,6 @@ let UserSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+let UserModel = mongoose.model('User', UserSchema);
+
+module.exports = { UserSchema, UserModel };

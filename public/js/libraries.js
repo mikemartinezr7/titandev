@@ -1,4 +1,4 @@
-function validateDate(d) {
+function isValidDate(d) {
   if (Object.prototype.toString.call(d) === "[object Date]") {
     if (isNaN(d.getTime())) {
       return false;
@@ -10,18 +10,37 @@ function validateDate(d) {
   }
 }
 
-function isValidData() {
- let isValid = true;
+function isValidEmail(email) {
+  var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(email);
+}
 
-  $('.required').each(function(index) { 
-    if ($(this).val() == '') {
+function isValidData() {
+  let isValid = true;
+
+  $('.required').each(function (index) {
+    let value = $(this).val();
+
+    if (value == '') {
       isValid = false;
       $(this).addClass('error');
     } else {
-      $(this).removeClass('error');
+      if ((!isValidDate(value)) && ($(this).hasClass('date'))) {
+        isValid = false;
+        $(this).addClass('error');
+      } else {
+        $(this).removeClass('error');
+      }
+
+      if ((!isValidEmail(value)) && ($(this).hasClass('email'))) {
+        isValid = false;
+        $(this).addClass('error');
+      } else {
+        $(this).removeClass('error');
+      }
     }
   });
-  
+
   return isValid;
 }
 
@@ -32,21 +51,46 @@ $('#btnSubmit').click(function (event) {
     let data = $('#frmAddUser').serialize();
 
     const request = $.post('/api/library', data)
-      .done(function () {
-        console.log('Done');
+      .done(function (response) {
+        if (response.success && response.success == true) {
+          $('#frmAddUser').trigger('reset');
+          console.log('Libreria registrada correctamente');
+        } else {
+          console.log('Error en datos de libreria')
+        }
       })
-      .fail(function () {
-        console.log('fail');
+      .fail(function (response) {
+        console.log('Fail');
+        console.log(response);
       });
   }
 });
 
-function loadLibraries() {
-  $.get('/api/library', function (libraries) {
-    
-    let libraryTemplate = $('#library-template').clone();
+$('#btnSearch').click(function (event) {
+  loadLibraries($('#txtSearch').val());
+});
 
-    $("#libraryTemplate").tmpl(libraries).appendTo("#libraries");
-    console.log(libraryTemplate);
+$('#txtSearch').keypress(function(event){
+  let keycode = (event.keyCode ? event.keyCode : event.which);
+  
+  if (keycode == 13) {
+    loadLibraries($('#txtSearch').val());
+  }
+});
+
+function loadLibraries(searchText) {
+  let param = {};
+
+  if (searchText && searchText != '') {
+    param = { search: searchText }
+  }
+  
+  $.get('/api/library', param)
+  .done(function(libraries) {
+    $('#libraries').empty();
+    $('#libraryTemplate').tmpl(libraries).appendTo('#libraries');
+  }).fail(function (response) {
+    $('#libraries').empty();
+    $('#emptylibraryTemplate').tmpl({}).appendTo('#libraries');
   });
 }

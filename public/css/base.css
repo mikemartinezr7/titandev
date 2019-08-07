@@ -3,7 +3,7 @@ body{
   margin: 0;
   text-align: left;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: #333;
   background-color: #f5f8fa
 }
@@ -173,4 +173,23 @@ legend {
   background-color: #fff;
   text-align: center;
   background-color: #CED4DA;
+}
+
+.search {
+  padding: 15px;
+  border-radius: 5px;
+  border: solid 1px #CED4DA;
+  margin-bottom: 20px;
+  background-color: #fff;
+  width: 50%;
+  display: block;
+  height: 50px;
+}
+
+.search label {
+
+}
+
+.search button {
+  height: 29px;
 }

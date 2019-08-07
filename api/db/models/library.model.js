@@ -2,11 +2,7 @@
 
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-
-/*let validateEmail = function (email) {
-  let emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-  return emailRegex.test(email);
-}*/
+const { UserSchema } =  require('./user.model');
 
 const LibrarySchema = mongoose.Schema({
   commercialName: {
@@ -36,7 +32,8 @@ const LibrarySchema = mongoose.Schema({
   location: {
     type: String,
     required: false,
-  }
+  },
+  admin: [UserSchema]
 });
 
 module.exports = mongoose.model('Library', LibrarySchema);

@@ -12,7 +12,9 @@
   <h1>Librerias</h1>
 
   <div class="search">
-    <input type="text" id="search" name="search">
+    <label for="search">Buscar en librerias:</label><br>
+    <input type="text" id="txtSearch" name="txtSearch">
+    <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
   </div>
 
   <div id="libraries">
@@ -29,13 +31,18 @@
             <strong>Ubicacion: </strong>
             ${province}, ${county}, ${district}, ${address}
           </p>
-          <p><img src="../img/user.png" alt="Usuario"> <strong>Propietario: </strong> Jorge Perez Gomez</p>
+          <p><img src="../img/user.png" alt="Usuario"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</p>
         </div>
         <div class="library-details-rigth">
           <button class="button">Ver Detalles</button>
         </div>
       </div>
   </script>
+
+  <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
+    <div id="emptyLibraries">No hay librerias registradas actualmente</div>
+  </script>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>

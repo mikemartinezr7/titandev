@@ -1,9 +1,9 @@
 'use strict';
 
-const userModel = require('../db/models/user.model');
+const { UserModel } = require('../db/models/user.model');
 
 module.exports.create = function(req,res){
-    let newUser = new userModel({
+    let newUser = new UserModel({
         firstName : req.body.firstName,
         middleName : req.body.middleName,
         firstLastName : req.body.firstLastName,
@@ -40,7 +40,7 @@ module.exports.create = function(req,res){
 };
 
 module.exports.list = function(req,res){
-    userModel.find().populate('favoriteGenres','name').then(
+    UserModel.find().populate('favoriteGenres','name').then(
         function(users){
             res.send(users);
         }
@@ -51,7 +51,7 @@ module.exports.get_password = function(req,res){
 
     let userEmail = req.query.email;
 
-    userModel.find({email:userEmail},{password: 1, _id: 0}).then(
+    UserModel.find({email:userEmail},{password: 1, _id: 0}).then(
         function(users){
             res.send(users);
         }

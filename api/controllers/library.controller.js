@@ -1,11 +1,18 @@
 'use strict';
 
 const LibraryModel = require('../db/models/library.model');
-const UserModel = require('../db/models/user.model');
+const { UserModel } = require('../db/models/user.model');
 
 const controller = {
   list: function (req, res) {
-    LibraryModel.find({  }, function (error, libraries) {
+    let searchText = req.query.search;
+    let searchCriteria = {};
+
+    if (searchText && searchText != '') {
+      searchCriteria = { commercialName: new RegExp(searchText, 'i')} 
+    }
+
+    LibraryModel.find(searchCriteria, function (error, libraries) {
       if (error) {
         res.status(400).send(error);
       }
@@ -15,16 +22,6 @@ const controller = {
   },
 
   create: function (req, res) {
-    let newLibrary = new LibraryModel({
-      commercialName: req.body.txtComercialName,
-      brandName: req.body.txtBrandName,
-      province: req.body.sltProvince,
-      county: req.body.sltCounty,
-      district: req.body.sltDistrict,
-      address: req.body.txtAddress,
-      location: req.body.txtLocation
-    });
-
     let newUser = new UserModel({
       firstName: req.body.txtFirstName,
       middleName: req.body.txtMiddleName,
@@ -36,17 +33,28 @@ const controller = {
       province: req.body.sltProvince,
       county: req.body.sltCounty,
       district: req.body.sltDistrict,
-      nickname: req.body.txtFirstName,
+      nickname: req.body.txtFirstName.toLowerCase() + '.' + req.body.txtLastName1.toLowerCase() + '.' + req.body.txtLastName2[0].toLowerCase(),
       email: req.body.txtEmail,
       password: req.body.txtPassword,
       type: 'library'
+    });
+
+    let newLibrary = new LibraryModel({
+      commercialName: req.body.txtComercialName,
+      brandName: req.body.txtBrandName,
+      province: req.body.sltProvince,
+      county: req.body.sltCounty,
+      district: req.body.sltDistrict,
+      address: req.body.txtAddress,
+      location: req.body.txtLocation,
+      admin: newUser
     });
 
     newLibrary.save(function (error, library) {
       if (error) {
         res.status(400).json({
           success: false,
-          msg: 'Ha ocurrido un error registrado la libreria. ' + error
+          msg: 'Ha ocurrido un error registrando la libreria. ' + error
         });
       } else {
         newUser.save(function(error, user) {
