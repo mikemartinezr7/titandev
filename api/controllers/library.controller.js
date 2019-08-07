@@ -9,7 +9,19 @@ const controller = {
     let searchCriteria = {};
 
     if (searchText && searchText != '') {
-      searchCriteria = { commercialName: new RegExp(searchText, 'i')} 
+      //searchCriteria = { commercialName: new RegExp(searchText, 'i')};
+      searchCriteria = { $or:[
+        { commercialName: new RegExp(searchText, 'i') }, 
+        { brandName: new RegExp(searchText, 'i') },
+        { province: new RegExp(searchText, 'i') },
+        { county: new RegExp(searchText, 'i') },
+        { district: new RegExp(searchText, 'i') },
+        { address: new RegExp(searchText, 'i') },
+        { 'admin.firstName': new RegExp(searchText, 'i') },
+        { 'admin.middleName': new RegExp(searchText, 'i') },
+        { 'admin.firstLastName': new RegExp(searchText, 'i') },
+        { 'admin.secondLastName': new RegExp(searchText, 'i') },
+      ]};
     }
 
     LibraryModel.find(searchCriteria, function (error, libraries) {

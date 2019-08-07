@@ -2,27 +2,46 @@
 <html>
 
 <head>
-  <title>Home</title>
+  <title>TitanDev - Home</title>
   <link rel="stylesheet" type="text/css" href="./css/base.css">
 </head>
 
 <body>
-  <div id="topmenu">
-    this is the top menu
-  </div>
-  <div id="leftmenu" class="left-menu-close">
-    <ul>
-      <li><a href="#"><i class="fas fa-home"></i><span class="left-menu-item-text hidden">Home</span></a></li>
-      <li><a href="#"><i class="fas fa-book"></i><span class="left-menu-item-text hidden">Item 1</span</a></li>
-      <li><a href="#"><i class="fas fa-book"></i><span class="left-menu-item-text hidden">Item 2</span></a></li>
-      <li><a href="#"><i class="fas fa-book"></i><span class="left-menu-item-text hidden">Last Item</span></a></li>
-    </ul>
+  <div id="topmenu-container">
+    <div class="topmenu">
+      <img src="./img/titandev-text.png" alt="TitanDev Logo" width="118" height="18">
+    </div>
 
-    <button class="left-menu-toggle">>></button>
+    <div class="user-profile">
+      <a href="#"><img src="./img/user-portrait.jpeg" alt="Usuario" height="40" width="40"></a>
+    </div>
   </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
+  <div id="content-container">
+    <div class="warning">
+      <button class="warning-close">x</button>
+      This is a example of alert!
+    </div>
+
+    <div id="leftmenu" class="left-menu-close">
+      <ul>
+        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Home</span></a>
+        </li>
+        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Item 1</span</a>
+                </li> <li><a href="#"><img src="./img/book.png" alt="Books"><span
+                  class="left-menu-item-text hidden">Item
+                  2</span></a></li>
+        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Last
+              Item</span></a></li>
+      </ul>
+
+      <button class="left-menu-toggle">>></button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/layout.js"></script>
 </body>
+
 </html>

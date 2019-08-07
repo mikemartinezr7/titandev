@@ -119,7 +119,6 @@ POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago
 
 
 @TODO
-- Backends de librerias
 - Layout del index
 - Animacion en css
 - Corregir rutas de Lua
