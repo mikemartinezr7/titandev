@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Generos</title>
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+
+<body>
+  <h1>Gneros</h1>
+  <h3>Agregar un Un genero </h3>
+
+  <form name="genreForm"  id="genreForm" method="POST" action="/api/genre">
+    <fieldset>
+      <p>
+        <div>
+          <label for="txt_name">Ingrese Genero Literario</label>
+          <input type="text" name="name" id="name" class="required">
+        </div>
+      </p>
+
+    </fieldset>
+
+    <input type="submit" id="btnAddgenre" value="Aceptar" class="button">
+    <input type="reset" id="btnReset" value="Cancelar" class="button">
+  </form>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/genre.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

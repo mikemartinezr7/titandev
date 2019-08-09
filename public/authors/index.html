@@ -20,35 +20,10 @@
 
     <h2>
         <tittle> Presione sobre el siguiente boton, para mostrar a todos los autores</tittle>
-        <button id="authorslist" class="button" align ="center">AUTORES</button>
+        <button id="authorslist" class="button">AUTORES</button>
     </h2>
   </div>
 
-  <div id="libraries">
-  </div>    
-
-  <script id="libraryTemplate" type="text/x-jQuery-tmpl">
-    <div class="library-item">
-        <div class="library-image">
-          <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" width="350" height="250">
-        </div> 
-        <div class="library-details">
-          <h3>${commercialName}</h3>
-          <p><img src="../img/location.png" alt="Ubicacion">
-            <strong>Ubicacion: </strong>
-            ${province}, ${county}, ${district}, ${address}
-          </p>
-          <p><img src="../img/user.png" alt="Usuario"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</p>
-        </div>
-        <div class="library-details-rigth">
-          <button class="button">Ver Detalles</button>
-        </div>
-      </div>
-  </script>
-
-  <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
-    <div id="emptyLibraries">No hay librerias registradas actualmente</div>
-  </script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
