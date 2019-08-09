@@ -54,3 +54,14 @@ module.exports.findBook = function(req, res){
     );
 };
    
+module.exports.findBookID = function (req, res){
+    book_model.find({_id : req.body.id_book}).then(
+        function(book){
+            if(book){
+                res.json({success: true, book : book});
+            }else{
+                res.json({success: false, book : book});
+            }
+        }
+    );
+};

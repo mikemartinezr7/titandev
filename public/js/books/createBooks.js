@@ -139,6 +139,11 @@ pisbn, pprice, pquantity){
             
     request.done(function(res){
         console.log('Libro agregado a la base de datos')
+        swal.fire({
+            type : 'success',
+            title: 'Libro agregado a la base de datos',
+            confirmButtonText: 'Entendido'
+        });
     });
 
     request.fail(function(res){
@@ -146,63 +151,4 @@ pisbn, pprice, pquantity){
     });
                 
 };
-
-let books = list_books(); //servidor
-
-let show_books = () => {
-    for(){
-        
-    }
-}
-
-let list_books = () => { //controlador
-    let books = [];
-  
-    let request = $.ajax({
-      url: "http://localhost:3000/api/book",
-      method: "GET",
-      data: {
-      },
-      dataType: "json",
-      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-      async : false
-    });
-  
-    request.done(function (res) {
-        books = res.books;
-      
-    });
-  
-    request.fail(function (jqXHR, textStatus) {
-      
-    });
-    return books;
-   
-  };
-
-let search_book = (id_book) => {
-    let bookFound = [];
-  
-    let request = $.ajax({
-      url: "http://localhost:3000/api/book"+ id_book,
-      method: "GET",
-      data: {
-      },
-      dataType: "json",
-      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-      async : false
-    });
-  
-    request.done(function (res) {
-        bookFound = res.bookFound;
-      
-    });
-  
-    request.fail(function (jqXHR, textStatus) {
-      
-    });
-    return bookFound;
-   
-  };
-
   

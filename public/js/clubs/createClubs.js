@@ -103,6 +103,11 @@ function create_club(pname, ptype, pgenre, pstartTime, pendTime, pday, pbranch){
 
     request.done(function(res){
         console.log('Club agregado a la base de datos')
+        swal.fire({
+            type : 'success',
+            title: 'Club creado exitosamente',
+            confirmButtonText: 'Entendido'
+        });
     });
 
     request.fail(function(res){

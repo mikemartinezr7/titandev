@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Actualizar Club</title>
+        <link rel="stylesheet" href="../css/base.css">
+    </head>
+    <body>
+        <form>
+            <div>
+                <label for="txt_name">Nombre</label>
+                <input type="text" id="txt_name">
+            </div>
+            <div>
+                <label for="txt_type">Tipo</label>
+                <select id="slt_type">
+                    <option value=""></option>
+                    <option value="Virtual">Virtual</option>
+                    <option value="Presencial">Presencial</option>
+                </select>
+            </div>
+            <div>
+                <label for="slt_genre">Género</label>
+                <select id="slt_genre">
+                    <option value=""></option>
+                    <option value="Ficción">Ficción</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Tragedia">Tragedia</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Cuento">Cuento</option>
+                    <option value="Novela">Novela</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Fábula">Fábula</option>
+                    <option value="Novela Didáctica">Novela Didáctica</option>
+                </select>
+            </div>
+            <div>
+                <label for="slt_startTime">Hora de inicio</label>
+                <select id="slt_startTime">
+                    <option value=""></option>
+                    <option value="8:00 am">8:00 am</option>
+                    <option value="9:00 am">9:00 am</option>
+                    <option value="10:00 am">10:00 am</option>
+                    <option value="11:00 am">11:00 am</option>
+                    <option value="12:00 md">12:00 md</option>
+                    <option value="1:00 pm">1:00 pm</option>
+                    <option value="2:00 pm">2:00 pm</option>
+                    <option value="3:00 pm">3:00 pm</option>
+                    <option value="4:00 pm">4:00 pm</option>
+                    <option value="5:00 pm">5:00 pm</option>
+                </select>
+            </div>
+            <div>
+                <label for="slt_endTime">Hora de finalización</label>
+                <select id="slt_endTime">
+                    <option value=""></option>
+                    <option value="9:00 am">9:00 am</option>
+                    <option value="10:00 am">10:00 am</option>
+                    <option value="11:00 am">11:00 am</option>
+                    <option value="12:00 md">12:00 md</option>
+                    <option value="1:00 pm">1:00 pm</option>
+                    <option value="2:00 pm">2:00 pm</option>
+                    <option value="3:00 pm">3:00 pm</option>
+                    <option value="4:00 pm">4:00 pm</option>
+                    <option value="5:00 pm">5:00 pm</option>
+                    <option value="6:00 pm">6:00 pm</option>
+                </select>
+            </div>
+            <div>
+                <label for="slt_day">Día</label>
+                <select id="slt_day">
+                    <option value=""></option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">Miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+            </div>
+            <div>
+                <label for="txt_branch">Sucursal</label>
+                <input type="text" id="txt_branch">
+            </div>
+            <div>
+                <button type="button" id="btn_update">Editar Club</button>
+            </div>
+
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script> 
+        
+        <script src="../js/clubs/updateClub.js"></script>
+    </body>
+</html>
