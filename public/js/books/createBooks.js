@@ -117,7 +117,7 @@ function validate(){
 function create_book(pname, pimage, pgenre, pauthor, pdescription, pyear, peditorial, ptype, planguage,
 pisbn, pprice, pquantity){
     let request = $.ajax({
-        url : 'http://localhost:3000/api/book',
+        url : '/api/book',
         method : "POST",
         data : {
             name : pname,

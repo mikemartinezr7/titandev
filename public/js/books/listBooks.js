@@ -2,11 +2,13 @@
 
 let list = () => { //servidor
   let books = [];
+  let search = document.getElementById('txtSearch').value;
 
   let request = $.ajax({
-    url: "http://localhost:3000/api/book",
+    url: "/api/book",
     method: "GET",
     data: {
+      search_criteria:search
     },
     dataType: "json",
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -15,21 +17,49 @@ let list = () => { //servidor
 
   request.done(function (res) {
       books = res.books_list;
-    
+     
   });
 
   request.fail(function (jqXHR, textStatus) {
     
   });
+  console.log(books);
   return books;
- 
+};
+
+let search = () => { //servidor
+  let books = [];
+  let search = document.getElementById('txtSearch').value;
+
+  let request = $.ajax({
+    url: "/api/book",
+    method: "GET",
+    data: {
+      search_criteria:search
+    },
+    dataType: "json",
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    async : false
+  });
+
+  request.done(function (res) {
+      books = res.books_list;
+     
+  });
+
+  request.fail(function (jqXHR, textStatus) {
+    
+  });
+  console.log(books);
+  return books;
 };
 
 
-let books = list(); //controlador
+var books = list(); //controlador
 const table = document.querySelector('#tbl_books tbody');
 
 let show_books = () => {
+  console.log('show_books');
     for(let i = 0; i < books.length; i++){
        let fila = table.insertRow();
 
@@ -57,6 +87,8 @@ let show_books = () => {
     }
 };
 
-
 show_books();
+
+let search_button = document.getElementById('btnSearch');
+search_button.addEventListener('click', search);
 

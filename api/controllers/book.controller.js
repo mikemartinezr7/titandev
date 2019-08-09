@@ -32,7 +32,8 @@ module.exports.create = function(req, res){
 };
 
 module.exports.list = function(req, res){
-    book_model.find().then(
+    let search_criteria = req.query.search_criteria
+    book_model.find({name:new RegExp(search_criteria, 'i')}).then(
         function(books){
             if(books.length > 0){
                 res.json({success: true, books_list : books});

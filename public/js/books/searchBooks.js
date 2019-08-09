@@ -4,7 +4,7 @@ let search_book = (id_book) => {
     let bookFound = [];
   
     let request = $.ajax({
-      url: "http://localhost:3000/api/book"+ id_book,
+      url: "/api/book/"+ id_book,
       method: "GET",
       data: {
       },

@@ -27,7 +27,7 @@ function createGenre(event) {
 
     if(isValidData()){
       let request = $.ajax({
-        url: 'http://localhost:3000/api/genre',
+        url: '/api/genre',
         method: 'POST',
         data: {
           name: name,
