@@ -1,7 +1,6 @@
 'use strict';
 
-//let list = () => { //servidor
-function list() { //servidor
+function list() {
   let books = [];
   let search = document.getElementById('txtSearch').value;
 
@@ -24,14 +23,12 @@ function list() { //servidor
   request.fail(function (jqXHR, textStatus) {
 
   });
-  console.log(books);
+
   return books;
 };
 
-var books = list(); //controlador
+let books = list(); //controlador
 
-
-//let show_books = (books) => {
 function show_books(books) {
   const table = document.querySelector('#tbl_books tbody');
   table.innerHTML = '';
@@ -43,7 +40,7 @@ function show_books(books) {
     var linkText = document.createTextNode(books[i]['name']);
     link.appendChild(linkText);
     link.title = books[i]['name'];
-    link.href = 'detail.html?id=' + books[i]['_id'];
+    link.href = 'viewBook.html?id=' + books[i]['_id'];
 
     fila.insertCell().appendChild(link);
     fila.insertCell().innerHTML = books[i]['image'];
