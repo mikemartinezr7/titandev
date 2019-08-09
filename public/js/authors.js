@@ -9,7 +9,7 @@ function isValidData() {
   const firstname = document.getElementById('firstname');
   const lastname = document.getElementById('lastname');
   const biography = document.getElementById('biography');
-  const birthyear = document.getElementById('birthyear');
+  const birthyear = document.getElementById('birthyear'); 
 
   if (firstname.value == '') {
     isValid = false;
@@ -80,52 +80,6 @@ function createAuthors(event) {
 }
 }
 
-let list_authors = () => { //controlador
-  let author = [];
-  let request = $.ajax({
-    url: "http://localhost:3000/api/book",
-    method: "GET",
-    data: {
-    },
-    dataType: "json",
-    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    async : false
-  });
 
-  request.done(function (res) {
-      author = res.author;
-    
-  });
 
-  request.fail(function (jqXHR, textStatus) {
-    
-  });
-  return author;
- 
-};
-
-let search_authors = (id_autor) => {
-  let authorFound = [];
-
-  let request = $.ajax({
-    url: "http://localhost:3000/api/authors"+ id_autor,
-    method: "GET",
-    data: {
-    },
-    dataType: "json",
-    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    async : false
-  });
-
-  request.done(function (res) {
-      authorFound = res.authorFound;
-    
-  });
-
-  request.fail(function (jqXHR, textStatus) {
-    
-  });
-  return authorFound;
- 
-};
 

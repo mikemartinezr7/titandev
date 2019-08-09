@@ -78,7 +78,7 @@ $('#txtSearch').keypress(function(event){
   }
 });
 
-function loadLibraries(searchText) {
+function loadLibraries( searchText) {
   let param = {};
 
   if (searchText && searchText != '') {

@@ -11,6 +11,8 @@ Proyecto 1 para Cenfotec
 |  | |-club.controller.js
 |  | |-book.controller.js
 |  | |-library.controller.js
+|  | |-author.controller.js
+|  | |-genre.controller.js
 |  |
 |  |-db/
 |  | |-models/
@@ -18,12 +20,16 @@ Proyecto 1 para Cenfotec
 |  |   |-club.model.js
 |  |   |-book.model.js
 |  |   |-library.model.js
+|  |   |-author.model.js
+|  |   |-genre.model.js
 |  |
 |  |-routes/
 |      |-book.routes.js
 |      |-club.routes.js
 |      |-library.routes.js
 |      |-user.routes.js
+|      |-author.routes.js
+|      |-genre.routes.js
 |
 |-config/
 |  |-config.json
@@ -102,6 +108,24 @@ GET | /api/user/books | Obtiene la lista de libros de los usuarios
 GET | /api/user/:userid/books | Obtiene la lista de libros de un usuario
 PUT | /api/user/:userid/books/:bookid | Actualiza los datos de los libros del usuario
 POST | /api/user/:userid/rate | Califica al usuario de intercambio
+
+### Autores
+HTTP | Ruta | Descripcion 
+---- | ---- | -------------
+GET | /api/autor | Obtiene todos los autores
+GET | /api/autor/:autorid | Obtiene los datos de un unico autor
+PUT | /api/autor | Actualiza los datos de un autor
+POST | /api/autor | Crea un autor nuevo
+DELETE | /api/autor/:authorid | Elimina un autor
+
+### Generos
+HTTP | Ruta | Descripcion 
+---- | ---- | -------------
+GET | /api/genre | Obtiene todos los generos
+GET | /api/genre/:genreid | Obtiene los datos de un unico genero
+PUT | /api/genre | Actualiza los datos de un genero
+POST | /api/genre | Crea un genero nuevo
+DELETE | /api/genre/:genreid | Elimina un genero
 
 ### Compras
 HTTP | Ruta | Descripcion 
