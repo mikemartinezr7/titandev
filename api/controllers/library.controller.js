@@ -9,7 +9,6 @@ const controller = {
     let searchCriteria = {};
 
     if (searchText && searchText != '') {
-      //searchCriteria = { commercialName: new RegExp(searchText, 'i')};
       searchCriteria = { $or:[
         { commercialName: new RegExp(searchText, 'i') }, 
         { brandName: new RegExp(searchText, 'i') },
