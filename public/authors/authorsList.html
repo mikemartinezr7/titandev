@@ -2,28 +2,38 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <body onload="getAuthor()">
         <title>Lista de Autores Registrados</title>
-        </head>
-        <table id="AuthorsTable">
+        <link rel="stylesheet" href="../css/base.css">
+    </head>
+    <body>
+
+            <div class="search">
+                    <label for="search">Buscar Autores:</label><br>
+                    <input type="text" id="txtSearch" name="txtSearch">
+                    <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
+                  </div>
+        <fieldset>          
+        <table id="tbl_authors">
             <thead>
                 <tr>
+                   
+                    <td>Perfil</td>
                     <td>Nombre</td>
-                    <td>Apellidos</td>
+                    <td>Apellido</td>
+                    <td>Fecha de Nacimiennto</td>
                     <td>Biografia</td>
-                    <td>FEcha de Nacimiento</td>
+                    <td></td>
+                    
                 </tr>
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
-        <script type="text/javascript" src="../js/authorList.js"></script>
+        </fieldset>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
+        <script src="../js/authorList.js"></script>
 
     </body>
 </html>
