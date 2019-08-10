@@ -17,7 +17,7 @@ function list() {
 
   request.done(function (res) {
     authors = res.authors_list;
-    show_books(authors);
+    show_authors(authors);
   });
 
   request.fail(function (jqXHR, textStatus) {
@@ -29,7 +29,7 @@ function list() {
 
 let authors = list(); //controlador
 
-function show_books(authors) {
+function show_authors(authors) {
   const table = document.querySelector('#tbl_authors tbody');
   table.innerHTML = '';
 
