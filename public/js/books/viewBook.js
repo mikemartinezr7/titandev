@@ -50,9 +50,10 @@ let get_param = (param) => { //controlador
 let _id = get_param('id_book');
 
 let book = search_book(_id);
+console.log(book)
 if(book){
-    input_name.value = book[0]['name']
-    input_image.value = book[0]['image']
+    input_name.innerHTML = book[0]['name']
+    input_image.innerHTML = book[0]['image']
     slt_genre.value = book[0]['genre']
     input_author.value = book[0]['author']
     input_description.value = book[0]['description']

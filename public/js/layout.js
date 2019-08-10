@@ -18,6 +18,24 @@ $(window).on('load', function () {
   $('#leftmenu').height($(window).height() - $('#topmenu-container').height())
 });
 
-$('.alert-close, .warning-close, .info-close').click(function () {
+$('.notification-close').click(function () {
   $(this).parent().hide();
 });
+
+function showNotification(message, type) {
+  let style = '';
+
+  switch (type) {
+    case 'success': style = '.success'
+    case 'danger' : style = '.danger'
+    default: style = '.danger';
+  }  
+
+  let info = {
+    message : message,
+    type: style
+  }
+  
+  $('#notifications').empty();
+  $('#notificationTemplate').tmpl(info).appendTo('#notifications');
+}

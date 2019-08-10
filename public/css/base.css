@@ -67,6 +67,9 @@ body {
 
 .left-menu-open ul li {
   padding: 10px;
+  vertical-align: middle;
+  display: block;
+  height: 30px;
 }
 
 .left-menu-close {
@@ -88,6 +91,7 @@ body {
 
 .left-menu-close ul li {
   padding: 10px;
+  height: 30px;
 }
 
 .left-menu-toggle {
@@ -203,58 +207,39 @@ legend {
   height: 29px;
 }
 
-.alert {
-  background-color: #d9534f;
-  border-color: #D23330;
+.notification {
   border-radius: 4px;
   min-width: 200px;
   width: auto;
   height: 20px;
-  color: #fff;
   display: block;
   position: absolute;
   left: 50%;
+  top: 60px;
   padding: 10px;
 }
 
-.alert .alert-close {
+.notification .notification-close {
   cursor: pointer;
   display: block;
-  border-color: #D23330;
-  background-color: #d9534f;
   width: 15px;
   height: 15px;
-  color: #fff;
   padding: 0;
   position: relative;
   float: right;
   font-size: 10px;
+  background-color: transparent;
+  border-radius: 4px;
 } 
 
-.warning {
-  background-color: #FBE8CD;
-  border-color: #FCEFDC;
-  border-radius: 4px;
-  min-width: 200px;
-  width: auto;
-  height: 20px;
-  color: #886738;
-  display: block;
-  position: absolute;
-  left: 50%;
-  padding: 10px;
+.success {
+  background-color: #D4EDDA;
+  border-color: #C3E6CB;
+  color: #155724;
 }
 
-.warning .warning-close {
-  cursor: pointer;
-  display: block;
-  border-color: #FBE8CD;
-  background-color: #FCEFDC;
-  width: 15px;
-  height: 15px;
-  color: #886738;
-  padding: 0;
-  position: relative;
-  float: right;
-  font-size: 10px;
+.danger {
+  background-color: #F8D7DA;
+  border-color: #F5C6CA;
+  color: #721C23;
 }
