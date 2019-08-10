@@ -14,6 +14,11 @@ function isValidData() {
   if (firstname.value == '') {
     isValid = false;
     firstname.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
   } else {
     firstname.classList.remove('error');
   }
@@ -21,6 +26,11 @@ function isValidData() {
   if (lastname.value == '') {
     isValid = false;
     lastname.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
   } else {
     lastname.classList.remove('error');
   }
@@ -28,12 +38,22 @@ function isValidData() {
   if (biography.value == '') {
     isValid = false;
     biography.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
   } else {
     biography.classList.remove('error');
   }
   if (birthyear.value == '') {
     isValid = false;
     birthyear.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
   } else {
     birthyear.classList.remove('error');
   }

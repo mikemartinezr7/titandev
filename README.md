@@ -143,7 +143,34 @@ POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago
 
 
 @TODO
-- Layout del index
-- Animacion en css
-- Corregir rutas de Lua
-- Terminar lo de las rutas de admin
+*GENERAL
+- Subir archivos (imagenes)
+- Landing Page
+
+MICHAEL 
+- Layout del index(agregar links de libros, librerias, autores, generos)
+- Layout tablas
+- Mensajes de error 
+- Registrar sucursal
+- Detalle de libreria
+- Crear pagina de landing page
+
+LUA
+- Agregar imagen de libro
+- Visualizar perfil de libro
+- Terminar busqueda de libros
+- Buscar Clubs
+- Crear texto de landing page
+
+GIO
+- Buscar hosting de MongoDB online y agregarlo al conf (preguntar a michael como)
+- Crear password 
+- Visualizar perfil de usuario
+- Recuperar contrasena
+- Suscribir sucursal
+
+ROGER
+- Agregar foto a autores
+- Listar y buscar y perfil de generos
+- Listar y buscar y perfil de autores
+

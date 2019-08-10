@@ -1,62 +1,72 @@
 'use strict';
 
-let list = () => { //servidor
+function list() {
   let books = [];
+  let search = document.getElementById('txtSearch').value;
 
   let request = $.ajax({
-    url: "http://localhost:3000/api/book",
+    url: "/api/book",
     method: "GET",
     data: {
+      search_criteria: search
     },
     dataType: "json",
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    async : false
+    async: false
   });
 
   request.done(function (res) {
-      books = res.books_list;
-    
+    books = res.books_list;
+    show_books(books);
   });
 
   request.fail(function (jqXHR, textStatus) {
-    
-  });
-  return books;
- 
-};
 
+  });
+
+  return books;
+};
 
 let books = list(); //controlador
-const table = document.querySelector('#tbl_books tbody');
 
-let show_books = () => {
-    for(let i = 0; i < books.length; i++){
-       let fila = table.insertRow();
+function show_books(books) {
+  const table = document.querySelector('#tbl_books tbody');
+  table.innerHTML = '';
 
-       fila.insertCell().innerHTML = books[i]['name'];
-       fila.insertCell().innerHTML = books[i]['image'];
-       fila.insertCell().innerHTML = books[i]['genre'];
-       fila.insertCell().innerHTML = books[i]['author'];
-       fila.insertCell().innerHTML = books[i]['description'];
-       fila.insertCell().innerHTML = books[i]['year'];
-       fila.insertCell().innerHTML = books[i]['editorial'];
-       fila.insertCell().innerHTML = books[i]['type'];
-       fila.insertCell().innerHTML = books[i]['language'];
-       fila.insertCell().innerHTML = books[i]['isbn'];
-       fila.insertCell().innerHTML = books[i]['price'];
-       fila.insertCell().innerHTML = books[i]['quantity'];
+  for (let i = 0; i < books.length; i++) {
+    let fila = table.insertRow();
 
-       let cell_configuration = fila.insertCell();
+    var link = document.createElement('a');
+    var linkText = document.createTextNode(books[i]['name']);
+    link.appendChild(linkText);
+    link.title = books[i]['name'];
+    link.href = 'viewBook.html?id=' + books[i]['_id'];
 
-        // Creación del botón de editar
-        let edit_button = document.createElement('a');
-        edit_button.textContent = 'Editar';
-        edit_button.href = `updateBook.html?id_book=${books[i]['_id']}`;
+    fila.insertCell().appendChild(link);
+    fila.insertCell().innerHTML = books[i]['image'];
+    fila.insertCell().innerHTML = books[i]['genre'];
+    fila.insertCell().innerHTML = books[i]['author'];
+    fila.insertCell().innerHTML = books[i]['description'];
+    fila.insertCell().innerHTML = books[i]['year'];
+    fila.insertCell().innerHTML = books[i]['editorial'];
+    fila.insertCell().innerHTML = books[i]['type'];
+    fila.insertCell().innerHTML = books[i]['language'];
+    fila.insertCell().innerHTML = books[i]['isbn'];
+    fila.insertCell().innerHTML = books[i]['price'];
+    fila.insertCell().innerHTML = books[i]['quantity'];
 
-        cell_configuration.appendChild(edit_button);
-    }
+    let cell_configuration = fila.insertCell();
+
+    // Creación del botón de editar
+    let edit_button = document.createElement('a');
+    edit_button.textContent = 'Editar';
+    edit_button.href = `updateBook.html?id_book=${books[i]['_id']}`;
+
+    cell_configuration.appendChild(edit_button);
+  }
 };
 
+show_books(books);
 
-show_books();
-
+let search_button = document.getElementById('btnSearch');
+search_button.addEventListener('click', list);

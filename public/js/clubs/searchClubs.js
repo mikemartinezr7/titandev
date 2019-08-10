@@ -4,7 +4,7 @@ let search_club = (id_club) => {
     let clubFound = [];
   
     let request = $.ajax({
-      url: "http://localhost:3000/api/club"+ id_club,
+      url: "/api/club"+ id_club,
       method: "GET",
       data: {
       },

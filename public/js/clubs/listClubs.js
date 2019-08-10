@@ -4,7 +4,7 @@ let list = () => { //servidor
   let clubs = [];
 
   let request = $.ajax({
-    url: "http://localhost:3000/api/club",
+    url: "/api/club",
     method: "GET",
     data: {
     },

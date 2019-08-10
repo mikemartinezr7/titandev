@@ -7,6 +7,7 @@ let search_book = (id_book) => { //servidor
       url: "/api/book/"+ id_book,
       method: "GET",
       data: {
+          
       },
       dataType: "json",
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

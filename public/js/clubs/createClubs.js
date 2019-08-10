@@ -86,7 +86,7 @@ function validate(){
 
 function create_club(pname, ptype, pgenre, pstartTime, pendTime, pday, pbranch){
     let request = $.ajax({
-        url : 'http://localhost:3000/api/club',
+        url : '/api/club',
         method : "POST",
         data : {
             name : pname,
