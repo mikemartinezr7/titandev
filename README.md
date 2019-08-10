@@ -148,7 +148,7 @@ POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago
 - Landing Page
 
 MICHAEL 
-- Layout del index(agregar links de libros, librerias, autores, generos)
+- Layout del index(agregar links de libros, librerias, autores, generos) OK
 - Layout tablas
 - Mensajes de error 
 - Registrar sucursal

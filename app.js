@@ -23,7 +23,8 @@ app.use( function(req, res, next) {
 
 
 //Database initialization
-mongoose.connect('mongodb://' + appConfig.db.server + ':' + appConfig.db.port + '/' + appConfig.db.name, { useNewUrlParser: true });
+mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true });
+
 
 db.on('error', function (err) {
   console.log('Error en la BD: ' + err);
@@ -53,12 +54,13 @@ app.use('/api/province', provinceRouter);
 const genreRouter = require('./api/routes/genre.routes');
 app.use('/api/genre', genreRouter);
 
+const authorRouter = require('./api/routes/author.routes');
+app.use('/api/author', authorRouter);
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
-
-const authorRouter = require('./api/routes/author.routes');
-app.use('/api/author', authorRouter);
 
 app.get('/api', (req, res) => {
   res.send('Hello World!');

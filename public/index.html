@@ -7,6 +7,10 @@
 </head>
 
 <body>
+    <div id="notifications">
+
+    </div>
+
   <div id="topmenu-container">
     <div class="topmenu">
       <img src="./img/titandev-text.png" alt="TitanDev Logo" width="118" height="18">
@@ -18,26 +22,30 @@
   </div>
 
   <div id="content-container">
-    <div class="warning">
-      <button class="warning-close">x</button>
-      This is a example of alert!
-    </div>
-
     <div id="leftmenu" class="left-menu-close">
       <ul>
-        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Home</span></a>
-        </li>
-        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Item 1</span</a>
-                </li> <li><a href="#"><img src="./img/book.png" alt="Books"><span
-                  class="left-menu-item-text hidden">Item
-                  2</span></a></li>
-        <li><a href="#"><img src="./img/book.png" alt="Books"><span class="left-menu-item-text hidden">Last
-              Item</span></a></li>
+        <li><a href="./index.html"><img src="./img/home.png" alt="Home"><span class="left-menu-item-text hidden">Home</span></a></li>
+        <li><a href="./libraries/index.html"><img src="./img/library.png" alt="Librerias"><span class="left-menu-item-text hidden">Librerias</span</a> </li> 
+        <li><a href="./books/listBooks.html"><img src="./img/book.png" alt="Libros"><span class="left-menu-item-text hidden">Libros</span></a></li>
+        <li><a href="./authors/index.html"><img src="./img/author.png" alt="Autores"><span class="left-menu-item-text hidden">Autores</span></a></li>
+        <li><a href="./clubs/listClubs.html"><img src="./img/clubs.png" alt="Clubes de lectura"><span class="left-menu-item-text hidden">Clubes de lectura</span></a></li>
+        <li><a href="./Genre/index.html"><img src="./img/genre.png" alt="Genero"><span class="left-menu-item-text hidden">Generos</span></a></li>
+        <li><a href="./users/register.html"><img src="./img/user.png" alt="Usuario"><span class="left-menu-item-text hidden">Usuario</span></a></li>
       </ul>
 
       <button class="left-menu-toggle">>></button>
     </div>
+
+    <!-- Contenido aca -->
+
   </div>
+
+  <script id="notificationTemplate" type="text/x-jQuery-tmpl">
+    <div class="notification ${type}">
+      <button class="notification-close">x</button>
+      ${message}
+    </div>
+  </script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
