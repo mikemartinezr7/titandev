@@ -40,7 +40,7 @@ function show_books(books) {
     var linkText = document.createTextNode(books[i]['name']);
     link.appendChild(linkText);
     link.title = books[i]['name'];
-    link.href = 'viewBook.html?id=' + books[i]['_id'];
+    link.href = 'viewBook.html?id_book=' + books[i]['_id'];
 
     fila.insertCell().appendChild(link);
     fila.insertCell().innerHTML = books[i]['image'];
