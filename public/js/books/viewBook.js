@@ -54,16 +54,16 @@ console.log(book)
 if(book){
     input_name.innerHTML = book[0]['name']
     input_image.innerHTML = book[0]['image']
-    slt_genre.value = book[0]['genre']
-    input_author.value = book[0]['author']
-    input_description.value = book[0]['description']
-    input_year.value = book[0]['year']
-    input_editorial.value = book[0]['editorial']
-    slt_type.value = book[0]['type']
-    slt_language.value = book[0]['language']
-    input_isbn.value = book[0]['isbn']
-    input_price.value = book[0]['price']
-    input_quantity.value = book[0]['quantity']
+    slt_genre.innerHTML = book[0]['genre']
+    input_author.innerHTML = book[0]['author']
+    input_description.innerHTML = book[0]['description']
+    input_year.innerHTML = book[0]['year']
+    input_editorial.innerHTML = book[0]['editorial']
+    slt_type.innerHTML = book[0]['type']
+    slt_language.innerHTML = book[0]['language']
+    input_isbn.innerHTML = book[0]['isbn']
+    input_price.innerHTML = book[0]['price']
+    input_quantity.innerHTML = book[0]['quantity']
 
 }
 
