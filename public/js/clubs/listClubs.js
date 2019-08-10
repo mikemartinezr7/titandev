@@ -1,12 +1,14 @@
 'use strict';
 
-let list = () => { //servidor
+function list() { //servidor
   let clubs = [];
+  let search = document.getElementById('txtSearch').value;
 
   let request = $.ajax({
     url: "/api/club",
     method: "GET",
     data: {
+      search_criteria: search
     },
     dataType: "json",
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -15,6 +17,7 @@ let list = () => { //servidor
 
   request.done(function (res) {
       clubs = res.clubs_list;
+      show_clubs(clubs);
     
   });
 
@@ -27,11 +30,19 @@ let list = () => { //servidor
 
 
 let clubs = list(); //controlador
-const table = document.querySelector('#tbl_clubs tbody');
 
-let show_clubs = () => {
+function show_clubs(clubs){
+const table = document.querySelector('#tbl_clubs tbody');
+table.innerHTML = '';
+
     for(let i = 0; i < clubs.length; i++){
        let fila = table.insertRow();
+
+      var link = document.createElement('a');
+      var linkText = document.createTextNode(clubs[i]['name']);
+      link.appendChild(linkText);
+      link.title = clubs[i]['name'];
+      link.href = 'viewClub.html?id=' + clubs[i]['_id'];
 
        fila.insertCell().innerHTML = clubs[i]['name'];
        fila.insertCell().innerHTML = clubs[i]['type'];
@@ -52,5 +63,7 @@ let show_clubs = () => {
     }
 };
 
+show_clubs(clubs);
 
-show_clubs();
+let search_button = document.getElementById('btnSearch');
+search_button.addEventListener('click', list);

@@ -18,16 +18,16 @@ router.route('/')
 router.route('/')
     .get(function(req, res){
             booksController.list(req, res);
-        })
+        });
 
 router.route('/name')
     .get(function(req, res){
         booksController.findBook(req, res);
-    })
+    });
 
 router.route('/:id_book')
     .get(function(req, res){
         booksController.findBookID(req, res);
-    })
+    });
 
 module.exports = router;

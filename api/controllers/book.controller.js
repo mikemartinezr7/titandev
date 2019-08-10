@@ -37,7 +37,12 @@ module.exports.list = function (req, res) {
   book_model.find({
     $or: [
       { name: new RegExp(search_criteria, 'i') },
-      { author: new RegExp(search_criteria, 'i') }
+      { genre: new RegExp(search_criteria, 'i') },
+      { author: new RegExp(search_criteria, 'i') },
+      { editorial: new RegExp(search_criteria, 'i') },
+      { type: new RegExp(search_criteria, 'i') },
+      { language: new RegExp(search_criteria, 'i') },
+      { isbn: new RegExp(search_criteria, 'i') }
     ]
   }).then(function (books) {
     if (books.length > 0) {
