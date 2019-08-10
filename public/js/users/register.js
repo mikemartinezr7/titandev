@@ -9,7 +9,7 @@ let inputLastName = document.querySelector('#txtLastName');
 let inputSecondLastName = document.querySelector('#txtSecondLastName');
 let inputGender = document.querySelector('#sltGender');
 let inputID = document.querySelector('#txtID');
-let inputEmail = document. querySelector ('#txtEmail');
+var inputEmail = document. querySelector ('#txtEmail');
 let inputProvince = document.querySelector('#sltProvince');
 let inputCounty = document.querySelector('#sltCounty');
 let inputDistrict = document.querySelector('#sltDistrict');
@@ -103,12 +103,6 @@ function register_user(){
         FavoriteGenre [i] = DidacticNovel;
     }
 
-    //Registra la selección de intercambios
-    //let Exchange = false;
-    //if(inputExchange.checked == true){
-    //    Exchange = true
-    //}
-
     //Recupera los valores ingresados
     let FirstName = inputFirstName.value;
     let MiddleName = inputMiddleName.value;
@@ -127,15 +121,16 @@ function register_user(){
     let Avatar = inputAvatar.files[0];
     let Exchange = inputExchange.checked;
 
-    //let bError = false;
+    let bError = false;
 
-    // bError = validate(FirstName,LastName,Gender,ID,Email,Province,County,District,AdditionalDetails,FavoriteGenre);
+    bError = validate(FirstName,LastName,Gender,ID,Email,Province,County,District,AdditionalDetails,FavoriteGenre);
  
-    //if(bError == true){
+    if(bError == false){
         register(FirstName,MiddleName,LastName,SecondLastName,Gender,ID,Email,Province,County,District,AdditionalDetails,FavoriteGenre,FavoriteBook,FavoriteAuthor,Nickname,Avatar,Exchange);
-
-
-    //}
+        console.log("¡Usuario registrado!");
+    }else{
+        console.log("Corrija los errores");
+    }
 }
 
 //Registrar en la base de datos
@@ -173,3 +168,69 @@ function register(pFirstName,pMiddleName,pLastName,pSecondLastName,pGender,pID,p
     request.fail(function(){
     });
 };
+
+//Validar la información ingresada
+
+function validate(pFirstName,pLastName,pGender,pID,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre){
+
+    let bError = false;
+
+    if(pFirstName == ""){
+        bError = true
+        inputFirstName.classList.add('error')
+    }else{
+        inputFirstName.classList.remove('error')
+    }
+    if(pLastName == ""){
+        bError = true
+        inputLastName.classList.add('error')
+    }else{
+        inputLastName.classList.remove('error')
+    }
+    if(pGender == ""){
+        bError = true
+        inputGender.classList.add('error')
+    }else{
+        inputGender.classList.remove('error')
+    }
+    if(pID == ""){
+        bError = true
+        inputID.classList.add('error')
+    }else{
+        inputID.classList.remove('error')
+    }
+    if(pEmail == ""){
+        bError = true
+        inputEmail.classList.add('error')
+    }else{
+        inputEmail.classList.remove('error')
+    }
+    if(pProvince == ""){
+        bError = true
+        inputProvince.classList.add('error')
+    }else{
+        inputProvince.classList.remove('error')
+    }
+    if(pCounty == ""){
+        bError = true
+        inputCounty.classList.add('error')
+    }else{
+        inputCounty.classList.remove('error')
+    }
+    if(pDistrict == ""){
+        bError = true
+        inputDistrict.classList.add('error')
+    }else{
+        inputDistrict.classList.remove('error')
+    }
+    if(pAdditionalDetails == ""){
+        bError = true
+        inputAdditionalDetails.classList.add('error')
+    }else{
+        inputAdditionalDetails.classList.remove('error')
+    }
+    if(pFavoriteGenre.length == 0){
+        bError = true
+    }
+    return bError;
+}

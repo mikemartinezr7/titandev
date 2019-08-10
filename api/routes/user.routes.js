@@ -19,4 +19,15 @@ router.route('/password')
         usersController.get_password(req,res);
     })
 
+router.route('/password')
+.post(function(req,res){
+    usersController.save_password(req,res);
+})
+
+
+router.route('/randomToken')
+.get(function(req,res){
+    usersController.get_token(req,res);
+})
+
 module.exports = router;

@@ -4,10 +4,11 @@
 
 let buttonSignIn = document.querySelector('#btnSignIn');
 let inputPassword = document.querySelector('#passPassword');
+let inputEmail = document.querySelector('#txtEmail');
 
 
 //Cuando se hace click en buttonSignIn, se llama a la función sign_in
-//buttonSignIn.addEventListener('click',sign_in);
+buttonSignIn.addEventListener('click',sign_in);
 
 //Inicio de sesión (valida contraseña y responde con éxito o error)
 
