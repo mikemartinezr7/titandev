@@ -25,6 +25,21 @@ body {
   color: #fff;
 }
 
+.topmenu ul{
+  display: table-row;
+}
+
+.topmenu ul li {
+  display: table-cell;
+  padding-right: 20px;
+}
+
+.topmenu ul li a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .user-profile {
   margin-right: 10px;
   color: #fff;
@@ -38,6 +53,13 @@ body {
 #content-container {
   background-color: #555;
   width: 100%;
+}
+
+#content {
+  background-color: #fff;
+  padding: 10px 10px 10px 70px;
+  display: block;
+  height: 100%;
 }
 
 .hidden {

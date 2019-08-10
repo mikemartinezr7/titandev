@@ -13,9 +13,9 @@ $('.left-menu-toggle').click(function () {
 });
 
 $(window).on('load', function () {
-  $('#leftmenu').height($(window).height() - $('#topmenu-container').height())
+  $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
 }).on('resize', function () {
-  $('#leftmenu').height($(window).height() - $('#topmenu-container').height())
+  $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
 });
 
 $('.notification-close').click(function () {
