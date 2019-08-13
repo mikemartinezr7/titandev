@@ -4,11 +4,11 @@
 <head>
   <title>TitanDev - Home</title>
   <link rel="stylesheet" type="text/css" href="./css/base.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div id="notifications">
-
     </div>
 
   <div id="topmenu-container">
@@ -36,8 +36,6 @@
         <li><a href="./Genre/index.html"><img src="./img/genre.png" alt="Genero"><span class="left-menu-item-text hidden">Generos</span></a></li>
         <li><a href="./users/register.html"><img src="./img/user.png" alt="Usuario"><span class="left-menu-item-text hidden">Usuario</span></a></li>
       </ul>
-
-      <button class="left-menu-toggle">>></button>
     </div>
 
     <!-- Contenido aca -->
@@ -46,14 +44,14 @@
 
   <script id="notificationTemplate" type="text/x-jQuery-tmpl">
     <div class="notification ${type}">
-      <button class="notification-close">x</button>
-      ${message}
+      <div class="notification-icon"><img src="./img/${type}.png" alt="" title="${type}-icon"></div>
+      <div class="notification-text">${message}</div>
+      <div class="notification-close"><button class="notification-close" onclick="javascript: $(this).closest('.notification').hide();">x</button></div>
     </div>
   </script>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="js/layout.js"></script>
 </body>
-
 </html>
