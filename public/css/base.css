@@ -215,7 +215,7 @@ legend {
   border: solid 1px #CED4DA;
   margin-bottom: 20px;
   background-color: #fff;
-  width: 50%;
+  width: auto;
   display: block;
   height: 50px;
 }
@@ -286,4 +286,14 @@ legend {
   100%{
     transform: scale(1);
   }
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+}
+
+.autocomplete-items {
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
 }
