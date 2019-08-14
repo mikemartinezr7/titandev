@@ -40,7 +40,7 @@ function show_authors(authors) {
     var linkText = document.createTextNode(authors[i]['firstname']);
     link.appendChild(linkText);
     link.title = authors[i]['firstname'];
-    link.href = 'viewauthor.html?id=' + authors[i]['_id'];
+    link.href = 'authorsview.html?id=' + authors[i]['_id'];
 
     fila.insertCell().appendChild(link);
     fila.insertCell().innerHTML = authors[i]['firstname'];
@@ -52,13 +52,13 @@ function show_authors(authors) {
 
     // Creación del botón de editar
     let edit_button = document.createElement('a');
-    edit_button.textContent = 'Editar';
-    edit_button.href = `updateAuthor.html?id_author=${authors[i]['_id']}`;
+    edit_button.textContent = 'ver perfil';
+    edit_button.href = `authorsview.html?id_author=${authors[i]['_id']}`;
 
     cell_configuration.appendChild(edit_button);
   }
   
-};
+}; 
 
 show_authors(authors);
 
