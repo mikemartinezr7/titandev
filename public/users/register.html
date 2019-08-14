@@ -11,29 +11,37 @@
     <body>
         <form>
             <div>
-                <label for="txtFirstName">Primer Nombre *</label>
+                <label for="txtFirstName">Primer nombre *</label>
                 <input type="text" id="txtFirstName">
             </div>
             <div>
-                <label for="txtMiddleName">Segundo Nombre</label>
+                <label for="txtMiddleName">Segundo nombre</label>
                 <input type="text" id="txtMiddleName">
             </div>
             <div>
-                <label for="txtLastName">Primer Apellido *</label>
+                <label for="txtLastName">Primer apellido *</label>
                 <input type="text" id="txtLastName">
             </div>
             <div>
-                <label for="txtSecondLastName">Segundo Apellido</label>
+                <label for="txtSecondLastName">Segundo apellido</label>
                 <input type="text" id="txtSecondLastName">
             </div>
             <div>
                 <label for="sltGender">Género *</label>
                 <select id="sltGender">
                     <option value=""></option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Otro">Otro</option>
-                    <option value="Prefiero no decir">Prefiero no decir</option>
+                    <option value="F">Femenino</option>
+                    <option value="M">Masculino</option>
+                    <option value="O">Otro</option>
+                    <option value="P">Prefiero no decir</option>
+                </select>
+            </div>
+            <div>
+                <label for="sltIDType">Tipo de identificación *</label>
+                <select id="sltIDType">
+                    <option value=""></option>
+                    <option value="nacional">Nacional</option>
+                    <option value="residente">Residente</option>
                 </select>
             </div>
             <div>
@@ -41,7 +49,7 @@
                 <input type="text" id="txtID">
             </div>
             <div>
-                <label for="txtEmail">Correo Electrónico *</label>
+                <label for="txtEmail">Correo electrónico *</label>
                 <input type="text" id="txtEmail">
             </div>
             <div>
@@ -57,12 +65,12 @@
                 </select>
             </div>
             <div>
-                    <label for="txtAdditionalDetails">Otras Señas *</label>
+                    <label for="txtAdditionalDetails">Otras señas *</label>
                     <input type="text" id="txtAdditionalDetails">
             </div>
             <div>
-                    Géneros Favoritos *<br>
-                    <input type="checkbox" id="fiction">Ficcion
+                    Géneros favoritos *<br>
+                    <input type="checkbox" id="fiction">Ficción
                     <input type="checkbox" id="terror">Terror
                     <input type="checkbox" id="comedy">Comedia
                     <input type="checkbox" id="drama">Drama
@@ -72,18 +80,18 @@
                     <input type="checkbox" id="story">Cuento
                     <input type="checkbox" id="thriller">Thriller
                     <input type="checkbox" id="tale">Fábula
-                    <input type="checkbox" id="didacticNovel">Novela Didáctica
+                    <input type="checkbox" id="didacticNovel">Novela didáctica
             </div>
             <div>
-                    <label for="txtFavoriteBook">Libro Favorito</label>
+                    <label for="txtFavoriteBook">Libro favorito</label>
                     <input type="text" id="txtFavoriteBook">
             </div>
-            <div>
-                    <label for="txtFavoriteAuthor">Autor Favorito</label>
+            <div class="autocomplete">
+                    <label for="txtFavoriteAuthor">Autor favorito</label>
                     <input type="text" id="txtFavoriteAuthor">
             </div>
             <div>
-                    <label for="txtNickname">Sobrenombre</label>
+                    <label for="txtNickname">Sobrenombre *</label>
                     <input type="text" id="txtNickname">
             </div>
             <div>
@@ -102,5 +110,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="../js/provinces.js"></script>
 <script src="../js/users/register.js"></script>
+<script type="text/javascript">
+    window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier =='Enter'||e.keyCode==13){if(e.target.nodeName === 'INPUT'&&e.target.type !== 'textarea'){e.preventDefault();return false;}}},true);
+    </script>
+
+<script>
+        autocomplete(document.getElementById("txtFavoriteAuthor"), authors);
+        </script>
 
 </html>

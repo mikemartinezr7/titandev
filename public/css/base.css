@@ -198,7 +198,7 @@ legend {
 .library-details {
   float: left;
   text-align: left;
-  width: 800px;
+  width: auto;
   height: 250px;
   display: block;
   margin-left: 100px;
@@ -220,7 +220,7 @@ legend {
   border: solid 1px #CED4DA;
   margin-bottom: 20px;
   background-color: #fff;
-  width: 50%;
+  width: auto;
   display: block;
   height: 50px;
 }
@@ -264,4 +264,14 @@ legend {
   background-color: #F8D7DA;
   border-color: #F5C6CA;
   color: #721C23;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+}
+
+.autocomplete-items {
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
 }
