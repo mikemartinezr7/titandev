@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 const LibraryModel = require('../db/models/library.model');
 const { UserModel } = require('../db/models/user.model');
@@ -50,6 +51,21 @@ const controller = {
       type: 'library'
     });
 
+    let image = '';
+
+    if (req.files) {
+      image = req.files.fileImage;
+      image.mv(path.join('../public/uploads/libraries/', image.name), function(error) {
+        if (error) {
+          console.log('error en mv: ', error);
+        } else {
+          console.log('no error en mv');
+        }
+      });
+    } else {
+      image = '';
+    }
+    
     let newLibrary = new LibraryModel({
       commercialName: req.body.txtComercialName,
       brandName: req.body.txtBrandName,
@@ -58,24 +74,26 @@ const controller = {
       district: req.body.sltDistrict,
       address: req.body.txtAddress,
       location: req.body.txtLocation,
+      image: image.name,
       admin: newUser
     });
 
-    /*
-    {
-  “error” : {
-    “code”: 400,
-    “message” : “Error al registrar el usuario”
-    "detail": "Aqui error que retorna la BD o el callback, el mensaje que retorna mongo o nodejs"
-    “errors”: [
-      { “message” : "El campo email es obligatorio" },
-      { “message” : "El campo password debe ser mayor a 8 caracteres" },
-    ]
-  }
-}
-    */
+    let validation = newLibrary.validateSync();
 
-    newLibrary.save(function (error, library) {
+    let errors = Object.keys(validation.errors).map(function(key, index) {
+      return validation.errors[key].message;
+    });
+
+    if (errors && errors.length > 0) {
+      res.status(400).json({
+        code: 400,
+        message : 'Ha ocurrido un error al registrar la libreria',
+        detail: validation.errors,
+        errors: errors
+      });
+    }
+
+    /*newLibrary.save(function (error, library) {
       if (error) {
         res.status(400).json({
           success: false,
@@ -96,7 +114,7 @@ const controller = {
           }
         });
       }
-    });
+    });*/
   }
 }
 

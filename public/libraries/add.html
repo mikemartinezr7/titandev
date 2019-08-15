@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro de libreria</title>
-  
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="../css/base.css">
 </head>
 
@@ -14,13 +15,12 @@
   <p>Llene los siguientes formularios con los datos respectivos.</p>
   <p>Los datos con el símbolo (*) son requeridos.</p>
 
-  <div class="box-alert">
-    <h3>Los siguientes campos necesitan ser revisados:</h3>
-    <ul>
-    </ul>
+  <div class="box-alert" style="display: none">
+    <h4>Los siguientes campos necesitan ser revisados:</h4>
+    <ul></ul>
   </div>
 
-  <form name="frmAddUser" id="frmAddUser" method="POST" class="form">
+  <form name="frmAddUser" id="frmAddUser" method="POST" class="form" enctype="multipart/form-data">
     <fieldset>
       <legend>Datos generales:</legend>
       

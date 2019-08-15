@@ -44,53 +44,66 @@ function isValidData() {
   return isValid;
 }
 
-$('#btnSubmit').click(function (event) {
+$('#frmAddUser').on('submit', function (event) {
   event.preventDefault();
 
-  if (isValidData()) {
-    let data = $('#frmAddUser').serialize();
+  //if (isValidData()) {
+    $.ajax({
+      url: '/api/library',
+      type: 'POST',
+      data: new FormData(this),
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+        $('#btnSubmit').prop('disabled', true);
+      },
+      success: function (data) {
+        console.log('success');
+      },
+      error: function (response) {
+        let errors = response.responseJSON.errors || [];
 
-    const request = $.post('/api/library', data)
-      .done(function (response) {
-        if (response.success && response.success == true) {
-          $('#frmAddUser').trigger('reset');
-          console.log('Libreria registrada correctamente');
-        } else {
-          console.log('Error en datos de libreria')
+        if (errors && errors.length > 0) {
+          $('.box-alert ul').empty();
+          errors.map(function(key, index) {
+            $('.box-alert ul').append('<li>' + key + '</li>');
+          });
+          
+          $(window).scrollTop(0);
+          $('.box-alert').show();
+          $('#btnSubmit').prop('disabled', false);
         }
-      })
-      .fail(function (response) {
-        console.log('Fail');
-        console.log(response);
-      });
-  }
+      }
+    });
+  //}
 });
 
 $('#btnSearch').click(function (event) {
   loadLibraries($('#txtSearch').val());
 });
 
-$('#txtSearch').keypress(function(event){
+$('#txtSearch').keypress(function (event) {
   let keycode = (event.keyCode ? event.keyCode : event.which);
-  
+
   if (keycode == 13) {
     loadLibraries($('#txtSearch').val());
   }
 });
 
-function loadLibraries( searchText) {
+function loadLibraries(searchText) {
   let param = {};
 
   if (searchText && searchText != '') {
     param = { search: searchText }
   }
-  
+
   $.get('/api/library', param)
-  .done(function(libraries) {
-    $('#libraries').empty();
-    $('#libraryTemplate').tmpl(libraries).appendTo('#libraries');
-  }).fail(function (response) {
-    $('#libraries').empty();
-    $('#emptylibraryTemplate').tmpl({}).appendTo('#libraries');
-  });
+    .done(function (libraries) {
+      $('#libraries').empty();
+      $('#libraryTemplate').tmpl(libraries).appendTo('#libraries');
+    }).fail(function (response) {
+      $('#libraries').empty();
+      $('#emptylibraryTemplate').tmpl({}).appendTo('#libraries');
+    });
 }

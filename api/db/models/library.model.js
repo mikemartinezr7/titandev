@@ -7,7 +7,7 @@ const { UserSchema } =  require('./user.model');
 const LibrarySchema = mongoose.Schema({
   commercialName: {
     type: String,
-    required: true,
+    required: [true, 'El campo "Nombre comercial" es requerido'],
   },
   brandName: {
     type: String,
@@ -15,23 +15,27 @@ const LibrarySchema = mongoose.Schema({
   },
   province: {
     type: String,
-    required: false,
+    required: [true, 'El campo "Provincia" es requerido'],
   },
   county: {
     type: String,
-    required: false,
+    required: [true, 'El campo "Canton" es requerido'],
   },
   district: {
     type: String,
-    required: false,
+    required: [true, 'El campo "Distrito" es requerido'],
   },
   address: {
     type: String,
-    required: true,
+    required: [true, 'El campo "Señas particulares" es requerido'],
   },
   location: {
     type: String,
     required: false,
+  },
+  image: {
+    type: String,
+    require: false
   },
   admin: [UserSchema]
 });

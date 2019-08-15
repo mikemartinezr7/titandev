@@ -173,4 +173,3 @@ ROGER
 - Agregar foto a autores
 - Listar y buscar y perfil de generos
 - Listar y buscar y perfil de autores
-

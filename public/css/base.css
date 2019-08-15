@@ -1,7 +1,7 @@
 body {
   margin: 0;
   text-align: left;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #333;
   background-color: #f5f8fa
@@ -334,7 +334,7 @@ form label {
   margin-bottom: 5px;
 }
 
-.form input[type=text], input[type=password], textarea, select {
+.form input[type=text], input[type=password], input[type=number], input[type=date], textarea, select {
   width: 99%;
   margin: 5px 0;
 }
