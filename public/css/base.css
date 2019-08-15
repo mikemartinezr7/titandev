@@ -53,21 +53,18 @@ body {
 #content-container {
   background-color: #555;
   width: 100%;
+  overflow-y: auto;
 }
 
 #content {
   background-color: #fff;
-  padding: 10px 10px 10px 70px;
+  padding: 10px;
+  margin-left: 70px;
   display: block;
-  height: 100%;
 }
 
 .hidden {
   display: none;
-}
-
-.left-menu-item-text {
-  margin-left: 5px;
 }
 
 .left-menu-open {
@@ -76,8 +73,7 @@ body {
   width: 150px;
   left: 0;
   position: absolute;
-  padding: 5px;
-  margin: 0 auto;
+  padding: 20px 10px;
   text-align: left;
   border: solid 1px #DFDFDF;
   -webkit-transition: width 0.3s;
@@ -86,14 +82,27 @@ body {
 
 .left-menu-open ul {
   list-style: none;
-  padding-left: 0; 
+  padding-left: 10px;
+  display: table;
+  margin: 0;
 }
 
 .left-menu-open ul li {
-  padding: 10px;
-  vertical-align: middle;
+  display: table-row;
+}
+
+.left-menu-open ul li a {
+  text-decoration: none;
   display: block;
-  height: 30px;
+  height: 50px;
+}
+
+.left-menu-open ul li a:hover {
+  text-decoration: underline;
+}
+
+.left-menu-item-text {
+  margin-left: 10px;
 }
 
 .left-menu-close {
@@ -102,8 +111,7 @@ body {
   width: 50px;
   left: 0;
   position: absolute;
-  padding: 5px;
-  margin: 0 auto;
+  padding: 20px 10px;
   text-align: left;
   border: solid 1px #DFDFDF;
   -webkit-transition: width 0.3s;
@@ -112,12 +120,19 @@ body {
 
 .left-menu-close ul {
   list-style: none;
-  padding-left: 0; 
+  padding-left: 10px;
+  display: table;
+  margin: 0;
 }
 
 .left-menu-close ul li {
-  padding: 10px;
-  height: 30px;
+  display: table-row;
+}
+
+.left-menu-close ul li a {
+  text-decoration: none;
+  display: block;
+  height: 50px;
 }
 
 input[type=password], input[type=text], input[type=date] {
@@ -146,7 +161,7 @@ textarea {
   border: 1px solid red!important;
 }
 
-.button {
+.button-primary {
   display: inline-block;
   padding: 6px 12px;
   font-size: 14px;
@@ -155,16 +170,42 @@ textarea {
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border-color: #3097D1;
+  background-color: #3097D1;
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 20px; 
+}
+
+.button-primary:hover {
+  border-color: #2781B3;
+  background-color: #2781B3;
+}
+
+.button-secondary {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-color: #d4dbe0;
+  background-color: #d4dbe0;
+  color: #212529;
+  border-radius: 20px;
+  padding: 5px 20px; 
 }
 
 fieldset {
   padding: 20px;
   height: auto;
   margin-bottom: 20px;
-  border-color: #ddd;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
+  width: 70%;
+  background-color: #fff;
 }
 
 legend {
@@ -209,13 +250,13 @@ legend {
   background-color: #CED4DA;
 }
 
-.search {
-  padding: 15px;
+.box {
+  padding: 20px;
   border-radius: 5px;
-  border: solid 1px #CED4DA;
+  border: 1px solid #e5e5e5;
   margin-bottom: 20px;
   background-color: #fff;
-  width: auto;
+  width: 70%;
   display: block;
   height: 50px;
 }
@@ -272,6 +313,54 @@ legend {
   background-color: #F8D7DA;
   border-color: #F5C6CA;
   color: #721C23;
+}
+
+form label {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.form input[type=text], input[type=password], textarea, select {
+  width: 99%;
+  margin: 5px 0;
+}
+
+.row {
+  width: 99%;
+  height: auto;
+  padding: 5px;
+  margin-bottom: 5px;
+  clear: both;
+  display: block;
+  overflow-y: auto;
+}
+
+.col-12 {
+  width: 98%;
+  height: auto;
+  padding: 5px;
+  float: left;
+}
+
+.col-6 {
+  width: 48%;
+  height: auto;
+  padding: 5px;
+  float: left;
+}
+
+.col-4 {
+  width: 31%;
+  height: auto;
+  padding: 5px;
+  float: left;
+}
+
+.col-2 {
+  width: 23%;
+  height: auto;
+  padding: 5px;
+  float: left;
 }
 
 @keyframes bounceIn {
