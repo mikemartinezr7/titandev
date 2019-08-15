@@ -61,6 +61,20 @@ const controller = {
       admin: newUser
     });
 
+    /*
+    {
+  “error” : {
+    “code”: 400,
+    “message” : “Error al registrar el usuario”
+    "detail": "Aqui error que retorna la BD o el callback, el mensaje que retorna mongo o nodejs"
+    “errors”: [
+      { “message” : "El campo email es obligatorio" },
+      { “message” : "El campo password debe ser mayor a 8 caracteres" },
+    ]
+  }
+}
+    */
+
     newLibrary.save(function (error, library) {
       if (error) {
         res.status(400).json({

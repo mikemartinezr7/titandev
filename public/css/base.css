@@ -261,7 +261,21 @@ legend {
   height: 50px;
 }
 
-.search button {
+.box-alert {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #F5C6CA;
+  margin-bottom: 20px;
+  background-color: #F8D7DA;
+  width: 70%;
+  display: block;
+  height: auto;
+  color: #721C23;
+  animation: bounceIn 0.8s;
+  -webkit-animation: bounceIn 0.8s;
+}
+
+.box button {
   height: 29px;
 }
 
