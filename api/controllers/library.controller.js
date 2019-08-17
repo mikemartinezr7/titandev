@@ -35,19 +35,19 @@ const controller = {
 
   create: function (req, res) {
     let newUser = new UserModel({
-      firstName: req.body.txtFirstName,
-      middleName: req.body.txtMiddleName,
-      firstLastName: req.body.txtLastName1,
-      secondLastName: req.body.txtLastName2,
-      gender: req.body.selGender,
-      idType: req.body.sltIdType,
-      id: req.body.txtId,
-      province: req.body.sltProvince,
-      county: req.body.sltCounty,
-      district: req.body.sltDistrict,
-      nickname: req.body.txtFirstName.toLowerCase() + '.' + req.body.txtLastName1.toLowerCase() + '.' + req.body.txtLastName2[0].toLowerCase(),
-      email: req.body.txtEmail,
-      password: req.body.txtPassword,
+      firstName: req.body.firstName,
+      middleName: req.body.middleName,
+      firstLastName: req.body.firstLastName,
+      secondLastName: req.body.secondLastName,
+      gender: req.body.gender,
+      idType: req.body.idType,
+      id: req.body.id,
+      province: req.body.province,
+      county: req.body.county,
+      district: req.body.district,
+      nickname: req.body.firstName.toLowerCase() + '.' + req.body.firstLastName.toLowerCase() + '.' + req.body.secondLastName.toLowerCase(),
+      email: req.body.email,
+      password: req.body.password,
       type: 'library'
     });
 
@@ -67,54 +67,67 @@ const controller = {
     }
     
     let newLibrary = new LibraryModel({
-      commercialName: req.body.txtComercialName,
-      brandName: req.body.txtBrandName,
-      province: req.body.sltProvince,
-      county: req.body.sltCounty,
-      district: req.body.sltDistrict,
-      address: req.body.txtAddress,
-      location: req.body.txtLocation,
+      commercialName: req.body.commercialName,
+      brandName: req.body.brandName,
+      province: req.body.province,
+      county: req.body.county,
+      district: req.body.district,
+      address: req.body.address,
+      location: req.body.location,
       image: image.name,
       admin: newUser
     });
 
+    let errors = [];
     let validation = newLibrary.validateSync();
 
-    let errors = Object.keys(validation.errors).map(function(key, index) {
-      return validation.errors[key].message;
-    });
-
-    if (errors && errors.length > 0) {
-      res.status(400).json({
-        code: 400,
-        message : 'Ha ocurrido un error al registrar la libreria',
-        detail: validation.errors,
-        errors: errors
+    if (validation) {
+      errors = Object.keys(validation.errors).map(function(key, index) {
+        return {
+          field: validation.errors[key].path,
+          message: validation.errors[key].message
+        }
       });
     }
 
-    /*newLibrary.save(function (error, library) {
-      if (error) {
-        res.status(400).json({
-          success: false,
-          msg: 'Ha ocurrido un error registrando la libreria. ' + error
-        });
-      } else {
-        newUser.save(function(error, user) {
-          if (error) {
-            res.status(400).json({
-              success: false,
-              msg: 'Ha ocurrido un error registrado la libreria. ' + error
-            });
-          } else {
-            res.status(200).json({
-              success: true,
-              msg: 'Libreria registrada correctamente'
-            });
-          }
-        });
-      }
-    });*/
+    if (errors && errors.length > 0) {
+      res.status(400).json({
+        success: false,
+        code: 400,
+        message : 'Ha ocurrido un error al registrar la librería',
+        detail: validation.errors,
+        errors: errors
+      });
+    } else {
+      newLibrary.save(function (error, library) {
+        if (error) {
+          res.status(400).json({
+            success: false,
+            code: 400,
+            message : 'Ha ocurrido un error al registrar la librería',
+            detail: error
+          });
+        } else {
+          newUser.save(function(error, user) {
+            if (error) {
+              res.status(400).json({
+                success: false,
+                code: 400,
+                message : 'Ha ocurrido un error al registrar el usuario de la librería',
+                detail: error
+              });
+            } else {
+              res.status(200).json({
+                success: true,
+                code: 200,
+                message : 'Librería registrada correctamente',
+                detail: user
+              });
+            }
+          });
+        }
+      });
+    }
   }
 }
 

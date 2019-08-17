@@ -25,9 +25,9 @@ function getProvinces() {
   return provinces;
 };
 
-const selectProvinces = document.querySelector('#sltProvince');
-const selectCounties = document.querySelector('#sltCounty');
-const selectDistricts = document.querySelector('#sltDistrict');
+const selectProvinces = document.querySelector('#sltProvince') || document.querySelector('#province');
+const selectCounties = document.querySelector('#sltCounty') || document.querySelector('#county');
+const selectDistricts = document.querySelector('#sltDistrict') || document.querySelector('#district');
 
 let addProvinces = () => {
   let blankOption = new Option('');

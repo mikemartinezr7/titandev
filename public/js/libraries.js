@@ -60,19 +60,28 @@ $('#frmAddUser').on('submit', function (event) {
       },
       success: function (data) {
         console.log('success');
+        $('#btnSubmit').prop('disabled', false);
       },
       error: function (response) {
         let errors = response.responseJSON.errors || [];
 
         if (errors && errors.length > 0) {
           $('.box-alert ul').empty();
+          
+          $('.error').each(function(index) {
+            $(this).removeClass('error');
+          });
+
           errors.map(function(key, index) {
-            $('.box-alert ul').append('<li>' + key + '</li>');
+            $('.box-alert ul').append('<li>' + key.message + '</li>');
+            $('#' + key.field).addClass('error');
           });
           
           $(window).scrollTop(0);
           $('.box-alert').show();
           $('#btnSubmit').prop('disabled', false);
+        } else {
+          alert(res);
         }
       }
     });
