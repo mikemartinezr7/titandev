@@ -11,7 +11,8 @@ module.exports.create = function(req, res){
             startTime : req.body.startTime,
             endTime : req.body.endTime,   
             day : req.body.day,
-            branch : req.body.branch
+            branch : req.body.branch,
+            status : 'Activo'
         }
     );
     new_club.save(

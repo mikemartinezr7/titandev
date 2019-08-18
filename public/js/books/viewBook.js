@@ -26,12 +26,12 @@ let search_book = (id_book) => { //servidor
    
   };
 
-const register_button = document.querySelector('#btn_register');
+//const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
 const input_image = document.querySelector('#txt_image')
 const slt_genre = document.querySelector('#slt_genre');
 const input_author = document.querySelector('#txt_author');
-const input_description = document.querySelector('#txt_description');
+var input_description = document.querySelector('#txt_description');
 const input_year = document.querySelector('#txt_year');
 const input_editorial = document.querySelector('#txt_editorial');
 const slt_type = document.querySelector('#slt_type');

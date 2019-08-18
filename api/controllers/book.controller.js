@@ -16,7 +16,8 @@ module.exports.create = function (req, res) {
       language: req.body.language,
       isbn: req.body.isbn,
       price: req.body.price,
-      quantity: req.body.quantity
+      quantity: req.body.quantity,
+      status: 'Active'
     }
   );
   new_book.save(

@@ -14,7 +14,8 @@ let schema_books = mongoose.Schema({
     language : {type: String, required : true},
     isbn : {type: String, required : true, unique : true},
     price : {type: Number, required : true},
-    quantity : {type: Number, required : true}
+    quantity : {type: Number, required : true},
+    status : {type: String, required : true}
 });
 
 module.exports = mongoose.model('Book', schema_books); 
