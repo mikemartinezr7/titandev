@@ -1,5 +1,7 @@
 'use strict';
 
+//Se obtienen los usuarios creados para validaciones de datos únicos
+
 const users = getUsers();
 
 function getUsers() {
@@ -33,6 +35,7 @@ let inputMiddleName = document.querySelector('#txtMiddleName');
 let inputLastName = document.querySelector('#txtLastName');
 let inputSecondLastName = document.querySelector('#txtSecondLastName');
 let inputGender = document.querySelector('#sltGender');
+let inputIDType = document.querySelector('#sltIDType');
 let inputID = document.querySelector('#txtID');
 var inputEmail = document.querySelector ('#txtEmail');
 let inputProvince = document.querySelector('#sltProvince');
@@ -53,20 +56,13 @@ let inputDidacticNovel = document.querySelector('#didacticNovel');
 let inputFavoriteBook = document.querySelector('#txtFavoriteBook');
 let inputFavoriteAuthor = document.querySelector('#txtFavoriteAuthor');
 let inputNickname = document.querySelector('#txtNickname');
-let inputAvatar = document.querySelector('#upload-file');
+let inputAvatar = document.querySelector('#image_preview');
 let inputExchange = document.querySelector('#Exchange');
-
-
-//Cuando se hace click en #choose-button, se hace click en #upload-file
-document.querySelector('#choose-button').addEventListener('click', function() {
-	document.querySelector('#upload-file').click();
-});
 
 //Cuando se hace click en buttonRegister, se llama a la función register_user
 buttonRegister.addEventListener('click',register_user);
 
-
-//Valida que los campos únicos no estén siendo utilizados
+//Validar que los campos únicos no estén siendo utilizados
 inputID.addEventListener('change',find_ID);
 inputEmail.addEventListener('change',find_Email);
 inputNickname.addEventListener('change',find_Nickname);
@@ -140,6 +136,7 @@ function register_user(){
     let SecondLastName = inputSecondLastName.value;
     let Gender = inputGender.value;
     let ID = inputID.value;
+    let IDType = inputIDType.value;
     let Email = inputEmail.value;
     let Province = inputProvince.value;
     let County = inputCounty.value;
@@ -148,15 +145,15 @@ function register_user(){
     let FavoriteBook = inputFavoriteBook.value;
     let FavoriteAuthor = inputFavoriteAuthor.value;
     let Nickname = inputNickname.value;
-    let Avatar = inputAvatar.files[0];
+    let Avatar = inputAvatar.src;
     let Exchange = inputExchange.checked;
 
     let bError = false;
 
-    bError = validate(FirstName,LastName,Gender,ID,Email,Province,County,District,AdditionalDetails,FavoriteGenre);
+    bError = validate(FirstName,LastName,Gender,ID,IDType,Email,Province,County,District,AdditionalDetails,FavoriteGenre,Nickname);
  
     if(bError == false){
-        register(FirstName,MiddleName,LastName,SecondLastName,Gender,ID,Email,Province,County,District,AdditionalDetails,FavoriteGenre,FavoriteBook,FavoriteAuthor,Nickname,Avatar,Exchange);
+        register(FirstName,MiddleName,LastName,SecondLastName,Gender,ID,IDType,Email,Province,County,District,AdditionalDetails,FavoriteGenre,FavoriteBook,FavoriteAuthor,Nickname,Avatar,Exchange);
         console.log("¡Usuario registrado!");
     }else{
         console.log("Corrija los errores");
@@ -165,7 +162,7 @@ function register_user(){
 
 //Registrar en la base de datos
 
-function register(pFirstName,pMiddleName,pLastName,pSecondLastName,pGender,pID,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre,pFavoriteBook,pFavoriteAuthor,pNickname,pAvatar,pExchange){
+function register(pFirstName,pMiddleName,pLastName,pSecondLastName,pGender,pID,pIDType,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre,pFavoriteBook,pFavoriteAuthor,pNickname,pAvatar,pExchange){
     let request = $.ajax({
         url : '/api/user',
         method : "POST",
@@ -176,6 +173,7 @@ function register(pFirstName,pMiddleName,pLastName,pSecondLastName,pGender,pID,p
             secondLastName : pSecondLastName,
             gender : pGender,
             id : pID,
+            idType : pIDType,
             province : pProvince,
             county : pCounty,
             district : pDistrict,
@@ -201,7 +199,7 @@ function register(pFirstName,pMiddleName,pLastName,pSecondLastName,pGender,pID,p
 
 //Validar la información ingresada
 
-function validate(pFirstName,pLastName,pGender,pID,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre){
+function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre,pNickname){
 
     let bError = false;
 
@@ -228,6 +226,12 @@ function validate(pFirstName,pLastName,pGender,pID,pEmail,pProvince,pCounty,pDis
         inputID.classList.add('error')
     }else{
         inputID.classList.remove('error')
+    }
+    if(pIDType == ""){
+        bError = true
+        inputIDType.classList.add('error')
+    }else{
+        inputIDType.classList.remove('error')
     }
     if(pEmail == ""){
         bError = true
@@ -261,6 +265,15 @@ function validate(pFirstName,pLastName,pGender,pID,pEmail,pProvince,pCounty,pDis
     }
     if(pFavoriteGenre.length == 0){
         bError = true
+        document.getElementById("favGenre").classList.add('error');
+    }else{
+        document.getElementById("favGenre").classList.add('error');
+    }
+    if(pAdditionalDetails == ""){
+        bError = true
+        inputNickname.classList.add('error')
+    }else{
+        inputNickname.classList.remove('error')
     }
     return bError;
 }
@@ -307,11 +320,33 @@ function find_Nickname(){
 
 }
 
-document.getElementById("choose-button").addEventListener("click", function(event){
-    event.preventDefault()
+//Se recuperan todos los autores de la base de datos
+var authors = getAuthors();
+
+function getAuthors() {
+  let authors = "";
+  let request = $.ajax({
+    url: '/api/author',
+    type: 'get',
+    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    dataType: 'json',
+    async: false,
+    data: {
+    }
   });
 
-var authors = ["Gabriel García Márquez","Patrick Rothfuss","Pedrito"]
+  request.done(function (response) {
+    authors = response;
+  });
+
+  request.fail(function (error) {
+    console.log('Error al cargar los autores. ' + error);
+  });
+
+
+
+  return authors;
+};
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -409,5 +444,3 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   }
-
-  
