@@ -10,6 +10,7 @@ let schema_clubs = mongoose.Schema({
     endTime : {type: String, required : false},
     day : {type: String, required : false},
     branch : {type: String, required : true},
+    status : {type: String, required : true}
 });
 
 module.exports = mongoose.model('Club', schema_clubs); 

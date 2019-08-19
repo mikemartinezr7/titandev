@@ -11,7 +11,7 @@
     <body>
         <form>
             <div>
-                <label for="txtFirstName">Primer nombre *</label>
+                <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
                 <input type="text" id="txtFirstName">
             </div>
             <div>
@@ -19,7 +19,7 @@
                 <input type="text" id="txtMiddleName">
             </div>
             <div>
-                <label for="txtLastName">Primer apellido *</label>
+                <label for="txtLastName">Primer apellido <span class="red">*</span></label>
                 <input type="text" id="txtLastName">
             </div>
             <div>
@@ -27,7 +27,7 @@
                 <input type="text" id="txtSecondLastName">
             </div>
             <div>
-                <label for="sltGender">Género *</label>
+                <label for="sltGender">Género <span class="red">*</span></label>
                 <select id="sltGender">
                     <option value=""></option>
                     <option value="F">Femenino</option>
@@ -37,7 +37,7 @@
                 </select>
             </div>
             <div>
-                <label for="sltIDType">Tipo de identificación *</label>
+                <label for="sltIDType">Tipo de identificación <span class="red">*</span></label>
                 <select id="sltIDType">
                     <option value=""></option>
                     <option value="nacional">Nacional</option>
@@ -45,15 +45,15 @@
                 </select>
             </div>
             <div>
-                <label for="txtID">Identificación *</label>
+                <label for="txtID">Identificación <span class="red">*</span></label>
                 <input type="text" id="txtID">
             </div>
             <div>
-                <label for="txtEmail">Correo electrónico *</label>
+                <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
                 <input type="text" id="txtEmail">
             </div>
             <div>
-                Dirección *<br>
+                Dirección <span class="red">*</span><br>
                 <label for="sltProvince">Provincia</label>
                 <select id="sltProvince">
                 </select>
@@ -65,22 +65,24 @@
                 </select>
             </div>
             <div>
-                    <label for="txtAdditionalDetails">Otras señas *</label>
+                    <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
                     <input type="text" id="txtAdditionalDetails">
             </div>
             <div>
-                    Géneros favoritos *<br>
-                    <input type="checkbox" id="fiction">Ficción
-                    <input type="checkbox" id="terror">Terror
-                    <input type="checkbox" id="comedy">Comedia
-                    <input type="checkbox" id="drama">Drama
-                    <input type="checkbox" id="tragedy">Tragedia
-                    <input type="checkbox" id="romance">Romance
-                    <input type="checkbox" id="novel">Novela
-                    <input type="checkbox" id="story">Cuento
-                    <input type="checkbox" id="thriller">Thriller
-                    <input type="checkbox" id="tale">Fábula
-                    <input type="checkbox" id="didacticNovel">Novela didáctica
+                    Géneros favoritos <span class="red">*</span><br>
+                    <div id="favGenre">
+                        <input type="checkbox" id="fiction">Ficción
+                        <input type="checkbox" id="terror">Terror
+                        <input type="checkbox" id="comedy">Comedia
+                        <input type="checkbox" id="drama">Drama
+                        <input type="checkbox" id="tragedy">Tragedia
+                        <input type="checkbox" id="romance">Romance
+                        <input type="checkbox" id="novel">Novela
+                        <input type="checkbox" id="story">Cuento
+                        <input type="checkbox" id="thriller">Thriller
+                        <input type="checkbox" id="tale">Fábula
+                        <input type="checkbox" id="didacticNovel">Novela didáctica
+                    </div>
             </div>
             <div>
                     <label for="txtFavoriteBook">Libro favorito</label>
@@ -91,13 +93,14 @@
                     <input type="text" id="txtFavoriteAuthor">
             </div>
             <div>
-                    <label for="txtNickname">Sobrenombre *</label>
+                    <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
                     <input type="text" id="txtNickname">
             </div>
             <div>
-                    <label for="avatar">Foto de perfil</label>
-                    <input type="file" accept="image/png, image/jpeg" style="display:none" id="upload-file" >
-                    <button id="choose-button">Seleccionar Imagen</button>
+                <figure>
+                    <img src="../img/no-avatar.jpg" alt="no photo" id="image_preview">
+                </figure>  
+                <button type="button" id="btnChooseImage">Subir imagen</button>
             </div>
             <div>
                     <label for="Exchange">Deseo intercambiar libros</label>
@@ -109,13 +112,22 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="../js/provinces.js"></script>
+
 <script src="../js/users/register.js"></script>
+
+<!--Desabilita Enter para enviar la información-->
 <script type="text/javascript">
     window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier =='Enter'||e.keyCode==13){if(e.target.nodeName === 'INPUT'&&e.target.type !== 'textarea'){e.preventDefault();return false;}}},true);
-    </script>
+</script>
 
+<!--Autocompleta los autores para el campo de autor favorito-->
 <script>
-        autocomplete(document.getElementById("txtFavoriteAuthor"), authors);
-        </script>
+    autocomplete(document.getElementById("txtFavoriteAuthor"), authors.firstname);
+</script>
+
+<!-- Scripts cloudinary -->
+<script src="../js/images.js"></script>
+<script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+<script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 </html>

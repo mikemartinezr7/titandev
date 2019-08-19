@@ -10,6 +10,7 @@ module.exports.create = function(req,res){
         secondLastName : req.body.secondLastName,
         gender : req.body.gender,
         id : req.body.id,
+        idType : req.body.idType,
         province : req.body.province,
         county : req.body.county,
         district : req.body.district,

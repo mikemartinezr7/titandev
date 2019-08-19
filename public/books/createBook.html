@@ -6,14 +6,15 @@
         <link rel="stylesheet" href="../css/base.css">
     </head>
     <body>
-        <form>
+        <form id = "bookForm">
             <div>
                 <label for="txt_name">Nombre</label>
                 <input type="text" id="txt_name">
             </div>
             <div>
                 <label for="txt_image">Imagen</label>
-                <input type="text" id="txt_image">
+                <input type="file" accept="image/png, image/jpeg" style="display:none" id="upload-file">
+                <button id="choose-button">Seleccionar Imagen</button>
                 </div>
             <div>
                 <label for="slt_genre">Género</label>
@@ -37,9 +38,9 @@
                 <input type="text" id="txt_author">
             </div>
             <div>
-                <label for="txt_description">Descripción</label>
-                <input type="text" id="txt_description">
-                </div>
+            <label for="txt_description">Descripción</label>
+            <textarea id = "txt_description" rows = "10" name = "txt_description"></textarea>
+            </div>
             <div>
                 <label for="txt_year">Año</label>
                 <input type="number" id="txt_year">
@@ -89,5 +90,6 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script> 
         
         <script src="../js/books/createBooks.js"></script>
+        </script>
     </body>
 </html>

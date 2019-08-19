@@ -2,10 +2,10 @@
 
 const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
-const input_image = document.querySelector('#txt_image')
+const input_image = document.querySelector('#upload-file')
 const slt_genre = document.querySelector('#slt_genre');
 const input_author = document.querySelector('#txt_author');
-const input_description = document.querySelector('#txt_description');
+var input_description = document.querySelector("#txt_description")
 const input_year = document.querySelector('#txt_year');
 const input_editorial = document.querySelector('#txt_editorial');
 const slt_type = document.querySelector('#slt_type');
@@ -16,13 +16,23 @@ const input_quantity = document.querySelector('#txt_quantity');
 
 register_button.addEventListener('click', get_data);
 
+document.querySelector('#choose-button').addEventListener('click', function() {
+	document.querySelector('#upload-file').click();
+});
+
+//function getText() {
+    //var description = input_description.value;
+    //alert(description)
+//};
+
+
 function get_data(){
     let bError = false;
     let name = input_name.value;
-    let image = input_image.value;
+    let image = input_image.files[0];
     let genre = slt_genre.value;
     let author = input_author.value;
-    let description = input_description.value;
+    var description = input_description.value
     let year = Number(input_year.value);
     let editorial = input_editorial.value;
     let type = slt_type.value;
@@ -93,7 +103,7 @@ function validate(){
     }else{
         slt_language.classList.remove('input_error');}
     
-    if(input_isbn.value == ''){
+    if(input_isbn.value == '' || regExpNumeros.test(input_price.value) == false || input_isbn.value<13){
         bError = true;
         input_isbn.classList.add('input_error');
     }else{
@@ -142,7 +152,7 @@ pisbn, pprice, pquantity){
         swal.fire({
             type : 'success',
             title: 'Libro agregado a la base de datos',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido' 
         });
     });
 
