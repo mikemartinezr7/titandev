@@ -54,8 +54,9 @@ const controller = {
     let image = '';
 
     if (req.files) {
-      image = req.files.fileImage;
-      image.mv(path.join('../public/uploads/libraries/', image.name), function(error) {
+      image = req.files.image;
+      console.log(path.join('./public/uploads/libraries/', image.name));
+      image.mv(path.join('./public/uploads/libraries/', image.name), function(error) {
         if (error) {
           console.log('error en mv: ', error);
         } else {
@@ -128,6 +129,25 @@ const controller = {
         }
       });
     }
+  },
+
+  detail: function (req, res) {
+    LibraryModel.findOne({ _id: req.params.id }, function (error, library) { 
+      if (error)  {
+        res.status(400).json({
+          success: false,
+          code: 400,
+          message : 'Ha ocurrido un error al obtener la librería seleccionada',
+          detail: error
+        });
+      }
+  
+      if (library) {
+        res.status(200).json(library);
+      }
+
+      res.end();
+    });
   }
 }
 

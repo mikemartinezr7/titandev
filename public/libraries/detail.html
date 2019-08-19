@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Librerías</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+
+<body onload="loadLibrary()">
+  <div id="library">
+    <h1>${commercialName}</h1>
+
+    <div class="box-library">
+      <div>
+        <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto">
+      </div>
+      <div>
+        <div>
+          <img src="../img/location.png" alt="Ubicacion">
+          <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+        </div>
+        <div>
+          <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas,
+          <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+        <div>
+          <img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
+          </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="libraryTemplate" type="text/x-jQuery-tmpl">
+    <h1>${commercialName}</h1>
+
+    <div class="box-library">
+      <div>
+        <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto">
+      </div>
+      <div>
+        <div>
+          <img src="../img/location.png" alt="Ubicacion">
+          <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+        </div>
+        <div>
+          <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas,
+          <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+        <div>
+          <img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
+          </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
+    <div id="emptyLibraries">No hay librerias registradas actualmente</div>
+  </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript" src="../js/libraries.js"></script>
+</body>
+
+</html>

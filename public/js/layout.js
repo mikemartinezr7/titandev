@@ -13,14 +13,3 @@ $(window).on('load', function () {
 }).on('resize', function () {
   $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
 });
-
-function showNotification(message, type) {
-  let info = {
-    message : message,
-    type: type
-  }
-  
-  $('#notifications').empty();
-  $('#notificationTemplate').tmpl(info).appendTo('#notifications');
-  console.log(info);
-}

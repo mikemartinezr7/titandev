@@ -33,9 +33,17 @@ const LibrarySchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  image: {
+  image: { 
     type: String,
-    require: false
+    require: false,
+    validate: {
+      validator: function (filename) {
+        var regex = /.*\.(gif|jpe?g|bmp|png|webp)$/igm;
+        return regex.test(filename);
+      },
+      message: props => `El archivo de imagen <strong>${props.value}</strong> no es un formato de archivo válido.`
+    },
+    
   },
   admin: [UserSchema]
 });

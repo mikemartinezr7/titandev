@@ -3,38 +3,60 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Librerias</title>
+  <title>Librerías</title>
 
   <link rel="stylesheet" type="text/css" href="../css/base.css">
 </head>
 
 <body onload="loadLibraries()">
-  <h1>Librerias</h1>
+  <h1>Librerías</h1>
 
   <div class="box">
-    <label for="search">Buscar en librerias:</label><br>
+    <label for="search">Buscar en librerías:</label><br>
     <input type="text" id="txtSearch" name="txtSearch">
-    <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
+    <button id="btnSearch" class="button-search"><img src="../img/search.png" alt="Buscar"></button>
   </div>
 
   <div id="libraries">
+    <div class="box-library">
+      <div class="library-image">
+        <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto">
+      </div> 
+      <div class="library-details">
+        <h3>Libreria de Prueba ${commercialName}</h3>
+        <div class="no-border">
+          <img src="../img/location.png" alt="Ubicacion">
+          <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+        </div>
+        <div class="no-border">
+            <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas, 
+            <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+        <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</div>
+      </div>
+      <div class="library-details-rigth">
+        <a class="detail-button" href="detail.html?id=${id}">Ir a Librería</a>
+      </div>
+    </div>
   </div>
 
   <script id="libraryTemplate" type="text/x-jQuery-tmpl">
-    <div class="library-item">
+    <div class="box-library">
         <div class="library-image">
-          <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" width="350" height="250">
+          <img src="${image}" alt="Hotel foto">
         </div> 
         <div class="library-details">
           <h3>${commercialName}</h3>
-          <p><img src="../img/location.png" alt="Ubicacion">
-            <strong>Ubicacion: </strong>
-            ${province}, ${county}, ${district}, ${address}
-          </p>
-          <p><img src="../img/user.png" alt="Usuario"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</p>
+          <div class="no-border">
+            <img src="../img/location.png" alt="Ubicacion">
+            <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+          </div>
+          <div>
+              <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas, 
+              <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+          <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</div>
         </div>
         <div class="library-details-rigth">
-          <button class="button">Ver Detalles</button>
+          <a href="detail.html?id=${_id}">Ir a Librería</a>
         </div>
       </div>
   </script>

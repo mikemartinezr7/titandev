@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Lista de Libros</title>
-        <link rel="stylesheet" href="../css/base.css">
-    </head>
-    <body>
 
-        <div class="search">
-            <label for="search">Buscar libros:</label><br>
-            <input type="text" id="txtSearch" name="txtSearch">
-            <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
-        </div>
-        <table id="tbl_books">
-            <thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>Imagen</td>
-                    <td>Género</td>
-                    <td>Autor</td>
-                    <td>Descripción</td>
-                    <td>Año</td>
-                    <td>Editorial</td>
-                    <td>Tipo</td>
-                    <td>Lenguage</td>
-                    <td>ISBN</td>
-                    <td>Precio</td>
-                    <td>Cantidad</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Libros</title>
+  <link rel="stylesheet" href="../css/base.css">
+</head>
 
-            </tbody>
-        </table>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
-        <script src="../js/books/listBooks.js"></script>
+<body>
 
-    </body>
+  <div class="box">
+    <label for="search">Buscar libros:</label><br>
+    <input type="text" id="txtSearch" name="txtSearch">
+    <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
+  </div>
+  <table id="tbl_books">
+    <thead>
+      <tr>
+        <td>Nombre</td>
+        <td>Imagen</td>
+        <td>Género</td>
+        <td>Autor</td>
+        <td>Descripción</td>
+        <td>Año</td>
+        <td>Editorial</td>
+        <td>Tipo</td>
+        <td>Lenguage</td>
+        <td>ISBN</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
+  <script src="../js/books/listBooks.js"></script>
+
+</body>
+
 </html>

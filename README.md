@@ -148,11 +148,27 @@ POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago
 - Landing Page
 
 MICHAEL 
-- Layout del index(agregar links de libros, librerias, autores, generos) OK
-- Layout tablas
-- Mensajes de error 
+- Layout tablas ... OK
+- Mascara a numero de identificacion por tipo de identificacion .... OK
+- Filtar por tipo de archivo en subida de imagenes .... OK
+- Validacion de filtro de id ..... OK
+- Layout listado de librerias ..... OK
+- Ver detalle de libreria ..... En proceso
+- Agregar location por mapa en librerias
 - Registrar sucursal
 - Detalle de libreria
+- Editar librería
+- Editar sucursal
+- Eliminar sucursal 
+- Modificar catálogo de sucursal 
+- Editar promoción 
+- Eliminar promoción
+- Aprobar/Rechazar las solicitudes de registro enviadas por los administradores de librerías.
+- Expulsar usuarios por mal comportamiento.
+- Cerrar cuentas de Administradores de Librerías 
+- Ver los registros de todos los catálogos.
+- Agregar mensajes de error en las paginas
+
 - Crear pagina de landing page
 
 LUA
