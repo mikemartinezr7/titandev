@@ -28,7 +28,7 @@ let search_book = (id_book) => { //servidor
 
 //const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
-const input_image = document.querySelector('#txt_image')
+const cover = document.querySelector('#image_preview')
 const slt_genre = document.querySelector('#slt_genre');
 const input_author = document.querySelector('#txt_author');
 var input_description = document.querySelector('#txt_description');
@@ -53,7 +53,7 @@ let book = search_book(_id);
 console.log(book)
 if(book){
     input_name.innerHTML = book[0]['name']
-    input_image.innerHTML = book[0]['image']
+    cover.src = book[0]['image']
     slt_genre.innerHTML = book[0]['genre']
     input_author.innerHTML = book[0]['author']
     input_description.innerHTML = book[0]['description']

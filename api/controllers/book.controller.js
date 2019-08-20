@@ -77,3 +77,15 @@ module.exports.findBookID = function (req, res) {
     }
   );
 };
+
+module.exports.update = function(req, res){
+  book_model.findByIdAndUpdate(req.body.id, {$set: req.body}),
+  function (error) {
+    if (error) {
+      res.json({ success: false, msg: 'No se pudo actualizar el libro' })
+      console.log(error);
+    } else {
+      res.json({ success: true, msg: 'El libro se actualizó exitosamente' });
+    }
+  }
+};

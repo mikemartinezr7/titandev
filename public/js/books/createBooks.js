@@ -1,8 +1,10 @@
 'use strict';
 
+//*CONTROLADOR*//
+
 const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
-const input_image = document.querySelector('#upload-file')
+const cover = document.querySelector('#image_preview')
 const slt_genre = document.querySelector('#slt_genre');
 const input_author = document.querySelector('#txt_author');
 var input_description = document.querySelector("#txt_description")
@@ -16,20 +18,10 @@ const input_quantity = document.querySelector('#txt_quantity');
 
 register_button.addEventListener('click', get_data);
 
-document.querySelector('#choose-button').addEventListener('click', function() {
-	document.querySelector('#upload-file').click();
-});
-
-//function getText() {
-    //var description = input_description.value;
-    //alert(description)
-//};
-
-
 function get_data(){
     let bError = false;
     let name = input_name.value;
-    let image = input_image.files[0];
+    let image = cover.src;
     let genre = slt_genre.value;
     let author = input_author.value;
     var description = input_description.value
@@ -45,7 +37,7 @@ function get_data(){
 
     if(bError == false){
         create_book(name, image, genre, author, description, year, editorial, type, language, isbn,
-        price, quantity);
+        price, quantity); 
         console.log("Validacion correcta")
     }else{
         swal.fire({
@@ -124,6 +116,7 @@ function validate(){
     return bError;
 };
 
+//*SERVIDOR*//
 function create_book(pname, pimage, pgenre, pauthor, pdescription, pyear, peditorial, ptype, planguage,
 pisbn, pprice, pquantity){
     let request = $.ajax({
@@ -131,7 +124,7 @@ pisbn, pprice, pquantity){
         method : "POST",
         data : {
             name : pname,
-            image : pimage,
+            cover : pimage,
             genre : pgenre,
             author : pauthor,
             description : pdescription,
