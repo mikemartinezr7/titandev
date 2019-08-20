@@ -4,6 +4,6 @@
     "port": "3000"
   },
   "db": {
-    "connectionString": "mongodb://localhost:27017/library"
+    "connectionString": "mongodb+srv://cenfotec:cenfotec@cluster0-nda0t.azure.mongodb.net/library?retryWrites=true&w=majority"
   }
 }

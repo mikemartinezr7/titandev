@@ -11,7 +11,7 @@ const provincesData = require('./data/provinces');
 console.log('INICIO');
 
 //Database initialization
-mongoose.connect('mongodb://' + appConfig.db.server + ':' + appConfig.db.port + '/' + appConfig.db.name, { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://cenfotec:cenfotec@cluster0-nda0t.azure.mongodb.net/library?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 db.on('error', function (err) {
   console.log('[ ERROR ] Conexion con la BD (' + err + ')');

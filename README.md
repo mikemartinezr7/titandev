@@ -148,12 +148,14 @@ POST | /api/shop/:shopid/confirm | Finaliza la compra (Anade informacion de pago
 - Landing Page
 
 MICHAEL 
+- Base de datos unificada ..... OK
 - Layout tablas ... OK
 - Mascara a numero de identificacion por tipo de identificacion .... OK
 - Filtar por tipo de archivo en subida de imagenes .... OK
 - Validacion de filtro de id ..... OK
 - Layout listado de librerias ..... OK
 - Ver detalle de libreria ..... En proceso
+- Cambiar subida de archivos 
 - Agregar location por mapa en librerias
 - Registrar sucursal
 - Detalle de libreria
