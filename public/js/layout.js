@@ -13,3 +13,9 @@ $(window).on('load', function () {
 }).on('resize', function () {
   $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
 });
+
+$('#user-profile-trigger').click(function () {
+  $('#profile-menu').show();
+}).blur(function () {
+  $('#profile-menu').hide();
+});

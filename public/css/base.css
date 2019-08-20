@@ -50,6 +50,7 @@ body {
 
 .user-profile {
   float: right;
+  color: #fff;
 }
 
 .user-profile img {
@@ -452,4 +453,40 @@ table tbody tr:hover {
 
 table tbody td {
   padding: 10px;
+}
+
+#profile-menu {
+  z-index: 100;
+  position: absolute;
+  border: 1px solid #DFDFDF;
+  margin: 0;
+  right: 10px;
+}
+
+#profile-menu ul {
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  background-color: #FFFFFF;
+  width: 100px;
+}
+
+#profile-menu ul li {
+  padding: 5px 10px;
+  line-height: 30px;
+  background-color: #FFFFFF;
+  text-align: left;
+}
+
+#profile-menu ul li a {
+  text-decoration: none;
+  color: #3097D1;
+}
+
+#profile-menu ul li a:hover {
+  color: #206A94;
+}
+
+#user-profile-trigger {
+  text-decoration: none;
 }
