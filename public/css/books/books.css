@@ -1,0 +1,24 @@
+
+#tbl_books{
+    font-size: 15px; font-style: verdana; 
+}
+#tbl_books tr{
+    height: 15px;
+}
+#tbl_books thead tr{
+    border-top: solid 2px; background: rgba(134, 136, 134, 0.467); border bottom: solid 2px;
+    
+}
+#tbl_books thead tr th{
+    color: #333;
+}
+#tbl_books tr td ,#tbl_books tr th{
+    padding: 10px; text-align: center;
+}
+#tbl_books tbody tr{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+#tbl_books tbody tr:hover{
+    background: #A9A9A9;
+    color: #ffff
+}

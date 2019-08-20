@@ -1,5 +1,7 @@
 'use strict';
 
+//*SERVIDOR**//
+
 function list() {
   let books = [];
   let search = document.getElementById('txtSearch').value;
@@ -43,7 +45,7 @@ function show_books(books) {
     link.href = 'viewBook.html?id_book=' + books[i]['_id'];
 
     fila.insertCell().appendChild(link);
-    fila.insertCell().innerHTML = books[i]['image'];
+    fila.insertCell().src = books[i]['image'];
     fila.insertCell().innerHTML = books[i]['genre'];
     fila.insertCell().innerHTML = books[i]['author'];
     fila.insertCell().innerHTML = books[i]['description'];
@@ -56,6 +58,16 @@ function show_books(books) {
     fila.insertCell().innerHTML = books[i]['quantity'];
 
     let cell_configuration = fila.insertCell();
+
+   let cover = document.createElement('img');
+            cover.classList.add('imageTable');
+            if (books[i]['image']) {
+                cover.src = books[i]['image'];
+            } else {
+               cover.src = '../img/book-placeholder.png';
+            }
+
+            cell_configuration.appendChild(cover);
 
     // Creación del botón de editar
     let edit_button = document.createElement('a');

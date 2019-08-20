@@ -30,4 +30,9 @@ router.route('/:id_book')
         booksController.findBookID(req, res);
     });
 
+router.route('/:id_book')
+    .get(function(req, res){
+        booksController.update(req, res);
+    });
+
 module.exports = router;
