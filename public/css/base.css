@@ -230,41 +230,85 @@ legend {
   padding: 0 10px;
 }
 
+
+.box-library {
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+  background-color: #fff;
+  width: 70%;
+  display: block;
+  min-height: 50px;
+  overflow: hidden;
+}
+
 .library-item {
   border-radius: 5px;
   border: solid 1px #CED4DA;
   background-color: #fff;
   padding: 0;
-  height: 250px;
+  height: 150px;
   display: block;
   margin-bottom: 20px;
 }
 
 .library-image {
   float: left;
-  width: 250px;
-  height: 250px;
+  width: 20%;
+  height: 150px;
   display: block;
-  margin-right: 15px;
+  margin: 0;
+}
+
+.library-image img { 
+  width: 100%;
+  height: 168px;
 }
 
 .library-details {
   float: left;
   text-align: left;
-  width: auto;
-  height: 250px;
   display: block;
-  margin-left: 100px;
+  width: 57%;
+  padding: 8px;
+  height: 150px;
+}
+
+.library-details .no-border {
+  border: 0;
+}
+.library-details div {
+  padding: 8px 0;
+  border-top: 1px solid #E5E5E5;
+}
+
+.library-details h3 {
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 .library-details-rigth {
+  margin: 0 auto;
   float: right;
-  display: block;
-  height: 250px;
-  width: 250px;
   background-color: #fff;
   text-align: center;
-  background-color: #CED4DA;
+  width: 20%;
+  min-height: 168px;
+}
+
+.library-details-rigth a {
+  background-color: rgb(66, 133, 0);
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  font-size: 14px;
+  display: inline-block;
+  text-decoration: none;
+  display: block;
+}
+
+.library-details-rigth a:hover {
+  text-decoration: underline;
 }
 
 .box {
@@ -275,7 +319,14 @@ legend {
   background-color: #fff;
   width: 70%;
   display: block;
-  height: 50px;
+  min-height: 50px;
+  height: auto;
+}
+
+.button-search {
+  border-radius: 4px;
+  background-color: #d4dbe0;
+  color: #000;
 }
 
 .box-alert {
@@ -294,56 +345,6 @@ legend {
 
 .box button {
   height: 29px;
-}
-
-.notification {
-  border-radius: 4px;
-  width: 450px;
-  min-height: 20px;
-  height: auto;
-  display: table-row;
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  margin-left: -200px;
-  padding: 10px;
-  animation: bounceIn 0.8s;
-  -webkit-animation: bounceIn 0.8s;
-}
-
-.notification-icon {
-  float: left;
-  padding: 5px;
-  display: table-cell;
-}
-
-.notification-text {
-  height: auto;
-  display: table-cell;
-}
-
-.notification-close {
-  display: table-cell;
-} 
-
-.notification-close button {
-  border-radius: 4px;
-  border: 1px;
-  font-size: 14px;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.success {
-  background-color: #D4EDDA;
-  border-color: #C3E6CB;
-  color: #155724;
-}
-
-.danger {
-  background-color: #F8D7DA;
-  border-color: #F5C6CA;
-  color: #721C23;
 }
 
 form label {
@@ -420,4 +421,35 @@ form label {
 .autocomplete-items {
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
+}
+
+table {
+  width: 100%;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+
+table thead { 
+  font-weight: bold;
+  padding: 5px;
+  border: 2px solid #D3E0E9;
+  margin-bottom: 10px;
+}
+
+table thead td {
+  padding: 15px;
+}
+
+table tbody tr {
+  background-color: #FFF;
+  border-top: 1px solid #D3E0E9;
+  border-bottom: 1px solid #D3E0E9;
+}
+
+table tbody tr:hover {
+  background-color: #ECECEC;
+}
+
+table tbody td {
+  padding: 10px;
 }

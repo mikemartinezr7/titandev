@@ -56,8 +56,14 @@
       </div>
 
       <div class="row">
-        <label for="location">Ubicación por Mapa:</label>
-        <input type="text" name="location" id="location" class="required">
+        <div class="col-6">
+          <label for="location">Ubicación por Mapa</label>
+          <input type="text" name="location" id="location" class="required">
+        </div>
+        <div class="col-6">
+            <label for="image">Imagen (Formatos permitidos: gif, jpg, jpeg, bmp, png, webp)</label>
+            <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .webp,|image/*">
+        </div>
       </div>
     </fieldset> 
 
@@ -136,8 +142,11 @@
   </form>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script type="text/javascript" src="../js/libraries.js"></script>
   <script type="text/javascript" src="../js/provinces.js"></script>
+  <script type="text/javascript" src="../js/layout.js"></script>
 </body>
 
 </html>
