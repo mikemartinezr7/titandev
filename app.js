@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const appConfig = require('./config/config');
-const fileUpload = require('express-fileupload');
 
 const app = express();
 const db = mongoose.connection;
@@ -21,11 +20,6 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-
-app.use(fileUpload({
-  createParentPath: true
-}));
-
 
 //Database initialization
 const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true });

@@ -1,57 +1,27 @@
-function isValidDate(d) {
-  if (Object.prototype.toString.call(d) === "[object Date]") {
-    if (isNaN(d.getTime())) {
-      return false;
-    } else {
-      return true;
-    }
-  } else {
-    return false;
-  }
-}
-
-function isValidEmail(email) {
-  var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regex.test(email);
-}
-
-function isValidData() {
-  let isValid = true;
-
-  $('.required').each(function (index) {
-    let value = $(this).val();
-
-    if (value == '') {
-      isValid = false;
-      $(this).addClass('error');
-    } else {
-      if ((!isValidDate(value)) && ($(this).hasClass('date'))) {
-        isValid = false;
-        $(this).addClass('error');
-      } else {
-        $(this).removeClass('error');
-      }
-
-      if ((!isValidEmail(value)) && ($(this).hasClass('email'))) {
-        isValid = false;
-        $(this).addClass('error');
-      } else {
-        $(this).removeClass('error');
-      }
-    }
-  });
-
-  return isValid;
-}
-
 $('#frmAddUser').on('submit', function (event) {
   event.preventDefault();
+
+  let formData = new FormData(this);
+  let image = '';
+  let jsonData = {};
+
+  if ($('#image_preview').attr('src') != '../img/image-default.png') {
+    image = $('#image_preview').attr('src');
+  }
+
+  formData.append('image', image);
+
+  for (const [key, value] of formData.entries()) {
+    jsonData[key] = value;
+  }
+
+  console.log(jsonData);
 
   $.ajax({
     url: '/api/library',
     type: 'POST',
-    data: new FormData(this),
-    contentType: false,
+    data: JSON.stringify(jsonData),
+    contentType: 'application/json',
     cache: false,
     processData: false,
     beforeSend: function () {
@@ -59,10 +29,10 @@ $('#frmAddUser').on('submit', function (event) {
     },
     success: function (data) {
       $('#frmAddUser').trigger('reset');
-      $('#btnSubmit').prop('disabled', false);
       $('.box-alert ul').empty();
+      $('#image_preview').attr('src', '../img/image-default.png');
       $(window).scrollTop(0);
-      
+
       Swal.fire({
         title: 'Felicidades',
         text: data.message,
@@ -71,23 +41,26 @@ $('#frmAddUser').on('submit', function (event) {
       });
     },
     error: function (response) {
-      let errors = response.responseJSON.errors || [];
+      let errors = [];
+
+      if (response.hasOwnProperty('responseJSON')) {
+        errors = response.responseJSON.errors;
+      }
 
       if (errors && errors.length > 0) {
         $('.box-alert ul').empty();
-        
-        $('.error').each(function(index) {
+
+        $('.error').each(function (index) {
           $(this).removeClass('error');
         });
 
-        errors.map(function(key, index) {
+        errors.map(function (key, index) {
           $('.box-alert ul').append('<li>' + key.message + '</li>');
           $('#' + key.field).addClass('error');
         });
-        
+
         $(window).scrollTop(0);
         $('.box-alert').show();
-        $('#btnSubmit').prop('disabled', false);
       } else {
         Swal.fire({
           title: 'Error',
@@ -98,6 +71,8 @@ $('#frmAddUser').on('submit', function (event) {
       }
     }
   });
+
+  $('#btnSubmit').prop('disabled', false);
 });
 
 $('#btnSearch').click(function (event) {
@@ -121,11 +96,11 @@ function loadLibraries(searchText) {
 
   $.get('/api/library', param)
     .done(function (libraries) {
-      libraries.map(function(key, index) {
+      libraries.map(function (key, index) {
         if (key.image == undefined || key.image == '') {
           key.image = '../img/image-default.png'
         } else {
-          key.image = '../uploads/libraries/' + key.image;
+          key.image = key.image;
         }
       });
 
@@ -141,7 +116,6 @@ function loadLibrary() {
   let urlString = window.location.href;
   let url = new URL(urlString);
   let id = url.searchParams.get('id');
-  console.log(id);
 
   $.get('/api/library/' + id)
     .done(function (library) {
@@ -161,15 +135,15 @@ function loadLibrary() {
 
 $('#idType').change(function () {
   switch ($(this).val()) {
-    case 'nacional': $('#id').mask('0-0000-0000', {placeholder: '0-0000-0000'}); break;
-    case 'residente': $('#id').mask('0-000-000000', {placeholder: '0-000-000000'}); break;
-    case 'nacionalizado': $('#id').mask('0-0000-0000', {placeholder: '0-0000-0000'}); break;
-    case 'extranjero': $('#id').mask('000000000000', {placeholder: '000000000000'}); break;
+    case 'nacional': $('#id').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
+    case 'residente': $('#id').mask('0-000-000000', { placeholder: '0-000-000000' }); break;
+    case 'nacionalizado': $('#id').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
+    case 'extranjero': $('#id').mask('000000000000', { placeholder: '000000000000' }); break;
     default: break;
   }
 });
 
-$(document).ready(function() {
-  
+$(document).ready(function () {
+
 });
 

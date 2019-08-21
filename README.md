@@ -155,12 +155,11 @@ MICHAEL
 - Validacion de filtro de id ..... OK
 - Layout listado de librerias ..... OK
 - Ver detalle de libreria ..... En proceso
-- Cambiar subida de archivos 
-- Agregar location por mapa en librerias
+- Cambiar subida de archivos ..... OK
 - Registrar sucursal
-- Detalle de libreria
 - Editar librería
 - Editar sucursal
+- Agregar location por mapa en librerias
 - Eliminar sucursal 
 - Modificar catálogo de sucursal 
 - Editar promoción 
@@ -181,7 +180,6 @@ LUA
 - Crear texto de landing page
 
 GIO
-- Buscar hosting de MongoDB online y agregarlo al conf (preguntar a michael como)
 - Crear password 
 - Visualizar perfil de usuario
 - Recuperar contrasena

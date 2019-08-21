@@ -502,3 +502,42 @@ table tbody td {
 #user-profile-trigger {
   text-decoration: none;
 }
+
+#library {
+  text-align: left;
+}
+
+#library .image {
+  float: right;
+}
+
+.user-box {
+  display: block;
+  padding: 0;
+  width: 370px;
+}
+
+.user-box-top {
+  display: box;
+  background-color: #F7F7F7;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  height: 150px;
+}
+
+.user-box-bottom {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  min-height: 150px;
+  height: auto;
+  padding: 5px;
+}
+
+.user-box-bottom img {
+  border-radius: 50%;
+  margin-top: -50px;
+}
