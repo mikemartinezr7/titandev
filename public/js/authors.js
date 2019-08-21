@@ -8,8 +8,11 @@ function isValidData() {
 
   const firstname = document.getElementById('firstname');
   const lastname = document.getElementById('lastname');
-  const biography = document.getElementById('biography');
   const birthyear = document.getElementById('birthyear'); 
+  const deathyear = document.getElementById('deathyear'); 
+  const nationality = document.getElementById('nationality');
+  const biography = document.getElementById('biography');
+  
 
   if (firstname.value == '') {
     isValid = false;
@@ -34,18 +37,6 @@ function isValidData() {
   } else {
     lastname.classList.remove('error');
   }
-
-  if (biography.value == '') {
-    isValid = false;
-    biography.classList.add('error');
-    swal({
-      title:'error',
-      text:"Favor rellene los espacios en blanco",
-      type:'fail'
-      })
-  } else {
-    biography.classList.remove('error');
-  }
   if (birthyear.value == '') {
     isValid = false;
     birthyear.classList.add('error');
@@ -57,6 +48,41 @@ function isValidData() {
   } else {
     birthyear.classList.remove('error');
   }
+  if (deathyear.value == '') {
+    isValid = false;
+    deathyear.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
+  } else {
+    deathyear.classList.remove('error');
+  }
+  if (nationality.value == '') {
+    isValid = false;
+    nationality.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
+  } else {
+    nationality.classList.remove('error');
+  }
+  if (biography.value == '') {
+    isValid = false;
+    biography.classList.add('error');
+    swal({
+      title:'error',
+      text:"Favor rellene los espacios en blanco",
+      type:'fail'
+      })
+  } else {
+    biography.classList.remove('error');
+  }
+  
+
   return isValid;
 }
 
@@ -65,8 +91,11 @@ function createAuthors(event) {
 
   const firstname = document.getElementById('firstname').value;
   const lastname = document.getElementById('lastname').value;
-  const biography = document.getElementById('biography').value;
   const birthyear = document.getElementById('birthyear').value;
+  const deathyear = document.getElementById('deathyear').value;
+  const nationality = document.getElementById('nationality').value;
+  const biography = document.getElementById('biography').value;
+  const authorpic = ''
 
 
     if(isValidData()){
@@ -76,8 +105,11 @@ function createAuthors(event) {
         data: {
           firstname: firstname,
           lastname: lastname,
+          birthyear: birthyear,
+          deathyear: deathyear,
+          nationality: nationality,
           biography: biography,
-          birthyear: birthyear
+          authorpic: authorpic
         },
         dataType: 'json',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
