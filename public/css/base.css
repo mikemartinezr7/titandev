@@ -453,3 +453,9 @@ table tbody tr:hover {
 table tbody td {
   padding: 10px;
 }
+
+}
+.imageTable{
+    height: 70px;
+    width: 50px;
+}

@@ -89,3 +89,13 @@ module.exports.update = function(req, res){
     }
   }
 };
+
+module.exports.delete = function(req, res){
+  book_model.findByIdAndRemove(req.body._id, function(error){
+    if(error){
+      res.json({success : false, msg: 'No se pudo eliminar el libro'})
+    } else {
+      res.json({success : true, msg: 'Libro eliminado exitosamente'})
+    }
+  });
+};  

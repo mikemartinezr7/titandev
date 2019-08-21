@@ -124,7 +124,7 @@ pisbn, pprice, pquantity){
         method : "POST",
         data : {
             name : pname,
-            cover : pimage,
+            image : pimage,
             genre : pgenre,
             author : pauthor,
             description : pdescription,

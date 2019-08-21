@@ -35,4 +35,9 @@ router.route('/:id_book')
         booksController.update(req, res);
     });
 
+router.route('/')
+    .post(function(req, res){
+        booksController.delete(req, res);
+    });
+
 module.exports = router;
