@@ -22,7 +22,8 @@ module.exports.create = function(req,res){
         avatar : req.body.avatar,
         nickname:  req.body.nickname,
         type: req.body.type,
-        exchange: req.body.exchange
+        exchange: req.body.exchange,
+        active: false,
     });
 
     newUser.save(function(error){

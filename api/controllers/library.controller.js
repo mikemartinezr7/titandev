@@ -50,7 +50,8 @@ const controller = {
       nickname: req.body.firstName + '.' + req.body.firstLastName + '.' + req.body.secondLastName,
       email: req.body.email,
       password: req.body.password,
-      type: 'library'
+      type: 'library',
+      active: false
     });
 
     let image = '';

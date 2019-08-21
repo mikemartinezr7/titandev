@@ -142,8 +142,3 @@ $('#idType').change(function () {
     default: break;
   }
 });
-
-$(document).ready(function () {
-
-});
-
