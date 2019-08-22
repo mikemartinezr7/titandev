@@ -42,45 +42,39 @@
     </div>
 
     <div id="content">
-            <div class="search">
-                    <p>
-                    <label for="search">Buscar generos registrados</label><br>
-                    </p>
-                    
-                    <input type="text" id="txtSearch" name="txtSearch">
-                    
-                    <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
-                      
-                </div>
-                <p></p>   
-        <fieldset> 
-                  
-        <table id="tbl_genres">
-            <thead>
-                <tr>
-                <td>Generos</td>  
-                <td>Descripcion</td> 
-                </tr>
-            </thead>
-            <tbody>
+  <h1>Categorias</h1>
+  <h3>Agregar Una Categoria</h3>
 
-            </tbody>
-        </table>
-        </fieldset>
-    </div>
-</div>
+  <form name="categoryForm"  id="categoryForm" method="POST" action="/api/category">
+    <fieldset>
+      <p>
+        <div>
+          <label for="txt_categoryname">Escriba la Categoria</label>
+          <input type="text" name="categoryname" id="categoryname" class="required">
+        </div>
+      </p>
+      <p>
+          <div>
+            <label for="txt_details">Escriba una breve descripcion de la Categoria</label>
+            <textarea name="details" id="details" class="required"></textarea>
+          </div>
+        </p>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
-<script type="text/javascript" src="../js/layout.js"></script>
+    </fieldset>
+
+    <input type="submit" id="btnAddcategory" value="Aceptar" class="button">
+    <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+
+  </form>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript" src="../js/layout.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/category/category.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
-
-        
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
-        <script src="../js/genreList.js"></script>
-
-    </body>
 </html>

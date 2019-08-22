@@ -18,7 +18,7 @@ function isValidData() {
     isValid = false;
     firstname.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
@@ -30,7 +30,7 @@ function isValidData() {
     isValid = false;
     lastname.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
@@ -41,7 +41,7 @@ function isValidData() {
     isValid = false;
     birthyear.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
@@ -52,7 +52,7 @@ function isValidData() {
     isValid = false;
     deathyear.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
@@ -63,7 +63,7 @@ function isValidData() {
     isValid = false;
     nationality.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
@@ -74,7 +74,7 @@ function isValidData() {
     isValid = false;
     biography.classList.add('error');
     swal({
-      title:'error',
+      title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })

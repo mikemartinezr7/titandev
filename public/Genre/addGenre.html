@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Registro de Generos</title>
+  <title>TitanDev - Home</title>
   <link rel="stylesheet" type="text/css" href="../css/base.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <h1>Gneros</h1>
+  <div id="topmenu-container">
+    <div class="topmenu-item">
+      <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
+      <span class="helper"><img src="../img/titandev-text.png" alt="TitanDev Logo" width="118" height="18"></span>
+    </div>
+    <div class="topmenu-item"><a href="../about.html">Sobre nosotros</a></div>
+    <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
+    <div class="topmenu-item user-profile">
+      <span class="helper">
+        <a id="user-profile-trigger">John Malkovich &nbsp; <img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+      </span>
+      <div id="profile-menu" style="display: none">
+        <ul>
+          <li><a href="../profile.html">Perfil</a></li>
+          <li><a href="../logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-container">
+    <div id="leftmenu" class="left-menu-close">
+      <ul>
+        <li><a href="../index.html"><img src="../img/home.png" alt="Home"><span class="left-menu-item-text hidden">Home</span></a></li>
+        <li><a href="../libraries/index.html"><img src="../img/library.png" alt="Librerias"><span class="left-menu-item-text hidden">Librerías</span></a></li>
+        <li><a href="../books/listBooks.html"><img src="../img/book.png" alt="Libros"><span class="left-menu-item-text hidden">Libros</span></a></li>
+        <li><a href="../authors/authorsList.html"><img src="../img/author.png" alt="Autores"><span class="left-menu-item-text hidden">Autores</span></a></li>
+        <li><a href="../clubs/listClubs.html"><img src="../img/clubs.png" alt="Clubes de lectura"><span class="left-menu-item-text hidden">Clubes de lectura</span></a></li>
+        <li><a href="../Genre/index.html"><img src="../img/genre.png" alt="Genero"><span class="left-menu-item-text hidden">Generos</span></a></li>
+        <li><a href="../users/register.html"><img src="../img/user.png" alt="Usuario"><span class="left-menu-item-text hidden">Usuario</span></a></li>
+      </ul>
+    </div>
+
+    <div id="content">
+  <h1>Generos</h1>
   <h3>Agregar un Un genero </h3>
 
   <form name="genreForm"  id="genreForm" method="POST" action="/api/genre">
@@ -19,13 +53,24 @@
           <input type="text" name="name" id="name" class="required">
         </div>
       </p>
+      <p>
+          <div>
+            <label for="txt_description">Escriba una breve descripcion del Genero</label>
+            <textarea name="description" id="description" class="required"></textarea>
+          </div>
+        </p>
 
     </fieldset>
 
     <input type="submit" id="btnAddgenre" value="Aceptar" class="button">
-    <input type="reset" id="btnReset" value="Cancelar" class="button">
+    <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+
   </form>
 
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript" src="../js/layout.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/genre.js"></script>

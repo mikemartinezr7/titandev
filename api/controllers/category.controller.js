@@ -1,25 +1,23 @@
 'use strict';
 
-const categoryModel = require('../db/models/category.model');
+const category = require('../db/models/category.model');
 
 module.exports.create = function(req,res){
-    let newCategory = new categoryModel({
-        nameCat : req.body.nameCat
+  let add_category = new category({
+      categoryname : req.body.categoryname,
+      details : req.body.details
     });
 
-    newCategory.save(function(error){
+    add_category.save(function(error){
         if(error){
-            res.json({
-                success: false,
-                msj : 'El género no pudo ser registrado. ' + error
-            })
-        }else{
-            res.json({
-                success: true,
-                msj : 'El género fue registrado de forma exitosa.'
-            });
+            res.json({success: false, msj : 'La Categoria no se ha registrado'});
         }
-    });
+        else{
+            res.json({
+                success: true, msj : 'Categoria agregada'});
+          }
+        }
+    );
 };
 
 
@@ -27,15 +25,15 @@ module.exports.create = function(req,res){
 module.exports.list = function (req, res) {
     let search_criteria = req.query.search_criteria
   
-    genreCategory.find({
+    category.find({
       $or: [
-        { nameCat: new RegExp(search_criteria, 'i') },
+        { categoryname: new RegExp(search_criteria, 'i') },
       ]
     }).then(function (categories) {
-      if (category.length > 0) {
-        res.json({ success: true, category_list: category });
+      if (categories.length > 0) {
+        res.json({ success: true, categories_list: categories });
       } else {
-        res.json({ success: false, category_list: category });
+        res.json({ success: false, categories_list: categories });
       }
     }
     );
@@ -43,22 +41,22 @@ module.exports.list = function (req, res) {
   
   module.exports.findCategory = function (req, res) {
   
-    let categoryName = req.query.name;
+    let categoryCategoryname = req.query.categoryname;
   
-    category.find({ nameCat: nameCat }, { nameCat: 1}).then(
-      function (category) {
-        res.send(category);
+    category.find({ categoryname: categoryCategoryname}, { categoryname: 1}).then(
+      function (categories) {
+        res.send(categories);
       } 
     );
   };
   
   module.exports.findCategoryID = function (req, res) {
-    category.find({ _id: req.body.id_genre }).then(
+    category.find({ _id: req.body.id_category}).then(
       function (category) {
         if (category) {
-          res.json({ success: true, genre: genre  });
+          res.json({ success: true, category: category  });
         } else {
-          res.json({ success: false, genre: genre });
+          res.json({ success: false, category: category });
         }
       }
     );

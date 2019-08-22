@@ -4,7 +4,8 @@ const genre = require('../db/models/genre.model');
 
 module.exports.create = function(req,res){
     let newGenre = new genre({
-        name : req.body.name
+        name : req.body.name,
+        description : req.body.description
     });
 
     newGenre.save(function(error){

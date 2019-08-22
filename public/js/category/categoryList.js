@@ -1,11 +1,11 @@
 'use strict';
 
 function list() {
-  let genres = [];
+  let categories = [];
   let search = document.getElementById('txtSearch').value;
 
   let request = $.ajax({
-    url: "http://localhost:3000/api/genre",
+    url: "http://localhost:3000/api/category",
     method: "GET",
     data: {
       search_criteria: search
@@ -16,37 +16,37 @@ function list() {
   });
 
   request.done(function (res) {
-    genres = res.genres_list;
-    show_genres(genres);
+    categories = res.categories_list;
+    show_categories(categories);
   });
 
   request.fail(function (jqXHR, textStatus) {
 
   });
 
-  return genres;
+  return categories;
 };
 
-let genres = list(); //controlador
+let categories = list(); //controlador
 
-function show_genres(genres) {
-  const table = document.querySelector('#tbl_genres tbody');
+function show_categories(categories) {
+  const table = document.querySelector('#tbl_categories tbody');
   table.innerHTML = '';
 
-  for (let i = 0; i < genres.length; i++) {
+  for (let i = 0; i < categories.length; i++) {
     let fila = table.insertRow();
 
     var link = document.createElement('a');
-    var linkText = document.createTextNode(genres[i]['name']);
+    var linkText = document.createTextNode(categories[i]['categoryname']);
     link.appendChild(linkText);
-    fila.insertCell().innerHTML = genres[i]['name'];
-    fila.insertCell().innerHTML = genres[i]['description'];
+    fila.insertCell().innerHTML = categories[i]['categoryname'];
+    fila.insertCell().innerHTML = categories[i]['details'];
 
   }
   
 }; 
 
-show_genres(genres);
+show_categories(categories);
 
 let search_button = document.getElementById('btnSearch');
 search_button.addEventListener('click', list, false);
