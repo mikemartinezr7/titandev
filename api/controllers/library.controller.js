@@ -34,6 +34,8 @@ const controller = {
   },
 
   create: function (req, res) {
+    console.log(req.body);
+
     let newUser = new UserModel({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -45,27 +47,14 @@ const controller = {
       province: req.body.province,
       county: req.body.county,
       district: req.body.district,
-      nickname: req.body.firstName.toLowerCase() + '.' + req.body.firstLastName.toLowerCase() + '.' + req.body.secondLastName.toLowerCase(),
+      nickname: req.body.firstName + '.' + req.body.firstLastName + '.' + req.body.secondLastName,
       email: req.body.email,
       password: req.body.password,
-      type: 'library'
+      type: 'library',
+      active: false
     });
 
     let image = '';
-
-    if (req.files) {
-      image = req.files.image;
-      console.log(path.join('./public/uploads/libraries/', image.name));
-      image.mv(path.join('./public/uploads/libraries/', image.name), function(error) {
-        if (error) {
-          console.log('error en mv: ', error);
-        } else {
-          console.log('no error en mv');
-        }
-      });
-    } else {
-      image = '';
-    }
     
     let newLibrary = new LibraryModel({
       commercialName: req.body.commercialName,
@@ -75,7 +64,7 @@ const controller = {
       district: req.body.district,
       address: req.body.address,
       location: req.body.location,
-      image: image.name,
+      image: req.body.image,
       admin: newUser
     });
 

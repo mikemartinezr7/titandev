@@ -155,12 +155,14 @@ MICHAEL
 - Validacion de filtro de id ..... OK
 - Layout listado de librerias ..... OK
 - Ver detalle de libreria ..... En proceso
-- Cambiar subida de archivos 
-- Agregar location por mapa en librerias
+- Cambiar subida de archivos ..... OK
+- Registro de usuarios .... OK
+- Login
+- Registrar libreria libre
 - Registrar sucursal
-- Detalle de libreria
 - Editar librería
 - Editar sucursal
+- Agregar location por mapa en librerias
 - Eliminar sucursal 
 - Modificar catálogo de sucursal 
 - Editar promoción 
@@ -170,6 +172,7 @@ MICHAEL
 - Cerrar cuentas de Administradores de Librerías 
 - Ver los registros de todos los catálogos.
 - Agregar mensajes de error en las paginas
+- 404 page
 
 - Crear pagina de landing page
 
@@ -181,7 +184,6 @@ LUA
 - Crear texto de landing page
 
 GIO
-- Buscar hosting de MongoDB online y agregarlo al conf (preguntar a michael como)
 - Crear password 
 - Visualizar perfil de usuario
 - Recuperar contrasena

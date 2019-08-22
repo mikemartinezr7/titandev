@@ -1,22 +1,20 @@
 'use strict';
 
-const genreModel = require('../db/models/genre.model');
+const genre = require('../db/models/genre.model');
 
 module.exports.create = function(req,res){
-    let newGenre = new genreModel({
+    let newGenre = new genre({
         name : req.body.name
     });
 
     newGenre.save(function(error){
         if(error){
             res.json({
-                success: false,
-                msj : 'El género no pudo ser registrado. ' + error
+                success: false, msj : 'El género no pudo ser registrado. ' + error
             })
         }else{
             res.json({
-                success: true,
-                msj : 'El género fue registrado de forma exitosa.'
+                success: true,  msj : 'El género fue registrado de forma exitosa.'
             });
         }
     });
@@ -27,7 +25,7 @@ module.exports.create = function(req,res){
 module.exports.list = function (req, res) {
     let search_criteria = req.query.search_criteria
   
-    genreModel.find({
+    genre.find({
       $or: [
         { name: new RegExp(search_criteria, 'i') },
       ]
@@ -45,7 +43,7 @@ module.exports.list = function (req, res) {
   
     let genreName = req.query.name;
   
-    genre.find({ name: name }, { name: 1}).then(
+    genre.find({ name: genreName }, { name: 1}).then(
       function (genres) {
         res.send(genres);
       } 

@@ -38,17 +38,18 @@ function show_genres(genres) {
 
     var link = document.createElement('a');
     var linkText = document.createTextNode(genres[i]['name']);
-    fila.insertCell().appendChild(link);        
-    fila.insertCell().innerHTML = genres[i]['name'];   
+    
+    fila.insertCell().innerHTML = genres[i]['name'];
+  
 
     let cell_configuration = fila.insertCell();
 
-   
+
   }
   
-};
+}; 
 
 show_genres(genres);
 
 let search_button = document.getElementById('btnSearch');
-search_button.addEventListener('click', list);
+search_button.addEventListener('click', list, false);

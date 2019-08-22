@@ -46,7 +46,10 @@ function show_authors(authors) {
     fila.insertCell().innerHTML = authors[i]['firstname'];
     fila.insertCell().innerHTML = authors[i]['lastname'];
     fila.insertCell().innerHTML = authors[i]['birthyear'];
+    fila.insertCell().innerHTML = authors[i]['deathyear'];
+    fila.insertCell().innerHTML = authors[i]['nationality'];
     fila.insertCell().innerHTML = authors[i]['biography'];
+    fila.insertCell().innerHTML = authors[i]['authorpic'];
 
     let cell_configuration = fila.insertCell();
 

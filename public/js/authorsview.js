@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 let search_author = (id_author) => { //servidor
     let author = [];
@@ -49,4 +49,4 @@ if(author){
     input_biography.innerHTML = author[0]['biography']
     
 
-}
+}*/

@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/base.css">
-    <title>Sign In</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/base.css">
+  <title>Sign In</title>
 </head>
-<body>
+
+<body class="center">
+  <img src="../img/titandev-logo.png" alt="logo" title="logo">
+  <h1>Bienvenido</h1>
+
+  <div class="login-box">
     <form>
-        <div>
-            <label for="txtEmail">Correo Eléctronico</label>
-            <input type="text" id="txtEmail">
+      <div class="row">
+        <div class="col-12">
+          <label for="txtEmail">Email</label><br><br>
+          <input type="text" id="txtEmail">
         </div>
-        <div>
-            <label for="passPassword">Contraseña</label>
-            <input type="password" id="passPassword">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="passPassword">Contraseña</label><br><br>
+          <input type="password" id="passPassword">
         </div>
-        <button type="button" id="btnSignIn">Iniciar Sesión</button>
+      </div>
+
+      <p class="center"><button type="button" class="button-primary" id="btnSignIn">Iniciar Sesión</button></p><br>
+      <p class="center"><a href="./register.html">No es usuario aún? Regístrate acá</a></p>
     </form>
+  </div>
+  <div class="login-box">
+    <p>Tienes una líbrera y quieres formar parte de nosotros?</p>
+    <p><a href="../libraries/register.html">Regístrala acá</a></p>
+  </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="../js/users/signin.js"></script>
-
 
 </html>
