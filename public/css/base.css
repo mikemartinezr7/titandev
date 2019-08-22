@@ -7,6 +7,11 @@ body {
   background-color: #f5f8fa
 }
 
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
 #topmenu-container {
   width: 100%;
   background-color:#3197D1;
@@ -88,7 +93,7 @@ body {
 }
 
 .left-menu-open {
-  background-color: #F4F8FA;
+  background-color: #FFF;
   display: block;
   width: 150px;
   left: 0;
@@ -126,7 +131,7 @@ body {
 }
 
 .left-menu-close {
-  background-color: #F4F8FA;
+  background-color: #FFF;
   display: block;
   width: 50px;
   left: 0;
@@ -242,7 +247,6 @@ legend {
   font-weight: bold;
   padding: 0 10px;
 }
-
 
 .box-library {
   border-radius: 5px;
@@ -360,9 +364,13 @@ legend {
   height: 29px;
 }
 
-form label {
+.form label {
   width: 100%;
   margin-bottom: 5px;
+}
+
+form figure {
+  margin: 5px 0; 
 }
 
 .form input[type=text], input[type=password], input[type=number], input[type=date], textarea, select {
@@ -378,6 +386,7 @@ form label {
   clear: both;
   display: block;
   overflow-y: auto;
+  text-align: left;
 }
 
 .col-12 {
@@ -540,4 +549,21 @@ table tbody td {
 .user-box-bottom img {
   border-radius: 50%;
   margin-top: -50px;
+}
+
+.login-box {
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  background-color: #fff;
+  width: 30%;
+  min-height: 50px;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.login-box input[type=text], input[type=password] {
+  width: 100%;
 }

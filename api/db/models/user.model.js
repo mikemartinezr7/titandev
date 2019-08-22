@@ -102,6 +102,10 @@ let UserSchema = new mongoose.Schema({
   },
   exchange: {
     type: Boolean,
+  },
+  active: {
+    type: Boolean,
+    default: false
   }
 });
 

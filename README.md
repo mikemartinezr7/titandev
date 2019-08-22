@@ -156,6 +156,9 @@ MICHAEL
 - Layout listado de librerias ..... OK
 - Ver detalle de libreria ..... En proceso
 - Cambiar subida de archivos ..... OK
+- Registro de usuarios .... OK
+- Login
+- Registrar libreria libre
 - Registrar sucursal
 - Editar librería
 - Editar sucursal
@@ -169,6 +172,7 @@ MICHAEL
 - Cerrar cuentas de Administradores de Librerías 
 - Ver los registros de todos los catálogos.
 - Agregar mensajes de error en las paginas
+- 404 page
 
 - Crear pagina de landing page
 
