@@ -7,7 +7,10 @@ module.exports.create = function (req, res) {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     birthyear: req.body.birthyear,
-    biography: req.body.biography
+    deathyear: req.body.deathyear,
+    nationality: req.body.nationality,
+    biography: req.body.biography,
+    authorpic: req.body.authorpic
   });
 
   add_author.save(function (error) {
