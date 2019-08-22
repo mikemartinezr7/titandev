@@ -50,6 +50,7 @@ body {
 
 .user-profile {
   float: right;
+  color: #fff;
 }
 
 .user-profile img {
@@ -57,17 +58,29 @@ body {
 }
 
 #content-container {
-  background-color: #555;
   width: 100%;
+  float: left;
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#leftmenu {
+  float: left;
+  position: relative;
   overflow: hidden;
-  display: inline-block;
+  min-height: 100%;
 }
 
 #content {
-  background-color: #fff;
-  padding: 10px;
-  margin-left: 70px;
-  display: block;
+  /*background-color: #fff;*/
+  padding: 10px 10px 10px 25px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  width: 100%;
 }
 
 .hidden {
@@ -80,7 +93,7 @@ body {
   width: 150px;
   left: 0;
   position: absolute;
-  padding: 20px 10px;
+  padding: 20px 10px 0px 10px;
   text-align: left;
   border: solid 1px #DFDFDF;
   -webkit-transition: width 0.3s;
@@ -118,7 +131,7 @@ body {
   width: 50px;
   left: 0;
   position: absolute;
-  padding: 20px 10px;
+  padding: 20px 10px 0px 10px;
   text-align: left;
   border: solid 1px #DFDFDF;
   -webkit-transition: width 0.3s;
@@ -454,8 +467,38 @@ table tbody td {
   padding: 10px;
 }
 
+#profile-menu {
+  z-index: 100;
+  position: absolute;
+  border: 1px solid #DFDFDF;
+  margin: 0;
+  right: 10px;
 }
-.imageTable{
-    height: 70px;
-    width: 50px;
+
+#profile-menu ul {
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  background-color: #FFFFFF;
+  width: 100px;
+}
+
+#profile-menu ul li {
+  padding: 5px 10px;
+  line-height: 30px;
+  background-color: #FFFFFF;
+  text-align: left;
+}
+
+#profile-menu ul li a {
+  text-decoration: none;
+  color: #3097D1;
+}
+
+#profile-menu ul li a:hover {
+  color: #206A94;
+}
+
+#user-profile-trigger {
+  text-decoration: none;
 }

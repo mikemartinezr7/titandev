@@ -8,8 +8,22 @@ $('#leftmenu').mouseenter(function () {
   $('.left-menu-item-text').hide();
 });
 
-$(window).on('load', function () {
-  $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
-}).on('resize', function () {
-  $('#leftmenu, #content').height($(window).height() - $('#topmenu-container').height())
+/*$(window).on('load', function () {
+  $('#leftmenu, #content').height($(document).height() - $('#topmenu-container').height());
+});*/
+
+$('#user-profile-trigger').click(function () {
+  $('#profile-menu').show();
+}).blur(function () {
+  $('#profile-menu').hide();
 });
+
+/*let resizeId;
+$(window).resize(function () {
+  clearTimeout(resizeId);
+  resizeId = setTimeout(doneResizing, 500);
+});
+
+function doneResizing() {
+  $('#leftmenu, #content').height($(document).height() - $('#topmenu-container').height());
+}*/

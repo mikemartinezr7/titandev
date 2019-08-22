@@ -28,9 +28,7 @@ app.use(fileUpload({
 
 
 //Database initialization
-const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true })
-.catch(error => { throw error; });
-
+const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true });
 
 db.on('error', function (err) {
   console.log('Error en la BD: ' + err);
