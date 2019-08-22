@@ -108,8 +108,8 @@ let show_book = ()=>{
   input_price.value = book[0]['price']
   input_quantity.value = book[0]['quantity']
 
-  let option_genre = document.querySelectorAll('#slt_genre');
-  for(let i = 0; 1< option_genre.length; i++){
+  let option_genre = document.querySelectorAll('#slt_genre option');
+  for(let i = 0; i< option_genre.length; i++){
     if(option_genre[i].textContent == book[0]['genre'] ){
       console.log(option_genre[i])
       option_genre[i].selected = true;
@@ -123,15 +123,16 @@ let show_book = ()=>{
      // option_author[i].selected = true;
    // }
  // };
-  let option_type = document.querySelectorAll('#slt_type');
-  for(let i = 0; 1< option_type.length; i++){
+  let option_type = document.querySelectorAll('#slt_type option');
+  for(let i = 0; i< option_type.length; i++){
     if(option_type[i].textContent == book[0]['type'] ){
       option_type[i].selected = true;
     }
   };
     
-  let option_language = document.querySelectorAll('#slt_language');
-  for(let i = 0; 1< option_language.length; i++){
+  let option_language = document.querySelectorAll('#slt_language option');
+  console.log(option_language)
+  for(let i = 0; i< option_language.length; i++){
     if(option_language[i].textContent == book[0]['language'] ){
       option_language[i].selected = true;
   }

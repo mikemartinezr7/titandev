@@ -45,7 +45,7 @@ function show_books(books) {
     link.href = 'viewBook.html?id_book=' + books[i]['_id'];
 
     fila.insertCell().appendChild(link);
-    fila.insertCell().src = books[i]['image'];
+    //fila.insertCell().src = books[i]['image'];
     fila.insertCell().innerHTML = books[i]['genre'];
     fila.insertCell().innerHTML = books[i]['author'];
     fila.insertCell().innerHTML = books[i]['description'];
@@ -68,6 +68,18 @@ function show_books(books) {
             }
 
             cell_configuration.appendChild(cover);
+    
+            let cellDelete = fila.insertCell
+            let linkDelete = document.createElement('a');
+            linkDelete.href = '#';
+            linkDelete.innerText = 'Eliminar';
+
+            linkDelete.addEventListener('click', function() {
+                deleteBook(books_list[i]['_id']);
+                window.location.href = 'listBooks.html';
+            });
+
+            cellDelete.appendChild(linkDelete);
 
     // Creación del botón de editar
     let edit_button = document.createElement('a');
@@ -82,3 +94,4 @@ show_books(books);
 
 let search_button = document.getElementById('btnSearch');
 search_button.addEventListener('click', list);
+
