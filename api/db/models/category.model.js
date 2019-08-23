@@ -1,9 +1,10 @@
 'use strict';
 
-let mongoose = require("mongoose");
+let mongoose = require('mongoose');
 
-let categorySchema = new mongoose.Schema({
-    nameCat: {type: String, required: true}
+let CategorySchema = mongoose.Schema({
+    categoryname: {type: String, required: true},
+    details: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Genre',categorySchema);
+module.exports = mongoose.model('Category', CategorySchema)

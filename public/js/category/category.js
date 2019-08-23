@@ -1,54 +1,56 @@
 'use strict';
 
-const addgenre = document.getElementById('btnAddgenre');
-addgenre.addEventListener('click', createGenre);
+const Addcategory = document.getElementById('btnAddcategory');
+Addcategory.addEventListener('click', createCategory);
 
 function isValidData() {
   let isValid = true;
 
-  const name = document.getElementById('name');
-  const description = document.getElementById('description');
+  const categoryname = document.getElementById('categoryname');
+  const details = document.getElementById('details');
 
-  if (name.value == '') {
+  if (categoryname.value == '') {
     isValid = false;
-    name.classList.add('error');
+    categoryname.classList.add('error');
     swal({
       title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
   } else {
-    name.classList.remove('error');
+    categoryname.classList.remove('error');
   }
-  if (description.value == '') {
+
+  if (details.value == '') {
     isValid = false;
-    description.classList.add('error');
+    details.classList.add('error');
     swal({
       title:'Error',
       text:"Favor rellene los espacios en blanco",
       type:'fail'
       })
   } else {
-    description.classList.remove('error');
+    details.classList.remove('error');
   }
+  
+  
 
-
-    return isValid;
+  return isValid;
 }
 
-function createGenre(event) {
+function createCategory(event) {
   event.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const description = document.getElementById('description').value;
+  const categoryname = document.getElementById('categoryname').value;
+  const details = document.getElementById('details').value;
 
     if(isValidData()){
       let request = $.ajax({
-        url: 'http://localhost:3000/api/genre',
+        url: 'http://localhost:3000/api/category',
         method: 'POST',
         data: {
-          name: name,
-          description: description
+          categoryname: categoryname,
+          details: details
         },
         dataType: 'json',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -56,7 +58,7 @@ function createGenre(event) {
         console.log('Done' + data.success);
         swal({
           title:'exito',
-          text:"Genero y descripcion guardados",
+          text:"Categoria agregada",
           type:'success'
           }).then(function() {
             window.location = "../index.html";

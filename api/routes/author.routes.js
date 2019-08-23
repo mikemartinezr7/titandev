@@ -5,7 +5,7 @@ const router = express.Router();
 const controller_authors = require('../controllers/author.controller');
 
 router.route('/')
-  .post(function (req, res) {
+  .post(function (req, res){
       controller_authors.create(req, res);
     }
 

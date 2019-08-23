@@ -57,6 +57,9 @@ app.use('/api/genre', genreRouter);
 const authorRouter = require('./api/routes/author.routes');
 app.use('/api/author', authorRouter);
 
+const categoryRouter = require ('./api/routes/category.routes');
+app.use('/api/category', categoryRouter);
+
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
