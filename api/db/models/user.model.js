@@ -93,7 +93,7 @@ let UserSchema = new mongoose.Schema({
     type: String,
     default: function () {
       return randToken.generate(6)
-    }
+    },
   },
   type: {
     type: String,

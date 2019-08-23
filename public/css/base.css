@@ -567,3 +567,21 @@ table tbody td {
 .login-box input[type=text], input[type=password] {
   width: 100%;
 }
+
+.login-box-alert {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #F5C6CA;
+  margin-bottom: 20px;
+  background-color: #F8D7DA;
+  width: 30%;
+  display: block;
+  height: auto;
+  color: #721C23;
+  animation: bounceIn 0.8s;
+  -webkit-animation: bounceIn 0.8s;
+}
+
+.login-box-alert ul {
+  list-style: none;
+}
