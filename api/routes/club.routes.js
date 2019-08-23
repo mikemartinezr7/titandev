@@ -11,22 +11,32 @@ router.param('id_club', function(req, res, next, id_club){
 
 router.route('/')
     .post(function(req, res){
-            clubsController.create(req, res);
+        clubsController.create(req, res);
         });
 
 router.route('/')
     .get(function(req, res){
-            clubsController.list(req, res);
+        clubsController.list(req, res);
         });
 
 router.route('/name')
     .get(function(req, res){
-            clubsController.findClub(req, res);
+        clubsController.findClub(req, res);
         });
 
-router.route('/:id_book')
+router.route('/:id_club')
     .get(function(req, res){
-        booksController.findBookID(req, res);
+        clubsController.findClubID(req, res);
+        });
+
+router.route('/:id_club')
+    .get(function(req, res){
+        clubsController.update(req, res);
+        });
+
+router.route('/')
+    .post(function(req, res){
+        clubsController.delete(req, res);
         });
 
 module.exports = router;

@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-    <meta charset="UTF-8">
-    <title>Lista de Libros</title>
-    <head>
-        <title>TitanDev - Home</title>
-        <link rel="stylesheet" type="text/css" href="../css/base.css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-      </head>
-      
-      <body>
-        <div id="notifications">
-        </div>
-      
-        <div id="topmenu-container">
-          <div class="topmenu-item">
-            <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
-            <span class="helper"><img src="../img/titandev-text.png" alt="TitanDev Logo" width="118" height="18"></span>
-          </div>
-          <div class="topmenu-item"><a href="../about.html">Sobre nosotros</a></div>
-          <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
-          <div class="topmenu-item user-profile">
-            <span class="helper">
-              <a href="../profile.html"><img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
-            </span>
-          </div>
-        </div>
-      
-        <div id="content-container">
-          <div id="leftmenu" class="left-menu-close">
-            <ul>
-              <li><a href="../index.html"><img src="../img/home.png" alt="Home"><span class="left-menu-item-text hidden">Home</span></a></li>
-              <li><a href="../libraries/index.html"><img src="../img/library.png" alt="Librerias"><span class="left-menu-item-text hidden">Librerías</span></a></li>
-              <li><a href="../books/listBooks.html"><img src="../img/book.png" alt="Libros"><span class="left-menu-item-text hidden">Libros</span></a></li>
-              <li><a href="../authors/authorsList.html"><img src="../img/author.png" alt="Autores"><span class="left-menu-item-text hidden">Autores</span></a></li>
-              <li><a href="../clubs/listClubs.html"><img src="../img/clubs.png" alt="Clubes de lectura"><span class="left-menu-item-text hidden">Clubes de lectura</span></a></li>
-              <li><a href="../Genre/index.html"><img src="../img/genre.png" alt="Genero"><span class="left-menu-item-text hidden">Generos</span></a></li>
-              <li><a href="../users/register.html"><img src="../img/user.png" alt="Usuario"><span class="left-menu-item-text hidden">Usuario</span></a></li>
-            </ul>
-          </div>
-      
-          <div id="content">
+<html>
+
+<head>
+  <title>TitanDev - Libros</title>
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div id="topmenu-container">
+    <div class="topmenu-item">
+      <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
+      <span class="helper"><img src="../img/titandev-text.png" alt="TitanDev Logo" width="118" height="18"></span>
+    </div>
+    <div class="topmenu-item"><a href="../about.html">Sobre nosotros</a></div>
+    <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
+    <div class="topmenu-item user-profile">
+      <span class="helper">
+        <a id="user-profile-trigger">John Malkovich &nbsp; <img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+      </span>
+      <div id="profile-menu" style="display: none">
+        <ul>
+          <li><a href="../profile.html">Perfil</a></li>
+          <li><a href="../logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-container">
+    <div id="leftmenu" class="left-menu-close">
+      <ul>
+        <li><a href="../index.html"><img src="../img/home.png" alt="Home"><span class="left-menu-item-text hidden">Home</span></a></li>
+        <li><a href="../libraries/index.html"><img src="../img/library.png" alt="Librerias"><span class="left-menu-item-text hidden">Librerías</span></a></li>
+        <li><a href="../books/listBooks.html"><img src="../img/book.png" alt="Libros"><span class="left-menu-item-text hidden">Libros</span></a></li>
+        <li><a href="../authors/authorsList.html"><img src="../img/author.png" alt="Autores"><span class="left-menu-item-text hidden">Autores</span></a></li>
+        <li><a href="../clubs/listClubs.html"><img src="../img/clubs.png" alt="Clubes de lectura"><span class="left-menu-item-text hidden">Clubes de lectura</span></a></li>
+        <li><a href="../Genre/index.html"><img src="../img/genre.png" alt="Genero"><span class="left-menu-item-text hidden">Generos</span></a></li>
+        <li><a href="../users/register.html"><img src="../img/user.png" alt="Usuario"><span class="left-menu-item-text hidden">Usuario</span></a></li>
+      </ul>
+    </div>
+
+    <div id="content">
   
         <div class="search">
             <label for="search">Buscar libros:</label><br>
@@ -60,12 +62,13 @@
                     <td>ISBN</td>
                     <td>Precio</td>
                     <td>Cantidad</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
-
-            </tbody>
-          
+              
+            </tbody>  
         </table>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
@@ -74,5 +77,7 @@
         <script src="../js/images.js"></script>
         <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
         <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="../js/layout.js"></script>
       </body>
 </html>

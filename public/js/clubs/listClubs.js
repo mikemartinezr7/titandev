@@ -1,6 +1,8 @@
 'use strict';
 
-function list() { //servidor
+/*SERVIDOR*/
+
+function list() { 
   let clubs = [];
   let search = document.getElementById('txtSearch').value;
 
@@ -18,16 +20,11 @@ function list() { //servidor
   request.done(function (res) {
       clubs = res.clubs_list;
       show_clubs(clubs);
-    
   });
-
-  request.fail(function (jqXHR, textStatus) {
-    
+  request.fail(function (jqXHR, textStatus) { 
   });
   return clubs;
- 
 };
-
 
 let clubs = list(); //controlador
 
@@ -42,9 +39,9 @@ table.innerHTML = '';
       var linkText = document.createTextNode(clubs[i]['name']);
       link.appendChild(linkText);
       link.title = clubs[i]['name'];
-      link.href = 'viewClub.html?id=' + clubs[i]['_id'];
+      link.href = 'viewClub.html?id_club=' + clubs[i]['_id'];
 
-       fila.insertCell().innerHTML = clubs[i]['name'];
+       fila.insertCell().appendChild(link);
        fila.insertCell().innerHTML = clubs[i]['type'];
        fila.insertCell().innerHTML = clubs[i]['genre'];
        fila.insertCell().innerHTML = clubs[i]['startTime'];

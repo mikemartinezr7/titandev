@@ -12,7 +12,7 @@ module.exports.create = function(req, res){
             endTime : req.body.endTime,   
             day : req.body.day,
             branch : req.body.branch,
-            status : 'Activo'
+            status : 'Active'
         }
     );
     new_club.save(

@@ -12,7 +12,7 @@ let schema_books = mongoose.Schema({
     editorial : {type: String, required : true},
     type : {type: String, required : true},
     language : {type: String, required : true},
-    isbn : {type: String, required : true, unique : true},
+    isbn : {type: String, required : true, },
     price : {type: Number, required : true},
     quantity : {type: Number, required : true},
     status : {type: String, required : true}

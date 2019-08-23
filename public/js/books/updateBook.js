@@ -27,8 +27,7 @@ let search_book = (id_book) => {
    
   };
 
-let update_book = (pname, pimage, pgenre, pauthor, pdescription, pyear, peditorial, ptype, planguage,
-  pisbn, pprice, pquantity, pid) =>{  
+let update_book = (pname, pimage, pgenre, pauthor, pdescription, pyear, peditorial, ptype, planguage, pisbn, pprice, pquantity, pid) =>{  
     let request = $.ajax({
       url : '/api/book',
       method : "POST",
@@ -72,7 +71,6 @@ let update_book = (pname, pimage, pgenre, pauthor, pdescription, pyear, peditori
 
 //**CONTROLADOR *//
  
-const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
 const cover = document.querySelector('#image_preview')
 const slt_genre = document.querySelector('#slt_genre');
@@ -161,7 +159,7 @@ let get_data = () =>{
   bError = validate();
 
   if(bError == false){
-    update (name, image, genre, author, description, year, editorial, type, language, isbn,
+    update_book (name, image, genre, author, description, year, editorial, type, language, isbn,
     price, quantity, _id); window.location.href = 'listBooks.html';
     console.log("Validacion correcta")
 }else{
@@ -239,8 +237,6 @@ function validate(){
       input_quantity.classList.remove('input_error');}
 
   return bError;
-
-
 };
 
 btn_update.addEventListener('click', get_data);
