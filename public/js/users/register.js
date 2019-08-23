@@ -187,18 +187,27 @@ function register(pFirstName, pMiddleName, pLastName, pSecondLastName, pGender, 
     dataType: "json",
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
   });
+
   request.done(function (response) {
+    console.log(response);
     Swal.fire({
       title: 'Gracias',
-      text: 'El usuario ha sido registrado con éxito. un e-mail ha sido enviado a la cuenta ' + pEmail +' con el fin de confirmar su registro.',
+      text: response.message + '. Un e-mail ha sido enviado a la cuenta ' + pEmail +' con el fin de confirmar su registro.',
       type: 'success',
       confirmButtonText: 'Ok'
     });
+
+    $('#frmRegisterUser').trigger('reset');
+    $('.box-alert ul').empty();
+    $('.box-alert').hide();
+    $('#image_preview').attr('src', '../img/no-avatar.jpg');
+    $(window).scrollTop(0);
   });
-  request.fail(function () {
+  
+  request.fail(function (response) {
     Swal.fire({
       title: 'Error',
-      text: 'Ha ocurrido un error al registrar el usuario',
+      text: response.message,
       type: 'error',
       confirmButtonText: 'Ok'
     });

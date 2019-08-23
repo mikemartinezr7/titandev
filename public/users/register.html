@@ -20,7 +20,7 @@
     <ul></ul>
   </div>
 
-  <form class="form">
+  <form id="frmRegisterUser" class="form">
     <fieldset class="center">
       <legend>Datos generales:</legend>
 
@@ -79,6 +79,7 @@
         </div>
       </div>
     </fieldset>
+    <p>&nbsp;</p>
 
     <fieldset class="center">
       <legend>Ubicación:</legend>
@@ -104,6 +105,7 @@
         </div>
       </div>
     </fieldset>
+    <p>&nbsp;</p>
 
     <fieldset class="center">
       <legend>Preferencias:</legend>
@@ -126,7 +128,7 @@
         </div>
         <div class="col-6">
           <label>Foto</label><br>
-          <button type="button" class="button-primary" id="btnChooseImage">Subir imagen</button>
+          <button type="button" class="button-secondary" id="btnChooseImage">Subir imagen</button>
           <figure>
             <img src="../img/no-avatar.jpg" alt="no photo" width="150" height="150" id="image_preview">
           </figure>
@@ -154,10 +156,8 @@
     <p>&nbsp;</p>
   </form>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script type="text/javascript" src="../js/provinces.js"></script>
   <script type="text/javascript" src="../js/users/register.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>

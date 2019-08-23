@@ -21,7 +21,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-//Database initialization
+//Define the main path of the app
+global.appRoot = path.resolve(__dirname);
+
 const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true });
 
 db.on('error', function (err) {
