@@ -21,7 +21,8 @@ function sign_in(){
     if(bError == true){
         console.log("No se pudo iniciar sesión");
     }else{
-        console.log("Inicio de sesión existoso");
+        document.location.href="/index.html";
+        sessionStorage.setItem("email",inputEmail.value)
     }
 
 };

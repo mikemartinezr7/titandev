@@ -1,5 +1,58 @@
 'use strict';
 
+//Se obtienen los géneros literarios existentes
+
+const literaryGenre = getGenre();
+
+function getGenre() {
+    let genre = "";
+    let request = $.ajax({
+      url: '/api/genre',
+      type: 'get',
+      contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+      dataType: 'json',
+      async: false,
+      data: {
+      }
+    });
+  
+    request.done(function (response) {
+      genre = response.genres_list;
+    });
+  
+    request.fail(function (error) {
+      console.log('Error al cargar los géneros. ' + error);
+    });
+  
+    return genre;
+  };
+
+//Agregar géneros al div
+
+const myGenre = document.getElementById("myGenre");
+
+addGenre();
+
+function addGenre(){
+    for(let i =0;i<literaryGenre.length;i++){
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.value = literaryGenre[i]["_id"];
+        checkbox.id = literaryGenre[i]["_id"];
+
+        var label = document.createElement('label');
+
+        label.htmlFor = literaryGenre[i]["_id"]
+
+        label.appendChild(document.createTextNode(literaryGenre[i]["name"]));
+
+        myGenre.appendChild(checkbox);
+        myGenre.appendChild(label);
+    }
+}
+
+//Se obtienen los usuarios creados para validaciones de datos únicos
+
 const users = getUsers();
 
 function getUsers() {
@@ -28,6 +81,7 @@ function getUsers() {
 
 //Variables para registro de usuario
 
+let buttonCancel = document.querySelector('#btnCancel');
 let buttonRegister = document.querySelector('#btnRegister');
 let inputFirstName = document.querySelector('#txtFirstName');
 let inputMiddleName = document.querySelector('#txtMiddleName');
@@ -61,101 +115,62 @@ let inputExchange = document.querySelector('#Exchange');
 //Cuando se hace click en buttonRegister, se llama a la función register_user
 buttonRegister.addEventListener('click', register_user);
 
-//Validar que los campos únicos no estén siendo utilizados
-inputID.addEventListener('change', find_ID);
-inputEmail.addEventListener('change', find_Email);
-inputNickname.addEventListener('change', find_Nickname);
+//Lleva al usuario a la página principal si decide Cancelar el registro
+
+buttonCancel.addEventListener("click", function(){
+    document.location.href = '/index.html';
+});
+
+//Validar que los campos únicos no estén siendo utilizados y tengan el formato esperado
+inputID.addEventListener('change',validate_ID);
+inputEmail.addEventListener('change',validate_Email);
+inputNickname.addEventListener('change',find_Nickname);
 
 //Registro de usuario (valida datos y responde con éxito o error)
-function register_user() {
-  //Registra el arreglo de géneros favoritos
-  let FavoriteGenre = [];
-  let i = 0;
+function register_user(){
 
-  if (inputFiction.checked == true) {
-    let Fiction = "5d45b9d26ec5d72d90bbcb46";
-    FavoriteGenre[i] = Fiction;
-    i++
-  }
-  if (inputTerror.checked == true) {
-    let Terror = "5d45b9ed6ec5d72d90bbcb47";
-    FavoriteGenre[i] = Terror;
-    i++
-  }
-  if (inputComedy.checked == true) {
-    let Comedy = "5d45b9f56ec5d72d90bbcb48";
-    FavoriteGenre[i] = Comedy;
-    i++
-  }
-  if (inputDrama.checked == true) {
-    let Drama = "5d45b9fc6ec5d72d90bbcb49";
-    FavoriteGenre[i] = Drama;
-    i++
-  }
-  if (inputTragedy.checked == true) {
-    let Tragedy = "5d45ba026ec5d72d90bbcb4a";
-    FavoriteGenre[i] = Tragedy;
-    i++
-  }
-  if (inputRomance.checked == true) {
-    let Romance = "5d45ba076ec5d72d90bbcb4b";
-    FavoriteGenre[i] = Romance;
-    i++
-  }
-  if (inputNovel.checked == true) {
-    let Novel = "5d45ba0c6ec5d72d90bbcb4c";
-    FavoriteGenre[i] = Novel;
-    i++
-  }
-  if (inputStory.checked == true) {
-    let Story = "5d45ba116ec5d72d90bbcb4d";
-    FavoriteGenre[i] = Story;
-    i++
-  }
-  if (inputThriller.checked == true) {
-    let Thriller = "5d45ba166ec5d72d90bbcb4e";
-    FavoriteGenre[i] = Thriller;
-    i++
-  }
-  if (inputTale.checked == true) {
-    let Tale = "5d45ba1c6ec5d72d90bbcb4f";
-    FavoriteGenre[i] = Tale;
-    i++
-  }
-  if (inputDidacticNovel.checked == true) {
-    let DidacticNovel = "5d45ba276ec5d72d90bbcb50";
-    FavoriteGenre[i] = DidacticNovel;
-  }
+    //Registra el arreglo de géneros favoritos
+    let FavoriteGenre = [];
 
-  //Recupera los valores ingresados
-  let FirstName = inputFirstName.value;
-  let MiddleName = inputMiddleName.value;
-  let LastName = inputLastName.value;
-  let SecondLastName = inputSecondLastName.value;
-  let Gender = inputGender.value;
-  let ID = inputID.value;
-  let IDType = inputIDType.value;
-  let Email = inputEmail.value;
-  let Province = inputProvince.value;
-  let County = inputCounty.value;
-  let District = inputDistrict.value;
-  let AdditionalDetails = inputAdditionalDetails.value;
-  let FavoriteBook = inputFavoriteBook.value;
-  let FavoriteAuthor = inputFavoriteAuthor.value;
-  let Nickname = inputNickname.value;
-  let Avatar = inputAvatar.src;
-  let Exchange = inputExchange.checked;
+    for (let i = 0, k =0;i<literaryGenre.length;i++){
+        let genreCheckbox = document.getElementById(literaryGenre[i]["_id"]);
+        if(genreCheckbox.checked == true){
+            FavoriteGenre[k]=literaryGenre[i]["_id"]
+            k++
+        }
+    }
 
-  let bError = false;
+        //Recupera los valores ingresados
+        let FirstName = inputFirstName.value;
+        let MiddleName = inputMiddleName.value;
+        let LastName = inputLastName.value;
+        let SecondLastName = inputSecondLastName.value;
+        let Gender = inputGender.value;
+        let ID = inputID.value;
+        let IDType = inputIDType.value;
+        let Email = inputEmail.value;
+        let Province = inputProvince.value;
+        let County = inputCounty.value;
+        let District = inputDistrict.value;
+        let AdditionalDetails = inputAdditionalDetails.value;
+        let FavoriteBook = inputFavoriteBook.value;
+        let FavoriteAuthor = inputFavoriteAuthor.value;
+        let Nickname = inputNickname.value;
+        let Avatar = inputAvatar.src;
+        let Exchange = inputExchange.checked;
 
-  bError = validate(FirstName, LastName, Gender, ID, IDType, Email, Province, County, District, AdditionalDetails, FavoriteGenre, Nickname);
+    let bError = false;
 
-  if (bError == false) {
-    register(FirstName, MiddleName, LastName, SecondLastName, Gender, ID, IDType, Email, Province, County, District, AdditionalDetails, FavoriteGenre, FavoriteBook, FavoriteAuthor, Nickname, Avatar, Exchange);
-  } else {
-    $(window).scrollTop(0);
-    $('.box-alert').show();
-  }
+    bError = validate(FirstName,LastName,Gender,ID,IDType,Email,Province,County,District,AdditionalDetails,FavoriteGenre,Nickname);
+ 
+    if (bError == false) {
+      register(FirstName, MiddleName, LastName, SecondLastName, Gender, ID, IDType, Email, Province, County, District, AdditionalDetails, FavoriteGenre, FavoriteBook, FavoriteAuthor, Nickname, Avatar, Exchange);
+    } else {
+      $(window).scrollTop(0);
+      $('.box-alert').show();
+    }
+
+
 }
 
 //Registrar en la base de datos
@@ -211,8 +226,10 @@ function register(pFirstName, pMiddleName, pLastName, pSecondLastName, pGender, 
       type: 'error',
       confirmButtonText: 'Ok'
     });
-  });
-};
+    document.location.href = '/users/savepass.html';
+  })
+}
+
 
 //Validar la información ingresada
 function validate(pFirstName, pLastName, pGender, pID, pIDType, pEmail, pProvince, pCounty, pDistrict, pAdditionalDetails, pFavoriteGenre, pNickname) {
@@ -291,50 +308,230 @@ function validate(pFirstName, pLastName, pGender, pID, pIDType, pEmail, pProvinc
     inputNickname.classList.remove('error')
   }
 
-  return bError;
+function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre,pNickname){
+
+    let bError = false;
+
+    if(pFirstName == ""){
+        bError = true
+        inputFirstName.classList.add('error')
+    }else{
+        inputFirstName.classList.remove('error')
+    }
+    if(pLastName == ""){
+        bError = true
+        inputLastName.classList.add('error')
+    }else{
+        inputLastName.classList.remove('error')
+    }
+    if(pGender == ""){
+        bError = true
+        inputGender.classList.add('error')
+    }else{
+        inputGender.classList.remove('error')
+    }
+    if(pID == "" ||validate_ID()==true){
+        bError = true
+        inputID.classList.add('error')
+    }else{
+        inputID.classList.remove('error')
+    }
+    if(pIDType == ""){
+        bError = true
+        inputIDType.classList.add('error')
+    }else{
+        inputIDType.classList.remove('error')
+    }
+    if(pEmail == "" ||validate_Email()==true){
+        bError = true
+        inputEmail.classList.add('error')
+    }else{
+        inputEmail.classList.remove('error')
+    }
+    if(pProvince == ""){
+        bError = true
+        inputProvince.classList.add('error')
+    }else{
+        inputProvince.classList.remove('error')
+    }
+    if(pCounty == ""){
+        bError = true
+        inputCounty.classList.add('error')
+    }else{
+        inputCounty.classList.remove('error')
+    }
+    if(pDistrict == ""){
+        bError = true
+        inputDistrict.classList.add('error')
+    }else{
+        inputDistrict.classList.remove('error')
+    }
+    if(pAdditionalDetails == ""){
+        bError = true
+        inputAdditionalDetails.classList.add('error')
+    }else{
+        inputAdditionalDetails.classList.remove('error')
+    }
+    if(pFavoriteGenre.length == 0){
+        bError = true
+        document.getElementById("myGenre").classList.add('error');
+    }else{
+        document.getElementById("myGenre").classList.remove('error');
+    }
+    if(pNickname == ""||find_Nickname()==true){
+        bError = true
+        inputNickname.classList.add('error')
+    }else{
+        inputNickname.classList.remove('error')
+    }
+    if(inputFavoriteAuthor.value !=""){
+        if(findAuthor()==true){
+            inputFavoriteAuthor.classList.add('error')
+        }else{
+            inputFavoriteAuthor.classList.remove('error')
+        }
+    }
+    if(inputFavoriteBook.value !=""){
+        if(findBook()==true){
+            inputFavoriteBook.classList.add('error')
+        }else{
+            inputFavoriteBook.classList.remove('error')
+        }
+    }
+    switch(inputIDType.value){
+        case "nacional":
+            if(inputID.value.length != 9){
+                console.log("Cédula de nacional debe ser de 9 dígitos")
+                inputID.classList.add('error')
+                bError=true
+            }
+            break
+        case "residente":
+            if(inputID.value.length != 13){
+                console.log("Cédula de residente debe ser de 13 dígitos")
+                inputID.classList.add('error')
+                bError=true
+            }
+            break
+        default:
+    }
+    return bError;
 }
 
-function find_ID() {
-  for (let i = 0; i < users.length; i++) {
-    if (inputID.value == users[i]['id']) {
-      console.log('ID ya existe')
-      inputID.classList.add('error')
-      break
-    } else {
-      inputID.classList.remove('error')
+function validate_ID(){
+
+    let bError = false;
+
+    if(isValidID(inputID.value)){
+        if(find_ID()==true){
+            bError = true
+        }
+    }else{
+        console.log('ID no tiene el formato adecuado')
+        inputID.classList.add('error')
+        bError = true;
     }
-  }
+    return bError
 }
 
-function find_Email() {
-  for (let i = 0; i < users.length; i++) {
-    if (inputEmail.value == users[i]['email']) {
-      console.log('Email ya existe')
-      inputEmail.classList.add('error')
-      break
-    } else {
-      inputEmail.classList.remove('error')
-    }
-  }
+function isValidID(id) {
+    var regex = /^[0-9]*$/
+    return regex.test(id)
 }
 
-function find_Nickname() {
-  for (let i = 0; i < users.length; i++) {
-    if (inputNickname.value == users[i]['nickname']) {
-      console.log('Nickname ya existe')
-      inputNickname.classList.add('error')
-      break
-    } else {
-      inputNickname.classList.remove('error')
+function find_ID(){
+
+    let bError = false;
+
+    for (let i=0; i<users.length; i++) {
+        if(inputID.value==users[i]['id']){
+            console.log('ID ya existe')
+            inputID.classList.add('error')
+            bError = true
+            break
+        }else{
+            inputID.classList.remove('error')
+        }
+      }
+
+      return bError
+}
+
+function validate_Email(){
+    
+    let bError = false
+
+    if(isValidEmail(inputEmail.value)){
+        if(find_Email() == true){
+            bError = true
+        }
+    }else{
+        console.log('Email no tiene el formato adecuado')
+        inputEmail.classList.add('error')
+        bError = true
     }
+
+    return bError
+}
+
+function isValidEmail(email) {
+    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(email);
   }
+
+function find_Email(){
+
+    let bError = false
+
+    for (let i=0; i<users.length; i++) {
+        if(inputEmail.value==users[i]['email']){
+            console.log('Email ya existe')
+            inputEmail.classList.add('error')
+            bError = true
+            break
+        }else{
+            inputEmail.classList.remove('error')
+        }
+      }
+    
+    return bError
+}
+
+function find_Nickname(){
+
+    let bError = false;
+
+    for (let i=0; i<users.length; i++) {
+        if(inputNickname.value==users[i]['nickname']){
+            console.log('Nickname ya existe')
+            inputNickname.classList.add('error')
+            bError = true
+            break
+        }else{
+            inputNickname.classList.remove('error')
+        }
+      }
+
+    return bError
 }
 
 //Se recuperan todos los autores de la base de datos
 var authors = getAuthors();
 
+var authorArray = [];
+
+authorArray = prepareAuthorArray();
+
+function prepareAuthorArray (){
+    let authorArray = []
+    for(let i = 0;i<authors.length;i++){
+        authorArray[i]=authors[i]['firstname']+" "+authors[i]['lastname']
+    }
+    return authorArray
+}
+
 function getAuthors() {
-  let authors = "";
+  let authors = ""
   let request = $.ajax({
     url: '/api/author',
     type: 'get',
@@ -346,14 +543,52 @@ function getAuthors() {
   });
 
   request.done(function (response) {
-    authors = response;
+    authors = response.authors_list;
   });
 
   request.fail(function (error) {
     console.log('Error al cargar los autores. ' + error);
   });
 
-  return authors;
+    return authors
+};
+
+//Se recuperan todos los libros de la base de datos
+var books = getBooks();
+
+var bookArray = [];
+
+bookArray = prepareBookArray();
+
+function prepareBookArray (){
+    let bookArray = []
+    for(let i = 0;i<books.length;i++){
+        bookArray[i]=books[i]['name']
+    }
+    return bookArray
+}
+    
+function getBooks() {
+  let books = ""
+  let request = $.ajax({
+    url: '/api/book',
+    type: 'get',
+    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    dataType: 'json',
+    async: false,
+    data: {
+    }
+  });
+
+  request.done(function (response) {
+    books = response.books_list;
+  });
+
+  request.fail(function (error) {
+    console.log('Error al cargar los libros. ' + error);
+  });
+
+    return books
 };
 
 function autocomplete(inp, arr) {
@@ -462,3 +697,32 @@ $('#idType').change(function () {
     default: break;
   }
 });
+  }
+
+//Valida que el autor exista
+
+function findAuthor(){
+    let userFavoriteAuthor = inputFavoriteAuthor.value;
+    let bError = true;
+    for(let i = 0;i<authorArray.length;i++){
+    if(userFavoriteAuthor==authorArray[i]){
+        bError = false;
+        break;
+    }
+    }
+    return bError
+}
+
+//Valida que el libro exista
+
+function findBook(){
+    let userFavoriteBook = inputFavoriteBook.value;
+    let bError = true;
+    for(let i = 0;i<bookArray.length;i++){
+        if(userFavoriteBook==bookArray[i]){
+            bError = false;
+            break;
+        }
+    }
+    return bError
+}
