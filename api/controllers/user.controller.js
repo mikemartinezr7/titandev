@@ -120,56 +120,75 @@ module.exports.activate = function (req, res) {
   if (email == '') {
     errors.push({
       field: 'email',
-      message: 'El campo e-mail es requerido'
+      message: 'El campo e-mail es requerido.'
     });
   }
 
   if (token == '') {
     errors.push({
       field: 'randomToken',
-      message: 'El campo PIN es requerido'
+      message: 'El campo PIN es requerido.'
     });
   }
 
   if (pass == '') {
     errors.push({
       field: 'password',
-      message: 'El campo contraseña es requerido'
+      message: 'El campo contraseña es requerido.'
     });
   }
 
   if (passConfirm == '') {
     errors.push({
       field: 'passConfirm',
-      message: 'El campo confirmar contraseña es requerido'
+      message: 'El campo confirmar contraseña es requerido.'
     });
   }
 
   if (pass != passConfirm) {
     errors.push({
       field: 'password',
-      message: 'Las contraseñas no coinciden'
+      message: 'Las contraseñas no coinciden.'
     });
   }
 
   if (errors.length > 0) {
     res.status(400).json(errors);
   } else {
-    UserModel.findOne({ email: req.body.email, active: false }, function (error, user) { 
+    UserModel.findOne({ email: req.body.email, active: false }, function (error, user) {
       if (error) {
         console.log(error);
       }
 
       if (user) {
         if (user.randomToken == token) {
-          console.log('PIN OK');
+          UserModel.findByIdAndUpdate(user._id, { active: true, password: req.body.password }, function (error, userUpdated) {
+            if (error) {
+              errors.push({
+                field: 'email',
+                message: 'Ha ocurrido un error al activar el usuario. Vuelvalo a intentarlo en unos minutos.'
+              });
+              res.status(400).json(errors);
+            } else {
+              res.status(200).json({
+                success: true,
+                code: 200,
+                message: 'El usuario fue activado exitosamente.',
+                detail: userUpdated
+              });
+            }
+          });
         } else {
-          console.log('PIN INVALIDO');
+          errors.push({
+            field: 'randomToken',
+            message: 'El PIN digitado no es válido. Revisa el PIN enviado al email y vuelvalo a digitar correctamente.'
+          });
+          res.status(400).json(errors);
         }
       } else {
         errors.push({
           field: 'email',
-          message: 'El email digitado no se encuentra registrado en la base de datos'
+          message: 'El email digitado no se encuentra registrado en la base de datos.'
         });
         res.status(400).json(errors);
       }
@@ -194,8 +213,6 @@ function sendEmail(email, subject, message) {
     subject: subject,
     html: message
   };
-
-  console.log('Enviando correo...');
 
   transport.sendMail(messageOptions, function (err, info) {
     if (err) {

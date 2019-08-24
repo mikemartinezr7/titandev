@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 //Define the main path of the app
 global.appRoot = path.resolve(__dirname);
 
-const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true });
+const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true, useFindAndModify: false });
 
 db.on('error', function (err) {
   console.log('Error en la BD: ' + err);

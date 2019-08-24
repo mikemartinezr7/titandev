@@ -13,6 +13,8 @@ $('#frmActivateUser').on('submit', function (event) {
     jsonData[key] = value;
   }
 
+
+
   $.ajax({
     url: '/api/user/activate',
     type: 'POST',
@@ -26,7 +28,17 @@ $('#frmActivateUser').on('submit', function (event) {
     success: function (data) {
       $('.login-box-alert ul').empty();
       $('.login-box-alert').hide();
-      console.log(data);
+
+      Swal.fire({
+        title: 'Bienvenido',
+        text: 'El usuario ha sido activado corectamente. Ingrese sus datos de ingreso en la página de Inicio de sesión',
+        type: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Entendido'
+      }).then(function (result) {
+        window.location.href = 'http://' + window.location.host + '/users/signin.html';
+      });
     },
     error: function (response) {
       let errors = [];
@@ -53,7 +65,6 @@ $('#frmActivateUser').on('submit', function (event) {
   });
 
   $('#btnActivate').prop('disabled', false);
-
 });
 
 $(document).ready(function () {
