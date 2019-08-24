@@ -48,10 +48,10 @@ let club = search_club(_id);
 console.log(club)
 if(club){
     input_name.innerHTML = club[0]['name']
-    slt_type.innerHTML = book[0]['type']
-    slt_genre.innerHTML = book[0]['genre']
-    slt_startTime.innerHTML = book[0]['startTime']
-    slt_endTime.innerHTML = book[0]['endTime']
-    slt_day.innerHTML = book[0]['day']
+    slt_type.innerHTML = club[0]['type']
+    slt_genre.innerHTML = club[0]['genre']
+    slt_startTime.innerHTML = club[0]['startTime']
+    slt_endTime.innerHTML = club[0]['endTime']
+    slt_day.innerHTML = club[0]['day']
     input_branch.innerHTML = club[0]['branch']
 }

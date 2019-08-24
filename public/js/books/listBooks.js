@@ -1,6 +1,6 @@
 'use strict';
 
-//*SERVIDOR**//
+/*SERVIDOR*/
 
 function list() {
   let books = [];
@@ -21,11 +21,8 @@ function list() {
     books = res.books_list;
     show_books(books);
   });
-
   request.fail(function (jqXHR, textStatus) {
-
   });
-
   return books;
 };
 
@@ -45,7 +42,6 @@ function show_books(books) {
     link.href = 'viewBook.html?id_book=' + books[i]['_id'];
 
     fila.insertCell().appendChild(link);
-    //fila.insertCell().src = books[i]['image'];
     fila.insertCell().innerHTML = books[i]['genre'];
     fila.insertCell().innerHTML = books[i]['author'];
     fila.insertCell().innerHTML = books[i]['description'];
@@ -56,37 +52,38 @@ function show_books(books) {
     fila.insertCell().innerHTML = books[i]['isbn'];
     fila.insertCell().innerHTML = books[i]['price'];
     fila.insertCell().innerHTML = books[i]['quantity'];
-
-    let cell_configuration = fila.insertCell();
-
-   let cover = document.createElement('img');
-            cover.classList.add('imageTable');
-            if (books[i]['image']) {
-                cover.src = books[i]['image'];
-            } else {
-               cover.src = '../img/book-placeholder.png';
-            }
-
-            cell_configuration.appendChild(cover);
     
-            let cellDelete = fila.insertCell
-            let linkDelete = document.createElement('a');
-            linkDelete.href = '#';
-            linkDelete.innerText = 'Eliminar';
-
-            linkDelete.addEventListener('click', function() {
-                deleteBook(books_list[i]['_id']);
-                window.location.href = 'listBooks.html';
-            });
-
-            cellDelete.appendChild(linkDelete);
+    let cell_configuration = fila.insertCell();
 
     // Creación del botón de editar
     let edit_button = document.createElement('a');
     edit_button.textContent = 'Editar';
     edit_button.href = `updateBook.html?id_book=${books[i]['_id']}`;
-
+    
     cell_configuration.appendChild(edit_button);
+
+    //Celda de Imagen
+    let cover = document.createElement('img');
+        cover.classList.add('imageTable');
+          if (books[i]['image']) {
+              cover.src = books[i]['image'];
+          } else {
+              cover.src = '../img/book-placeholder.png';
+          }
+        cell_configuration.appendChild(cover);
+    
+    //Celda Eliminar
+    //let cellDelete = fila.insertCell
+    //let linkDelete = document.createElement('a');
+      //  linkDelete.href = '#';
+      //  linkDelete.innerText = 'Eliminar';
+
+      //  linkDelete.addEventListener('click', function() {
+       //   deleteBook(books_list[i]['_id']);
+        //  window.location.href = 'listBooks.html';
+       //     });
+
+      //  cellDelete.appendChild(linkDelete);
   }
 };
 
