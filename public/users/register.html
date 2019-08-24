@@ -23,103 +23,138 @@
   <form id="frmRegisterUser" class="form">
     <fieldset class="center">
       <legend>Datos generales:</legend>
-<body>
-    <body>
         <div style="display: none" id="hideAll">&nbsp;</div>
-        <form>
-            <div>
-                <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
-                <input type="text" id="txtFirstName">
-            </div>
-            <div>
-                <label for="txtMiddleName">Segundo nombre</label>
-                <input type="text" id="txtMiddleName">
-            </div>
-            <div>
-                <label for="txtLastName">Primer apellido <span class="red">*</span></label>
-                <input type="text" id="txtLastName">
-            </div>
-            <div>
-                <label for="txtSecondLastName">Segundo apellido</label>
-                <input type="text" id="txtSecondLastName">
-            </div>
-            <div>
-                <label for="sltGender">Género <span class="red">*</span></label>
-                <select id="sltGender">
+            <div class="row">
+                <div class="col-2">
+                  <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
+                  <input type="text" id="txtFirstName">
+                </div>
+                <div class="col-2">
+                  <label for="txtMiddleName">Segundo nombre</label>
+                  <input type="text" id="txtMiddleName">
+                </div>
+                <div class="col-2">
+                  <label for="txtLastName">Primer apellido <span class="red">*</span></label>
+                  <input type="text" id="txtLastName">
+                </div>
+                <div class="col-2">
+                  <label for="txtSecondLastName">Segundo apellido</label>
+                  <input type="text" id="txtSecondLastName">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <label for="sltGender">Género <span class="red">*</span></label>
+                  <select id="sltGender">
                     <option value=""></option>
                     <option value="F">Femenino</option>
                     <option value="M">Masculino</option>
                     <option value="O">Otro</option>
                     <option value="P">Prefiero no decir</option>
-                </select>
-            </div>
-            <div>
-                <label for="sltIDType">Tipo de identificación <span class="red">*</span></label>
-                <select id="sltIDType">
+                  </select>
+                </div>
+                <div class="col-4">
+                  <label for="idType">Tipo de identificación <span class="red">*</span></label>
+                  <select name="idType" id="idType" class="required">
                     <option value=""></option>
                     <option value="nacional">Nacional</option>
                     <option value="residente">Residente</option>
-                </select>
-            </div>
-            <div>
-                <label for="txtID">Identificación <span class="red">*</span></label>
-                <input type="text" id="txtID">
-            </div>
-            <div>
-                <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
-                <input type="text" id="txtEmail">
-            </div>
-            <div>
-                Dirección <span class="red">*</span><br>
-                <label for="sltProvince">Provincia</label>
-                <select id="sltProvince">
-                </select>
-                <label for="sltCounty">Cantón</label>
-                <select id="sltCounty">
-                </select>
-                <label for="sltDistrict">Distrito</label>
-                <select id="sltDistrict">
-                </select>
-            </div>
-            <div>
-                    <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
-                    <input type="text" id="txtAdditionalDetails">
-            </div>
-            <div>
-                    Géneros favoritos <span class="red">*</span><br>
-                    <div id="myGenre">
+                    <option value="nacionalizado">Nacionalizado</option>
+                    <option value="extranjero">Extranjero</option>
+                  </select>
+                </div>
+                <div class="col-4">
+                  <label for="txtID">Identificación <span class="red">*</span></label>
+                  <input type="text" id="txtID">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
+                  <input type="text" id="txtEmail">
+                </div>
+                <div class="col-6">
+                  <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
+                  <input type="text" id="txtNickname">
+                </div>
+              </div>
+            </fieldset>
+            <p>&nbsp;</p>
+        
+            <fieldset class="center">
+              <legend>Ubicación:</legend>
+              <div class="row">
+                <div class="col-4">
+                  <label for="sltProvince">Provincia</label>
+                  <select id="sltProvince"></select>
+                </div>
+                <div class="col-4">
+                  <label for="sltCounty">Cantón</label>
+                  <select id="sltCounty"></select>
+                </div>
+                <div class="col-4">
+                  <label for="sltDistrict">Distrito</label>
+                  <select id="sltDistrict">
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
+                  <textarea id="txtAdditionalDetails" name="txtAdditionalDetails" rows="10"></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <p>&nbsp;</p>
+        
+            <fieldset class="center">
+              <legend>Preferencias:</legend>
+              <div class="row">
+                <div class="col-6">
+                  <label>Géneros favoritos <span class="red">*</span></label>
+                  <div id="myGenre">
 
-                    </div>
-            </div>
-            <div class="autocomplete">
-                    <label for="txtFavoriteBook">Libro favorito</label>
-                    <input type="text" id="txtFavoriteBook">
-            </div>
-            <div class="autocomplete">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label>Foto</label><br>
+                  <button type="button" class="button-secondary" id="btnChooseImage">Subir imagen</button>
+                  <figure>
+                    <img src="../img/no-avatar.jpg" alt="no photo" width="150" height="150" id="image_preview">
+                  </figure>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <label for="txtFavoriteBook">Libro favorito</label>
+                  <input type="text" id="txtFavoriteBook">
+                </div>
+                <div class="col-4">
+                  <div class="autocomplete">
                     <label for="txtFavoriteAuthor">Autor favorito</label>
                     <input type="text" id="txtFavoriteAuthor">
-            </div>
-            <div>
-                    <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
-                    <input type="text" id="txtNickname">
-            </div>
-            <div>
-                <figure>
-                    <img src="../img/no-avatar.jpg" alt="no photo" id="image_preview">
-                </figure>  
-                <button type="button" id="btnChooseImage">Subir imagen</button>
-            </div>
-            <div>
-                    <label for="Exchange">Deseo intercambiar libros</label>
-                    <input type="checkbox" id="Exchange">
-            </div>
-            <button type="button" id="btnRegister">Registrar</button>
-            <button type="button" id="btnCancel">Cancelar</button>
-        </form>
-        <a href="/users/signin.html">Ya tengo un usuario</a>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <input type="checkbox" id="Exchange"><label for="Exchange"> Deseo intercambiar libros</label>
+                </div>
+              </div>
+            </fieldset>
+            <p>&nbsp;</p>
+            <button type="button" id="btnRegister" class="button-primary">Registrar</button>
+            <button type="reset" id="btnReset" class="button-secondary">Limpiar</button>
+            <p>&nbsp;</p>
+  </form>
+  <a href="/users/signin.html">Ya tengo un usuario</a>
 </body>
 
-<script type="text/javascript">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="../js/provinces.js"></script>
+  <script type="text/javascript" src="../js/users/register.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <script type="text/javascript">
     document.getElementById("hideAll").style.display = "block";
   </script> 
 
@@ -128,171 +163,23 @@
   { document.getElementById("hideAll").style.display = "none"; }
     </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="../js/provinces.js"></script>
-
-      <div class="row">
-        <div class="col-2">
-          <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
-          <input type="text" id="txtFirstName">
-        </div>
-        <div class="col-2">
-          <label for="txtMiddleName">Segundo nombre</label>
-          <input type="text" id="txtMiddleName">
-        </div>
-        <div class="col-2">
-          <label for="txtLastName">Primer apellido <span class="red">*</span></label>
-          <input type="text" id="txtLastName">
-        </div>
-        <div class="col-2">
-          <label for="txtSecondLastName">Segundo apellido</label>
-          <input type="text" id="txtSecondLastName">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <label for="sltGender">Género <span class="red">*</span></label>
-          <select id="sltGender">
-            <option value=""></option>
-            <option value="F">Femenino</option>
-            <option value="M">Masculino</option>
-            <option value="O">Otro</option>
-            <option value="P">Prefiero no decir</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <label for="idType">Tipo de identificación <span class="red">*</span></label>
-          <select name="idType" id="idType" class="required">
-            <option value=""></option>
-            <option value="nacional">Nacional</option>
-            <option value="residente">Residente</option>
-            <option value="nacionalizado">Nacionalizado</option>
-            <option value="extranjero">Extranjero</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <label for="txtID">Identificación <span class="red">*</span></label>
-          <input type="text" id="txtID">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
-          <input type="text" id="txtEmail">
-        </div>
-        <div class="col-6">
-          <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
-          <input type="text" id="txtNickname">
-        </div>
-      </div>
-    </fieldset>
-    <p>&nbsp;</p>
-
-    <fieldset class="center">
-      <legend>Ubicación:</legend>
-      <div class="row">
-        <div class="col-4">
-          <label for="sltProvince">Provincia</label>
-          <select id="sltProvince"></select>
-        </div>
-        <div class="col-4">
-          <label for="sltCounty">Cantón</label>
-          <select id="sltCounty"></select>
-        </div>
-        <div class="col-4">
-          <label for="sltDistrict">Distrito</label>
-          <select id="sltDistrict">
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
-          <textarea id="txtAdditionalDetails" name="txtAdditionalDetails" rows="10"></textarea>
-        </div>
-      </div>
-    </fieldset>
-    <p>&nbsp;</p>
-
-<<<<<<< Updated upstream
-    <fieldset class="center">
-      <legend>Preferencias:</legend>
-      <div class="row">
-        <div class="col-6">
-          <label>Géneros favoritos <span class="red">*</span></label>
-          <div id="favGenre">
-            <input type="checkbox" id="fiction"><label for="fiction">Ficción</label><br>
-            <input type="checkbox" id="terror"><label for="terror">Terror</label><br>
-            <input type="checkbox" id="comedy"><label for="comedy">Comedia</label><br>
-            <input type="checkbox" id="drama"><label for="drama">Drama</label><br>
-            <input type="checkbox" id="tragedy"><label for="tragedy">Tragedia</label><br>
-            <input type="checkbox" id="romance"><label for="romance">Romance</label><br>
-            <input type="checkbox" id="novel"><label for="novel">Novela</label><br>
-            <input type="checkbox" id="story"><label for="story">Cuento</label><br>
-            <input type="checkbox" id="thriller"><label for="thriller">Thriller</label><br>
-            <input type="checkbox" id="tale"><label for="tale">Fábula</label><br>
-            <input type="checkbox" id="didacticNovel"><label for="didacticNovel">Novela didáctica</label>
-          </div>
-        </div>
-        <div class="col-6">
-          <label>Foto</label><br>
-          <button type="button" class="button-secondary" id="btnChooseImage">Subir imagen</button>
-          <figure>
-            <img src="../img/no-avatar.jpg" alt="no photo" width="150" height="150" id="image_preview">
-          </figure>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <label for="txtFavoriteBook">Libro favorito</label>
-          <input type="text" id="txtFavoriteBook">
-        </div>
-        <div class="col-4">
-          <div class="autocomplete">
-            <label for="txtFavoriteAuthor">Autor favorito</label>
-            <input type="text" id="txtFavoriteAuthor">
-          </div>
-        </div>
-        <div class="col-4">
-          <input type="checkbox" id="Exchange"><label for="Exchange"> Deseo intercambiar libros</label>
-        </div>
-      </div>
-    </fieldset>
-    <p>&nbsp;</p>
-    <button type="button" id="btnRegister" class="button-primary">Registrar</button>
-    <button type="reset" id="btnReset" class="button-secondary">Limpiar</button>
-    <p>&nbsp;</p>
-  </form>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-  <script type="text/javascript" src="../js/provinces.js"></script>
-  <script type="text/javascript" src="../js/users/register.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
   <!--Desabilita Enter para enviar la información-->
   <script type="text/javascript">
     window.addEventListener('keydown', function (e) { if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) { if (e.target.nodeName === 'INPUT' && e.target.type !== 'textarea') { e.preventDefault(); return false; } } }, true);
   </script>
 
-  <!--Autocompleta los autores para el campo de autor favorito-->
-  <script type="text/javascript">
-    autocomplete(document.getElementById("txtFavoriteAuthor"), authors.firstname);
-  </script>
-=======
 <!--Autocompleta los autores/libros para los campo de autor favorito y libro favorito-->
 <script>
     autocomplete(document.getElementById("txtFavoriteAuthor"), authorArray);
 </script>
+
 <script>
     autocomplete(document.getElementById("txtFavoriteBook"), bookArray);
 </script>
->>>>>>> Stashed changes
 
   <!-- Scripts cloudinary -->
   <script type="text/javascript" src="../js/images.js"></script>
   <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'></script>
   <script type="text/javascript" src="https://widget.cloudinary.com/global/all.js"></script>
-</body>
 
 </html>
