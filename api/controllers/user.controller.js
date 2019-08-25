@@ -248,7 +248,7 @@ module.exports.login = function (req, res) {
   if (errors.length > 0) {
     res.status(400).json(errors);
   } else {
-    UserModel.findOne({ email: req.body.email, password: req.body.password, active: true }, function (error, user) {
+    UserModel.findOne({ email: req.body.email, password: req.body.password, active: true }).populate('favoriteGenres', 'name').exec(function (error, user) {
       if (error) {
         errors.push({
           field: 'email',
@@ -292,7 +292,7 @@ module.exports.logout = function (req, res) {
 
 module.exports.checkSession = function (req, res) {
   if (req.session && req.session.user) {
-    return res.status(200).send();
+    return res.status(200).send(req.session.user);
   } else {
     return res.status(401).send();
   }

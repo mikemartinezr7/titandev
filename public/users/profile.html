@@ -2,15 +2,12 @@
 <html>
 
 <head>
-  <title>Titandev - Profile</title>
+  <title>TitanDev - Home</title>
   <link rel="stylesheet" type="text/css" href="../css/base.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div id="notifications">
-  </div>
-
   <div id="topmenu-container">
     <div class="topmenu-item">
       <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
@@ -20,8 +17,14 @@
     <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
     <div class="topmenu-item user-profile">
       <span class="helper">
-        <a href="#"><img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+        <a id="user-profile-trigger">John Malkovich &nbsp; <img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
       </span>
+      <div id="profile-menu" style="display: none">
+        <ul>
+          <li><a href="../profile.html">Perfil</a></li>
+          <li><a href="../users/logout.html">Logout</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -39,25 +42,91 @@
     </div>
 
     <div id="content">
-        <h1 id="name">Hola</h1>
+      <div id="user">
+        <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName}</h1>
+
+        <h3>Ubicación</h3>
+        <div class="row">
+          <div class="col-12 box">
+            <p>
+              <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}.
+            </p>
+          </div>
+        </div>
+
+        <h3>Datos Personales</h3>
+        <div class="row">
+          <div class="col-12 box">
+            <p>
+              <strong>Género:</strong> ${gender}<br>
+              <strong>ID:</strong> ${id}<br>
+              <strong>Tipo:</strong> ${idType}<br>
+              <strong>Email:</strong> ${email}<br>
+              <strong>Sobrenombre:</strong> ${nickname}<br>
+            </p>
+          </div>
+        </div>
+
+        <h3>Preferencias Literarias</h3>
+        <div class="row">
+          <div class="col-12 box">
+            <p>
+              <strong>Autor Favorito:</strong> ${favoriteAuthor}<br>
+              <strong>Libro Favorito:</strong> ${favoriteBook}<br>
+              <strong>Géneros Favoritos:</strong> ${favoriteGenres}<br>
+              <strong>Intercambio de libros:</strong> ${exchange}<br>
+            </p>
+          </div>
+        </div>
         
+      </div>
     </div>
   </div>
-  
-  <script src="../js/users/userProfile.js"></script>
 
-  <script id="notificationTemplate" type="text/x-jQuery-tmpl">
-    <div class="notification ${type}">
-      <div class="notification-icon"><img src="./img/${type}.png" alt="" title="${type}-icon"></div>
-      <div class="notification-text">${message}</div>
-      <div class="notification-close"><button class="notification-close" onclick="javascript: $(this).closest('.notification').hide();">x</button></div>
-    </div>
+  <script id="userTemplate" type="text/x-jQuery-tmpl">
+    <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName}</h1>
+
+    <h3>Ubicación</h3>
+      <div class="row">
+        <div class="col-12 box">
+          <p>
+            <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}.
+          </p>
+        </div>
+      </div>
+    
+    <h3>Datos Personales</h3>
+      <div class="row">
+        <div class="col-12 box">
+          <p>
+            <strong>Género:</strong> ${gender}<br>
+            <strong>ID:</strong> ${id}<br>
+            <strong>Tipo:</strong> ${idType}<br>
+            <strong>Email:</strong> ${email}<br>
+            <strong>Sobrenombre:</strong> ${nickname}<br>
+          </p>
+        </div>
+      </div>
+    
+      <h3>Preferencias Literarias</h3>
+      <div class="row">
+        <div class="col-12 box">
+          <p>
+            <strong>Autor Favorito:</strong> ${favoriteAuthor}<br>
+            <strong>Libro Favorito:</strong> ${favoriteBook}<br>
+            <strong>Géneros Favoritos:</strong> ${favoriteGenres}<br>
+            <strong>Intercambio de libros:</strong> ${exchange}<br>
+          </p>
+        </div>
+      </div>
+    
+
   </script>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="../js/layout.js"></script>
+  <script src="../js/users/userProfile.js"></script>
 </body>
 
 </html>
