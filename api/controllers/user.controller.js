@@ -72,7 +72,6 @@ module.exports.create = function (req, res) {
 }
 
 module.exports.list = function(req,res){
-
     let searchText = req.query.search;
     let searchCriteria = {};
 

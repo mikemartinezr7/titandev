@@ -1,7 +1,5 @@
 'use strict';
 
-//Se obtienen los géneros literarios existentes
-
 $('#idType').change(function () {
   switch ($(this).val()) {
     case 'nacional': $('#txtID').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
@@ -12,6 +10,8 @@ $('#idType').change(function () {
   }
 });
 
+
+//Se obtienen los géneros literarios existentes
 const literaryGenre = getGenre();
 
 function getGenre() {

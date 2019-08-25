@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>TitanDev - Home</title>
+  <title>TitanDev - Perfil</title>
   <link rel="stylesheet" type="text/css" href="../css/base.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
@@ -43,13 +43,13 @@
 
     <div id="content">
       <div id="user">
-        <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName}</h1>
+        <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/edit.html">(Editar)</a></h1>
 
         <h3>Ubicación</h3>
         <div class="row">
           <div class="col-12 box">
             <p>
-              <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}.
+              <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}
             </p>
           </div>
         </div>
@@ -84,13 +84,13 @@
   </div>
 
   <script id="userTemplate" type="text/x-jQuery-tmpl">
-    <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName}</h1>
+    <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/edit.html">(Editar)</a></h1>
 
     <h3>Ubicación</h3>
       <div class="row">
         <div class="col-12 box">
           <p>
-            <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}.
+            <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}. ${additionalDetails}
           </p>
         </div>
       </div>
@@ -119,14 +119,12 @@
           </p>
         </div>
       </div>
-    
-
   </script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="../js/layout.js"></script>
-  <script src="../js/users/userProfile.js"></script>
+  <script src="../js/users/profile.js"></script>
 </body>
 
 </html>

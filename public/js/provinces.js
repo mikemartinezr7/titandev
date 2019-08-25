@@ -47,6 +47,7 @@ let addProvinces = () => {
 let addCounties = () => {
   let province = selectProvinces.value;
   selectCounties.innerHTML = '';
+  selectDistricts.innerHTML = '';
 
   let blankOption = new Option('');
   blankOption.value = '';
