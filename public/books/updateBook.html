@@ -49,21 +49,27 @@
     </div>
 
     <div id="content">
+        <h1>Libros</h1>
+        <h2>Editar Libro</h2>
+        <p>Edite los siguientes campos con los datos correspondientes.</p>
+        <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
         <form id ="bookForm">
-            <div>
-                <label for="txt_name">Nombre</label>
-                <input type="text" id="txt_name">
-            </div>
+            <h3>Detalles del Libro</h3>
+            <fieldset>
             <div>
                 <figure class="image_holder">
                 <img src="../img/book-placeholder.png" alt="select image" id="image_preview">
                 </figure>  
                 <button type="button" id="btnChooseImage" class="button_image">Subir imagen</button>
-                </div>
+            </div>
             <div>
-                <label for="slt_genre">Género</label>
+                <label for="txt_name"><strong>Nombre:</strong> <span class="red">*</span></label>
+                <input type="text" id="txt_name">
+            </div>
+            <div>
+                <label for="slt_genre"><strong>Género:</strong> <span class="red">*</span></label>
                 <select id="slt_genre">
-                    <option value=""></option>
+                    <option value=''></option>
                     <option value="Ficción">Ficción</option>
                     <option value="Terror">Terror</option>
                     <option value="Comedia">Comedia</option>
@@ -78,32 +84,37 @@
                 </select>
             </div>
             <div>
-                <label for="txt_author">Autor</label>
+                <label for="txt_author"><strong>Autor:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_author">
             </div>
             <div>
-                <label for="txt_description">Descripción</label>
-                <textarea id = "txt_description" rows = "10" name = "txt_description"></textarea>
+                <label for="txt_description"><strong>Descripción:</strong></label>
+                <textarea id = "txt_description" rows = "5" name = "txt_description"></textarea>
             </div>
             <div>
-                <label for="txt_year">Año</label>
+                <label for="txt_year"><strong>Año:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_year">
             </div>
+        </fieldset>
+        <h3>Detalles Comerciales</h3>
+        <fieldset>
             <div>
-                <label for="txt_editorial">Editorial</label>
+                <label for="txt_editorial"><strong>Editorial:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_editorial">
             </div>
             <div>
-                <label for="slt_type">Tipo</label>
+                <label for="slt_type"><strong>Tipo:</strong> <span class="red">*</span></label>
                 <select id="slt_type">
+                    <option value=''></option>
                     <option value="PDF">PDF</option>
                     <option value="De Bolsillo">De Bolsillo</option>
                     <option value="Pasta Dura">Pasta Dura</option>
                 </select>
             </div>
             <div>
-                <label for="slt_language">Idioma</label>
+                <label for="slt_language"><strong>Idioma:</strong> <span class="red">*</span></label>
                 <select id="slt_language">
+                    <option value=''></option>
                     <option value="Español">Español</option>
                     <option value="Inglés">Inglés</option>
                     <option value="Portugués">Portugués</option>
@@ -111,20 +122,22 @@
                 </select>
             </div>
             <div>
-                <label for="txt_isbn">ISBN</label>
+                <label for="txt_isbn"><strong>ISBN:</strong><span class="red">*</span></label>
                 <input type="text" id="txt_isbn">
             </div>
             <div>
-                <label for="txt_price">Precio</label>
+                <label for="txt_price"><strong>Precio:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_price">
             </div>
             <div>
-                <label for="txt_quantity">Cantidad</label>
+                <label for="txt_quantity"><strong>Cantidad:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_quantity">
             </div>
+        </fieldset>
             <div>
                 <button type="button" id="btn_update">Editar</button>
             </div>
+        </fieldset>
 
         </form>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

@@ -587,7 +587,6 @@ table tbody td {
 }
 #hideAll
  {
-   position: fixed;
    left: 0px; 
    right: 0px; 
    top: 0px; 
@@ -596,3 +595,55 @@ table tbody td {
    z-index: 99; /* Higher than anything else in the document */
 
  }
+/*Books*/
+
+ .bookImage{
+  text-align:center;
+}
+.bookDetails{
+  text-align:center;
+}
+.comercialDetails{
+  text-align:center;
+}
+#txt_year{
+  width: 150px
+}
+#slt_language{
+  width: 150px
+}
+#txt_price{
+  width: 150px
+}
+#txt_quantity{
+  width: 150px
+}
+.createLink{
+  text-align: end
+}
+/*Clubs*/
+
+.clubDetails{
+  text-align:center;
+}
+.clubSchedule{
+  text-align:center;
+}
+.clubLocation{
+  text-align:center;
+}
+#slt_type{
+  width: 150px
+}
+#slt_genre{
+  width: 150px
+}
+#slt_day{
+  width: 150px
+}
+#slt_startTime{
+  width: 150px
+}
+#slt_endTime{
+  width: 150px
+}

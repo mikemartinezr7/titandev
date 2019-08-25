@@ -8,7 +8,7 @@
   <title>Registrarse</title>
 </head>
 
-<body class="center">
+<body class="center" style="display: none" id="hideAll">
   <img src="../img/titandev-logo.png" alt="logo" title="logo">
   <h1>Registro de usuario</h1>
   <p>Por favor llene el siguente formulario con los datos solicitados.</p>
@@ -23,7 +23,7 @@
   <form id="frmRegisterUser" class="form">
     <fieldset class="center">
       <legend>Datos generales:</legend>
-        <div style="display: none" id="hideAll">&nbsp;</div>
+        <div>&nbsp;</div>
             <div class="row">
                 <div class="col-2">
                   <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
@@ -147,7 +147,6 @@
             <button type="reset" id="btnReset" class="button-secondary">Limpiar</button>
             <p>&nbsp;</p>
   </form>
-  <a href="/users/signin.html">Ya tengo un usuario</a>
 </body>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -157,12 +156,12 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
   <script type="text/javascript">
-    document.getElementById("hideAll").style.display = "block";
+    document.getElementById("hideAll").style.display = "none";
   </script> 
 
 <script>
  window.onload = function() 
-  { document.getElementById("hideAll").style.display = "none"; }
+  { document.getElementById("hideAll").style.display = "block"; }
     </script>
 
   <!--Desabilita Enter para enviar la información-->

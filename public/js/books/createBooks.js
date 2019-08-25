@@ -55,63 +55,63 @@ function validate(){
 
     if(input_name.value == ''){
         bError = true;
-        input_name.classList.add('input_error');
+        input_name.classList.add('error');
     }else{
-        input_name.classList.remove('input_error');}
+        input_name.classList.remove('error');}
 
     if(slt_genre.value == ''){
         bError = true;
-        slt_genre.classList.add('input_error');
+        slt_genre.classList.add('error');
     }else{
-        slt_genre.classList.remove('input_error');}
+        slt_genre.classList.remove('error');}
 
     if(input_author.value == ''){
         bError = true;
-        input_author.classList.add('input_error');
+        input_author.classList.add('error');
     }else{
-        input_author.classList.remove('input_error');}
+        input_author.classList.remove('error');}
     
     if(input_year.value == ''){
         bError = true;
-        input_year.classList.add('input_error');
+        input_year.classList.add('error');
     }else{
-        input_year.classList.remove('input_error');}
+        input_year.classList.remove('error');}
     
     if(input_editorial.value == ''){
         bError = true;
-        input_editorial.classList.add('input_error');
+        input_editorial.classList.add('error');
     }else{
-        input_editorial.classList.remove('input_error');}
+        input_editorial.classList.remove('error');}
     
     if(slt_type.value == ''){
         bError = true;
-        slt_type.classList.add('input_error');
+        slt_type.classList.add('error');
     }else{
-        slt_type.classList.remove('input_error');}
+        slt_type.classList.remove('error');}
     
     if(slt_language.value == ''){
         bError = true;
-        slt_language.classList.add('input_error');
+        slt_language.classList.add('error');
     }else{
-        slt_language.classList.remove('input_error');}
+        slt_language.classList.remove('error');}
     
     if(input_isbn.value == '' || regExpNumeros.test(input_price.value) == false || input_isbn.value<13){
         bError = true;
-        input_isbn.classList.add('input_error');
+        input_isbn.classList.add('error');
     }else{
-        input_isbn.classList.remove('input_error');}
+        input_isbn.classList.remove('error');}
     
     if(input_price.value == '' || regExpNumeros.test(input_price.value) == false){
         bError = true;
-        input_price.classList.add('input_error');
+        input_price.classList.add('error');
     }else{
-        input_price.classList.remove('input_error');}
+        input_price.classList.remove('error');}
     
     if(input_quantity.value == '' || regExpNumeros.test(input_quantity.value) == false){
         bError = true;
-        input_quantity.classList.add('input_error');
+        input_quantity.classList.add('error');
     }else{
-        input_quantity.classList.remove('input_error');}
+        input_quantity.classList.remove('error');}
 
     return bError;
 };

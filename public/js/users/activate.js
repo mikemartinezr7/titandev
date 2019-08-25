@@ -31,6 +31,7 @@ $('#frmActivateUser').on('submit', function (event) {
         confirmButtonText: 'Entendido'
       }).then(function (result) {
         window.location.href = 'http://' + window.location.host + '/users/signin.html';
+        //window.location.href = '/users/signin.html';
       });
     },
     error: function (response) {

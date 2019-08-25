@@ -42,14 +42,23 @@
     </div>
 
     <div id="content">
+      <h1>Clubes de Lectura</h1>
+      <h2>Lista de clubes de lectura registrados</h2>
   </body>
     <body>
-
+    <fieldset>
         <div class="search">
             <label for="search">Buscar clubes:</label><br>
             <input type="text" id="txtSearch" name="txtSearch">
             <button id="btnSearch" class="button"><img src="../img/search.png" alt="Buscar"></button>
         </div>
+        <div>
+            <nav class="createLink">
+              <a href="createClub.html">Crear Club</a>
+            </nav>
+        </div>
+      </fieldset>
+      <fieldset>
         <table id="tbl_clubs">
             <thead>
                 <tr>
@@ -60,12 +69,13 @@
                     <td>Hora de finalización</td>
                     <td>Día</td>
                     <td>Sucursal</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
-
             </tbody>
         </table>
+      </fieldset>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
         <script src="../js/clubs/listClubs.js"></script>
