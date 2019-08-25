@@ -69,6 +69,25 @@ module.exports.create = function (req, res) {
       });
     }
   });
+}
+
+module.exports.list = function(req,res){
+
+    let searchText = req.query.search;
+    let searchCriteria = {};
+
+    if (searchText && searchText != ""){
+        searchCriteria = { email: new RegExp(searchText, 'i')}
+    }
+
+    UserModel.find(searchCriteria).populate('favoriteGenres','name').then(
+        function(error, users){
+            if (error) {
+                res.status(400).send(error)
+            }
+            res.status(200).send(users);
+        }
+    );
 };
 
 module.exports.list = function (req, res) {
