@@ -114,7 +114,7 @@ let inputExchange = document.querySelector('#Exchange');
 buttonRegister.addEventListener('click', register_user);
 
 //Validar que los campos únicos no estén siendo utilizados y tengan el formato esperado
-inputID.addEventListener('change',validate_ID);
+inputID.addEventListener('change',find_ID);
 inputEmail.addEventListener('change',validate_Email);
 inputNickname.addEventListener('change',find_Nickname);
 
@@ -244,7 +244,7 @@ function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCou
     }else{
         inputGender.classList.remove('error')
     }
-    if(pID == "" ||validate_ID()==true){
+    if(pID == "" ||find_ID()==true){
         bError = true
         inputID.classList.add('error')
     }else{
@@ -312,45 +312,7 @@ function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCou
             inputFavoriteBook.classList.remove('error')
         }
     }
-    switch(inputIDType.value){
-        case "nacional":
-            if(inputID.value.length != 9){
-                console.log("Cédula de nacional debe ser de 9 dígitos")
-                inputID.classList.add('error')
-                bError=true
-            }
-            break
-        case "residente":
-            if(inputID.value.length != 13){
-                console.log("Cédula de residente debe ser de 13 dígitos")
-                inputID.classList.add('error')
-                bError=true
-            }
-            break
-        default:
-    }
     return bError;
-}
-
-function validate_ID(){
-
-    let bError = false;
-
-    if(isValidID(inputID.value)){
-        if(find_ID()==true){
-            bError = true
-        }
-    }else{
-        console.log('ID no tiene el formato adecuado')
-        inputID.classList.add('error')
-        bError = true;
-    }
-    return bError
-}
-
-function isValidID(id) {
-    var regex = /^[0-9]*$/
-    return regex.test(id)
 }
 
 function find_ID(){
