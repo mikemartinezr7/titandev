@@ -56,7 +56,6 @@ module.exports.create = function (req, res) {
       message = message.replace('##EMAIL##', user.email);
       message = message.replace('##PIN##', user.randomToken);
       message = message.replace(/##URL##/g, url);
-      console.log();
 
       //Send email to registered user
       sendEmail(user.email, '[TitanBooks] Confirmación de cuenta', message);
@@ -87,14 +86,6 @@ module.exports.list = function(req,res){
             res.status(200).send(users);
         }
     );
-};
-
-module.exports.list = function (req, res) {
-  UserModel.find().populate('favoriteGenres', 'name').then(
-    function (users) {
-      res.send(users);
-    }
-  );
 };
 
 module.exports.get_password = function (req, res) {

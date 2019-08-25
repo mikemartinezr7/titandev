@@ -159,7 +159,7 @@ MICHAEL
 - Registro de usuarios .... OK
 - Login ...... OK
 - Permisos de usuarios
-- Registrar libreria libre
+- Registrar libreria libre .... OK
 - Registrar sucursal
 - Editar librería
 - Editar sucursal

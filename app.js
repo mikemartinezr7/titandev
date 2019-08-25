@@ -69,7 +69,7 @@ db.on('open', function (err) {
 
 //Routes definition
 const libraryRouter = require('./api/routes/library.routes');
-app.use('/api/library', auth, libraryRouter);
+app.use('/api/library', libraryRouter);
 
 const bookRouter = require('./api/routes/book.routes');
 app.use('/api/book', bookRouter);

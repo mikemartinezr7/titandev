@@ -15,8 +15,6 @@ $('#frmAddUser').on('submit', function (event) {
     jsonData[key] = value;
   }
 
-  console.log(jsonData);
-
   $.ajax({
     url: '/api/library',
     type: 'POST',
@@ -30,6 +28,7 @@ $('#frmAddUser').on('submit', function (event) {
     success: function (data) {
       $('#frmAddUser').trigger('reset');
       $('.box-alert ul').empty();
+      $('.box-alert').hide();
       $('#image_preview').attr('src', '../img/image-default.png');
       $(window).scrollTop(0);
 
