@@ -25,8 +25,6 @@ function getUser() {
 
 let user = getUser();
 
-console.log(user)
-
 user.idType = user.idType.charAt(0).toUpperCase()+user.idType.slice(1)
 
 switch (user.gender){
