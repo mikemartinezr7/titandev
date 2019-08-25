@@ -1,3 +1,9 @@
+$(document).ready(function () {
+  $.get('/api/user/session').fail(function (response) {
+    window.location.href = 'http://' + window.location.host + '/users/signin.html';
+  });
+});
+
 $('#leftmenu').mouseenter(function () {
   $('#leftmenu').addClass('left-menu-open');
   $('#leftmenu').removeClass('left-menu-close');
@@ -8,22 +14,8 @@ $('#leftmenu').mouseenter(function () {
   $('.left-menu-item-text').hide();
 });
 
-/*$(window).on('load', function () {
-  $('#leftmenu, #content').height($(document).height() - $('#topmenu-container').height());
-});*/
-
 $('#user-profile-trigger').click(function () {
   $('#profile-menu').show();
 }).blur(function () {
   $('#profile-menu').hide();
 });
-
-/*let resizeId;
-$(window).resize(function () {
-  clearTimeout(resizeId);
-  resizeId = setTimeout(doneResizing, 500);
-});
-
-function doneResizing() {
-  $('#leftmenu, #content').height($(document).height() - $('#topmenu-container').height());
-}*/

@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session  = require('express-session');
 const appConfig = require('./config/config');
 
 const app = express();
@@ -16,14 +17,45 @@ app.use(express.static(path.join(__dirname, '/public/')));
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Content-Length, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
+app.use(session({
+  secret: 'VGhpcyBpcyBhIFRpdGFuZGV2IEFwcA==',
+  resave: true,
+  saveUninitialized: true
+}));
+
+
+//Authentication and Authorization
+const auth =  function(req, res, next) {
+  if (req.session && req.session.user) {
+    const admin = ['library', 'book', 'club', 'user', 'genre', 'author', 'category'];
+    const library = ['library', 'book', 'club', 'genre', 'author', 'category'];
+    const client = ['library', 'book', 'club', 'genre', 'author', 'category'];
+
+    let module =  req.baseUrl.replace('/api/', '', 'gi');
+
+    /*switch(module) {
+      case '': break;
+
+      default: break;
+    }*/
+    
+    return next();
+  } else {
+    return res.status(401).send();
+  }
+}
+
+
 //Define the main path of the app
 global.appRoot = path.resolve(__dirname);
 
+
+//Connect to the database
 const connector = mongoose.connect(appConfig.db.connectionString, { useNewUrlParser: true, useFindAndModify: false });
 
 db.on('error', function (err) {
@@ -37,7 +69,7 @@ db.on('open', function (err) {
 
 //Routes definition
 const libraryRouter = require('./api/routes/library.routes');
-app.use('/api/library', libraryRouter);
+app.use('/api/library', auth, libraryRouter);
 
 const bookRouter = require('./api/routes/book.routes');
 app.use('/api/book', bookRouter);
@@ -66,11 +98,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api', (req, res) => {
-  res.send('Hello World!');
+  res.send('Welcome to the API');
 });
 
-
-//Server initalization
+//Server initialization
 const server = app.listen(appConfig.server.port, function () {
   console.log('Server running on port:' + appConfig.server.port);
 });

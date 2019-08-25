@@ -24,6 +24,21 @@ router.route('/activate')
     usersController.activate(req, res);
   });
 
+router.route('/login')
+  .post(function (req, res) {
+    usersController.login(req, res);
+  });
+
+router.route('/logout')
+  .get(function (req, res) {
+    usersController.logout(req, res);
+  });
+
+router.route('/session')
+  .get(function (req, res) {
+    usersController.checkSession(req, res);
+  });
+
 router.route('/password')
   .post(function (req, res) {
     usersController.save_password(req, res);

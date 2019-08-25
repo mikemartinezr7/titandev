@@ -5,5 +5,11 @@
   },
   "db": {
     "connectionString": "mongodb+srv://cenfotec:cenfotec@cluster0-nda0t.azure.mongodb.net/library?retryWrites=true&w=majority"
+  },
+  "email": {
+    "service": "gmail",
+    "email": "info.titandev@gmail.com",
+    "user": "info.titandev@gmail.com",
+    "password": "cenfotec123"
   }
 }

@@ -1,65 +1,50 @@
-'use strict'
 
-//Variables para inicio de sesión
+$('#frmLogin').on('submit', function (event) {
+  event.preventDefault();
 
-let buttonSignIn = document.querySelector('#btnSignIn');
-let inputPassword = document.querySelector('#passPassword');
-let inputEmail = document.querySelector('#txtEmail');
+  let formData = new FormData(this);
+  let jsonData = {};
 
+  for (const [key, value] of formData.entries()) {
+    jsonData[key] = value;
+  }
 
-//Cuando se hace click en buttonSignIn, se llama a la función sign_in
-buttonSignIn.addEventListener('click',sign_in);
+  $.ajax({
+    url: '/api/user/login',
+    type: 'POST',
+    data: JSON.stringify(jsonData),
+    contentType: 'application/json',
+    cache: false,
+    processData: false,
+    beforeSend: function () {
+      $('#btnLogin').prop('disabled', true);
+    },
+    success: function (data) {
+      window.location.href = 'http://' + window.location.host;
+    },
+    error: function (response) {
+      let errors = [];
 
-//Inicio de sesión (valida contraseña y responde con éxito o error)
+      if (response.hasOwnProperty('responseJSON')) {
+        errors = response.responseJSON;
+      }
 
-function sign_in(){
+      if (errors && errors.length > 0) {
+        $('.login-box-alert ul').empty();
 
-    let bError = false;
+        $('.error').each(function (index) {
+          $(this).removeClass('error');
+        });
 
-    bError = validate_Password();
-    
-    if(bError == true){
-        console.log("No se pudo iniciar sesión");
-    }else{
-        document.location.href="/index.html";
-        sessionStorage.setItem("email",inputEmail.value)
+        errors.map(function (key, index) {
+          $('.login-box-alert ul').append('<li>' + key.message + '</li>');
+          $('#' + key.field).addClass('error');
+        });
+
+        $('.login-box-alert').show();
+      }
     }
+  });
 
-};
-
-//Valida que la contraseña ingresada coincida con la contraseña guardada para el usuario
-
-function validate_Password(){
-    
-    let bError = false;
-    let userPassword = obtain_User_Password(inputEmail.value);
-
-    if(inputPassword.value!=userPassword){
-        bError = true
-    }
-
-    return bError;
-};
-
-//Solicita a la base de datos la contraseña del usuario con base en el correo electrónico ingresado
-
-function obtain_User_Password(psinputEmail){
-    let userPassword = "";
-    let request = $.ajax({
-        url: '/api/user/password',
-        type: 'get',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType : 'json',
-        async:false,
-        data:{
-            email: psinputEmail
-        }
-      });
-    request.done(function(response){
-        console.log(response);
-        userPassword = response[0].password;
-    });
-    request.fail(function(){
-    });
-    return userPassword;
-};
+  $('#btnLogin').prop('disabled', false);
+});
