@@ -49,9 +49,15 @@
     </div>
 
     <div id="content">
+        <h2>Libros</h2>
+        <h3>Editar Libro</h3>
+        <p>Edite los siguientes campos con los datos correspondientes.</p>
+        <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
         <form id ="bookForm">
+            <fieldset>
+                <legend>Detalles del Libro:</legend>
             <div>
-                <label for="txt_name">Nombre</label>
+                <label for="txt_name">Nombre <span class="red">*</span></label>
                 <input type="text" id="txt_name">
             </div>
             <div>
@@ -61,9 +67,9 @@
                 <button type="button" id="btnChooseImage" class="button_image">Subir imagen</button>
                 </div>
             <div>
-                <label for="slt_genre">Género</label>
+                <label for="slt_genre">Género <span class="red">*</span></label>
                 <select id="slt_genre">
-                    <option value=""></option>
+                    <option value=''></option>
                     <option value="Ficción">Ficción</option>
                     <option value="Terror">Terror</option>
                     <option value="Comedia">Comedia</option>
@@ -78,7 +84,7 @@
                 </select>
             </div>
             <div>
-                <label for="txt_author">Autor</label>
+                <label for="txt_author">Autor <span class="red">*</span></label>
                 <input type="text" id="txt_author">
             </div>
             <div>
@@ -86,24 +92,26 @@
                 <textarea id = "txt_description" rows = "10" name = "txt_description"></textarea>
             </div>
             <div>
-                <label for="txt_year">Año</label>
+                <label for="txt_year">Año <span class="red">*</span></label>
                 <input type="number" id="txt_year">
             </div>
             <div>
-                <label for="txt_editorial">Editorial</label>
+                <label for="txt_editorial">Editorial <span class="red">*</span></label>
                 <input type="text" id="txt_editorial">
             </div>
             <div>
-                <label for="slt_type">Tipo</label>
+                <label for="slt_type">Tipo <span class="red">*</span></label>
                 <select id="slt_type">
+                    <option value=''></option>
                     <option value="PDF">PDF</option>
                     <option value="De Bolsillo">De Bolsillo</option>
                     <option value="Pasta Dura">Pasta Dura</option>
                 </select>
             </div>
             <div>
-                <label for="slt_language">Idioma</label>
+                <label for="slt_language">Idioma <span class="red">*</span></label>
                 <select id="slt_language">
+                    <option value=''></option>
                     <option value="Español">Español</option>
                     <option value="Inglés">Inglés</option>
                     <option value="Portugués">Portugués</option>
@@ -111,17 +119,18 @@
                 </select>
             </div>
             <div>
-                <label for="txt_isbn">ISBN</label>
+                <label for="txt_isbn">ISBN <span class="red">*</span></label>
                 <input type="text" id="txt_isbn">
             </div>
             <div>
-                <label for="txt_price">Precio</label>
+                <label for="txt_price">Precio <span class="red">*</span></label>
                 <input type="number" id="txt_price">
             </div>
             <div>
-                <label for="txt_quantity">Cantidad</label>
+                <label for="txt_quantity">Cantidad <span class="red">*</span></label>
                 <input type="number" id="txt_quantity">
             </div>
+        </fieldset>
             <div>
                 <button type="button" id="btn_update">Editar</button>
             </div>
