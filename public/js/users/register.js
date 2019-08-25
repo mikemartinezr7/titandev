@@ -2,6 +2,16 @@
 
 //Se obtienen los géneros literarios existentes
 
+$('#idType').change(function () {
+  switch ($(this).val()) {
+    case 'nacional': $('#txtID').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
+    case 'residente': $('#txtID').mask('0-000-000000', { placeholder: '0-000-000000' }); break;
+    case 'nacionalizado': $('#txtID').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
+    case 'extranjero': $('#txtID').mask('000000000000', { placeholder: '000000000000' }); break;
+    default: break;
+  }
+});
+
 const literaryGenre = getGenre();
 
 function getGenre() {
@@ -81,7 +91,6 @@ function getUsers() {
 
 //Variables para registro de usuario
 
-let buttonCancel = document.querySelector('#btnCancel');
 let buttonRegister = document.querySelector('#btnRegister');
 let inputFirstName = document.querySelector('#txtFirstName');
 let inputMiddleName = document.querySelector('#txtMiddleName');
@@ -95,17 +104,6 @@ let inputProvince = document.querySelector('#sltProvince');
 let inputCounty = document.querySelector('#sltCounty');
 let inputDistrict = document.querySelector('#sltDistrict');
 let inputAdditionalDetails = document.querySelector('#txtAdditionalDetails');
-let inputFiction = document.querySelector('#fiction');
-let inputTerror = document.querySelector('#terror');
-let inputComedy = document.querySelector('#comedy');
-let inputDrama = document.querySelector('#drama');
-let inputTragedy = document.querySelector('#tragedy');
-let inputRomance = document.querySelector('#romance');
-let inputNovel = document.querySelector('#novel');
-let inputStory = document.querySelector('#story');
-let inputThriller = document.querySelector('#thriller');
-let inputTale = document.querySelector('#tale');
-let inputDidacticNovel = document.querySelector('#didacticNovel');
 let inputFavoriteBook = document.querySelector('#txtFavoriteBook');
 let inputFavoriteAuthor = document.querySelector('#txtFavoriteAuthor');
 let inputNickname = document.querySelector('#txtNickname');
@@ -114,12 +112,6 @@ let inputExchange = document.querySelector('#Exchange');
 
 //Cuando se hace click en buttonRegister, se llama a la función register_user
 buttonRegister.addEventListener('click', register_user);
-
-//Lleva al usuario a la página principal si decide Cancelar el registro
-
-buttonCancel.addEventListener("click", function(){
-    document.location.href = '/index.html';
-});
 
 //Validar que los campos únicos no estén siendo utilizados y tengan el formato esperado
 inputID.addEventListener('change',validate_ID);
@@ -169,8 +161,6 @@ function register_user(){
       $(window).scrollTop(0);
       $('.box-alert').show();
     }
-
-
 }
 
 //Registrar en la base de datos
@@ -232,82 +222,6 @@ function register(pFirstName, pMiddleName, pLastName, pSecondLastName, pGender, 
 
 
 //Validar la información ingresada
-function validate(pFirstName, pLastName, pGender, pID, pIDType, pEmail, pProvince, pCounty, pDistrict, pAdditionalDetails, pFavoriteGenre, pNickname) {
-  let bError = false;
-
-  if (pFirstName == "") {
-    bError = true
-    inputFirstName.classList.add('error')
-  } else {
-    inputFirstName.classList.remove('error')
-  }
-  if (pLastName == "") {
-    bError = true
-    inputLastName.classList.add('error')
-  } else {
-    inputLastName.classList.remove('error')
-  }
-  if (pGender == "") {
-    bError = true
-    inputGender.classList.add('error')
-  } else {
-    inputGender.classList.remove('error')
-  }
-  if (pID == "") {
-    bError = true
-    inputID.classList.add('error')
-  } else {
-    inputID.classList.remove('error')
-  }
-  if (pIDType == "") {
-    bError = true
-    inputIDType.classList.add('error')
-  } else {
-    inputIDType.classList.remove('error')
-  }
-  if (pEmail == "") {
-    bError = true
-    inputEmail.classList.add('error')
-  } else {
-    inputEmail.classList.remove('error')
-  }
-  if (pProvince == "") {
-    bError = true
-    inputProvince.classList.add('error')
-  } else {
-    inputProvince.classList.remove('error')
-  }
-  if (pCounty == "") {
-    bError = true
-    inputCounty.classList.add('error')
-  } else {
-    inputCounty.classList.remove('error')
-  }
-  if (pDistrict == "") {
-    bError = true
-    inputDistrict.classList.add('error')
-  } else {
-    inputDistrict.classList.remove('error')
-  }
-  if (pAdditionalDetails == "") {
-    bError = true
-    inputAdditionalDetails.classList.add('error')
-  } else {
-    inputAdditionalDetails.classList.remove('error')
-  }
-  if (pFavoriteGenre.length == 0) {
-    bError = true
-    document.getElementById("favGenre").classList.add('error');
-  } else {
-    document.getElementById("favGenre").classList.add('error');
-  }
-  if (pAdditionalDetails == "") {
-    bError = true
-    inputNickname.classList.add('error')
-  } else {
-    inputNickname.classList.remove('error')
-  }
-
 function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCounty,pDistrict,pAdditionalDetails,pFavoriteGenre,pNickname){
 
     let bError = false;
@@ -470,14 +384,13 @@ function validate_Email(){
         inputEmail.classList.add('error')
         bError = true
     }
-
     return bError
 }
 
 function isValidEmail(email) {
     var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
-  }
+}
 
 function find_Email(){
 
@@ -687,17 +600,6 @@ function autocomplete(inp, arr) {
     closeAllLists(e.target);
   });
 }
-
-$('#idType').change(function () {
-  switch ($(this).val()) {
-    case 'nacional': $('#txtID').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
-    case 'residente': $('#txtID').mask('0-000-000000', { placeholder: '0-000-000000' }); break;
-    case 'nacionalizado': $('#txtID').mask('0-0000-0000', { placeholder: '0-0000-0000' }); break;
-    case 'extranjero': $('#txtID').mask('000000000000', { placeholder: '000000000000' }); break;
-    default: break;
-  }
-});
-  }
 
 //Valida que el autor exista
 
