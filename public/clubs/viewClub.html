@@ -41,36 +41,47 @@
     </div>
                 
     <div id="content">
+        <h1>Perfil del Club de Lectura</h2>
+        <h3>Detalles del club</h3>
+        <fieldset class="clubDetails">
         <form>
             <div>
-                <label for="txt_name">Nombre</label>
+                <label for="txt_name"><strong>Nombre:</strong></label>
                 <span id="txt_name"></span>
             </div>
             <div>
-                <label for="slt_type">Tipo</label>
+                <label for="slt_type"><strong>Tipo:</strong></label>
                 <span id="slt_type"></span>
                 </div>
             <div>
-                <label for="slt_genre">Género</label>
+                <label for="slt_genre"><strong>Género:</strong></label>
                 <span id="slt_genre"></span>
             </div>
+        </fieldset>
+        <h3>Horario</h3>
+            <fieldset class="clubSchedule">
             <div>
-                <label for="slt_startTime">Hora de Inicio</label>
+                <label for="slt_day"><strong>Día:</strong></label>
+                <span id="slt_day"></span>
+            </div>
+            <div>
+                <label for="slt_startTime"><strong>Hora de Inicio:</strong></label>
                 <span id="slt_startTime"></span>
             </div>
             <div>
-                <label for="slt_endTime">Hora de Finalización</label>
+                <label for="slt_endTime"><strong>Hora de Finalización:</strong></label>
                 <span id="slt_endTime"></span>
                 </div>
+            </fieldset>
+            <h3>Ubicación</h3>
+            <fieldset class="clubLocation">
             <div>
-                <label for="slt_day">Día</label>
-                <span id="slt_day"></span>
-                </div>
-            <div>
-                <label for="txt_branch">Sucursal</label>
+                <p>
+                        <img src="../img/location.png"> <label for="txt_branch"><strong>Sucursal:</strong></label>
                 <span id="txt_branch"></span>
-                </div>
-
+                </p>
+            </div>
+            </fieldset>
         </form>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://kit.fontawesome.com/3f022aee91.js"></script>
