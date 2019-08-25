@@ -41,58 +41,61 @@
     </div>
                 
     <div id="content">
-        <h1>Perfil de Libro</h1>
+        <h1>Perfil del Libro</h1>
         <form>
-            <fieldset>
-                <legend>Detalles del Libro:</legend>
-            <div>
-                <label for="txt_name">Nombre</label>
+            <h3>Detalles del Libro</h3>
+            <fieldset class="bookDetails">
+            <div class="bookImage">
+                <figure class="image_holder">
+                    <img src="../img/book-placeholder.png" id="image_preview">
+                </figure>  
+            </div>
+            <div class="bookName">
+                <label for="txt_name"><strong>Nombre:</strong></label>
                 <span id="txt_name"></span>
             </div>
-            <div>
-                <figure class="image_holder">
-                <img src="../img/book-placeholder.png" id="image_preview">
-                </figure>  
-                </div>
-            <div>
-                <label for="slt_genre">Género</label>
+            <div class="bookGenre">
+                <label for="slt_genre"><strong>Género:</strong></label>
                 <span id="slt_genre"></span>
             </div>
-            <div>
-                <label for="txt_author">Autor</label>
+            <div class="bookAuthor"> 
+                <label for="txt_author"><strong>Autor:</strong></label>
                 <span id="txt_author"></span>
             </div>
-            <div>
-                <label for="txt_description">Descripción</label>
+            <div class="bookDescription">
+                <label for="txt_description"><strong>Descripción:</strong></label>
                 <span id="txt_description"></span>
                 </div>
-            <div>
-                <label for="txt_year">Año</label>
+            <div class="bookYear">
+                <label for="txt_year"><strong>Año:</strong></label>
                 <span id="txt_year"></span>
             </div>
-            <div>
-                <label for="txt_editorial">Editorial</label>
+        </fieldset>
+        <h3>Detalles Comerciales</h3>
+        <fieldset class="comercialDetails">
+            <div class="bookEditorial">
+                <label for="txt_editorial"><strong>Editorial:</strong></label>
                 <span id="txt_editorial"></span>
             </div>
-            <div>
-                <label for="slt_type">Tipo</label>
+            <div class="bookType">
+                <label for="slt_type"><strong>Tipo:</strong></label>
                 <span id="slt_type"></span>
             </div>
-            <div>
-                <label for="slt_language">Idioma</label>
+            <div class="bookLanguage">
+                <label for="slt_language"><strong>Idioma:</strong></label>
                 <span id="slt_language"></span>
                 </select>
             </div>
-            <div>
-                <label for="txt_isbn">ISBN</label>
+            <div class="bookISBN">
+                <label for="txt_isbn"><strong>ISBN:</strong></label>
                 <span id="txt_isbn"></span>
             </div>
-            <div>
-                <label for="txt_price">Precio</label>
+            <div class="bookPrice">
+                <label for="txt_price"><strong>Precio:</strong></label>
                 <span id="txt_price"></span>
             </div>
-            <div>
-                <label for="txt_quantity">Cantidad</label>
+            <div class="bookQuantity">
+                <label for="txt_quantity"><strong>Cantidad:</strong></label>
                 <span id="txt_quantity"></span>
             </div>
         </fieldset>

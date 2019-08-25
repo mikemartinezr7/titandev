@@ -49,17 +49,16 @@
     </div>
 
     <div id="content">
-        <h2>Libros</h2>
-        <h3>Crear un nuevo Libro</h3>
-        <p>Llene los siguientes formularios con los datos respectivos.</p>
+        <h1>Libros</h1>
+        <h2>Registrar un nuevo Libro</h2>
+        <p>Llene el siguiente formulario con los datos respectivos.</p>
         <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
     <form id = "bookForm">
+      <h3>Detalles del Libro</h3>
       <fieldset>
-          <legend>Detalles del Libro:</legend>
-
         <div class="row">
           <div class="col-6">
-            <label for="txt_name">Nombre <span class="red">*</span></label>
+            <label for="txt_name"><strong>Nombre:</strong> <span class="red">*</span></label>
             <input type="text" id="txt_name">
           </div>
         </div>
@@ -69,7 +68,7 @@
             <button type="button" id="btnChooseImage" class="button_image">Subir imagen</button>
             <div class="row">
               <div class="col-4">
-                <label for="slt_genre">Género <span class="red">*</span></label>
+                <label for="slt_genre"><strong>Género:</strong> <span class="red">*</span></label>
                 <select id="slt_genre">
                     <option value=''></option>
                     <option value="Ficción">Ficción</option>
@@ -88,28 +87,28 @@
             </div>
             <div class="row">
               <div class= col-4>
-                <label for="txt_author">Autor <span class="red">*</span></label>
+                <label for="txt_author"><strong>Autor:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_author">
               </div>
             </div>
             <div>
-            <label for="txt_description">Descripción</label>
+            <label for="txt_description"><strong>Descripción:</strong></label>
             <textarea id = "txt_description" rows = "10" name = "txt_description"></textarea>
             </div>
-            <div class="row">
-              <div class ="-2">
-                <label for="txt_year">Año <span class="red">*</span></label>
+            <div>
+              <div>
+                <label for="txt_year"><strong>Año:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_year">
               </div>
-            </div>
-            <div class="row">
-              <div class="-4">
-                <label for="txt_editorial">Editorial <span class="red">*</span></label>
+      </fieldset>
+      <h3>Detalles Comerciales</h3>
+      <fieldset>
+              <div>
+                <label for="txt_editorial"><strong>Editorial:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_editorial">
             </div>
-          </div>
             <div>
-                <label for="slt_type">Tipo <span class="red">*</span></label>
+                <label for="slt_type"><strong>Tipo:</strong> <span class="red">*</span></label>
                 <select id="slt_type">
                     <option value=''></option>
                     <option value="PDF">PDF</option>
@@ -118,7 +117,7 @@
                 </select>
             </div>
             <div>
-                <label for="slt_language">Idioma <span class="red">*</span></label>
+                <label for="slt_language"><strong>Idioma:</strong> <span class="red">*</span></label>
                 <select id="slt_language">
                     <option value=''></option>
                     <option value="Español">Español</option>
@@ -128,22 +127,21 @@
                 </select>
             </div>
             <div>
-                <label for="txt_isbn">ISBN <span class="red">*</span></label>
+                <label for="txt_isbn"><strong>ISBN:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_isbn">
             </div>
             <div>
-                <label for="txt_price">Precio <span class="red">*</span></label>
+                <label for="txt_price"><strong>Precio:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_price">
             </div>
             <div>
-                <label for="txt_quantity">Cantidad <span class="red">*</span></label>
+                <label for="txt_quantity"><strong>Cantidad:</strong> <span class="red">*</span></label>
                 <input type="number" id="txt_quantity">
             </div>
       </fieldset>
             <div>
                 <button type="button" id="btn_register">Registrar</button>
             </div>
-        </div>
 
         </form>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

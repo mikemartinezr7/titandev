@@ -49,20 +49,26 @@
     </div>
 
     <div id="content">
+      <h1>Clubes</h1>
+      <h2>Editar Club</h2>
+      <p>Edite los siguientes campos con los datos correspondientes.</p>
+      <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
+      <h3>Detalles del Club</h3>
+      <fieldset>
         <form>
             <div>
-                <label for="txt_name">Nombre</label>
+                <label for="txt_name"><strong>Nombre:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_name">
             </div>
             <div>
-                <label for="slt_type">Tipo</label>
+                <label for="slt_type"><strong>Tipo:</strong> <span class="red">*</span></label>
                 <select id="slt_type">
                     <option value="Virtual">Virtual</option>
                     <option value="Presencial">Presencial</option>
                 </select>
             </div>
             <div>
-                <label for="slt_genre">Género</label>
+                <label for="slt_genre"><strong>Género:</strong> <span class="red">*</span></label>
                 <select id="slt_genre">
                     <option value="Ficción">Ficción</option>
                     <option value="Terror">Terror</option>
@@ -77,8 +83,23 @@
                     <option value="Novela Didáctica">Novela Didáctica</option>
                 </select>
             </div>
+          </fieldset>
+          <h3>Horario</h3>
+          <fieldset>
             <div>
-                <label for="slt_startTime">Hora de inicio</label>
+              <label for="slt_day"><strong>Día:</strong><span class="red">*</span></label>
+                <select id="slt_day">
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">Miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+              </div>
+            <div>
+                <label for="slt_startTime"><strong>Hora de inicio:</strong><span class="red">*</span></label>
                 <select id="slt_startTime">
                     <option value="8:00 am">8:00 am</option>
                     <option value="9:00 am">9:00 am</option>
@@ -93,7 +114,7 @@
                 </select>
             </div>
             <div>
-                <label for="slt_endTime">Hora de finalización</label>
+                <label for="slt_endTime"><strong>Hora de finalización:</strong> <span class="red">*</span></label>
                 <select id="slt_endTime">
                     <option value="9:00 am">9:00 am</option>
                     <option value="10:00 am">10:00 am</option>
@@ -107,23 +128,17 @@
                     <option value="6:00 pm">6:00 pm</option>
                 </select>
             </div>
+          </fieldset>
+          <h3>Ubicación</h3>
+          <fieldset>
             <div>
-                <label for="slt_day">Día</label>
-                <select id="slt_day">
-                    <option value="Lunes">Lunes</option>
-                    <option value="Martes">Martes</option>
-                    <option value="Miercoles">Miercoles</option>
-                    <option value="Jueves">Jueves</option>
-                    <option value="Viernes">Viernes</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
-                </select>
-            </div>
-            <div>
-                <label for="txt_branch">Sucursal</label>
+              <p>
+                  <img src="../img/location.png"> <label for="txt_branch"><strong>Sucursal:</strong> <span class="red">*</span></label>
                 <input type="text" id="txt_branch">
+              </p>
             </div>
             <div>
+          </fieldset>
                 <button type="button" id="btn_update">Editar</button>
             </div>
 
