@@ -29,7 +29,7 @@ let search_club = (id_club) => {
 
 let update_club = (pname, ptype, pgenre, pstartTime, pendTime, pday, pbranch, pid) =>{
     let request = $.ajax({
-        url : 'api/club',
+        url : '/api/club/update',
         method : "POST",
         data : {
             name : pname,
@@ -135,11 +135,12 @@ let get_data =()=>{
     let startTime = slt_startTime.selectedOptions[0].textContent;
     let endTime = slt_endTime.selectedOptions[0].textContent;
     let day = slt_day.selectedOptions[0].textContent;
+    let branch = input_branch.value;
     
     bError = validate();
 
 if(bError == false){
-    update (name, type, genre, startTime, endTime, day, branch, _id); window.location.href = 'listClubs.html';
+    update_club (name, type, genre, startTime, endTime, day, branch, _id);
     console.log("Validacion correcta")
 }else{
     swal.fire({
