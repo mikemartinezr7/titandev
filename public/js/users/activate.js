@@ -1,8 +1,3 @@
-
-/*inputToken.classList.add('error');
-$('.login-box-alert ul').html('<li>El PIN digitado es incorrecto</li>');
-$('.login-box-alert').show();*/
-
 $('#frmActivateUser').on('submit', function (event) {
   event.preventDefault();
 
@@ -12,8 +7,6 @@ $('#frmActivateUser').on('submit', function (event) {
   for (const [key, value] of formData.entries()) {
     jsonData[key] = value;
   }
-
-
 
   $.ajax({
     url: '/api/user/activate',
@@ -70,5 +63,3 @@ $('#frmActivateUser').on('submit', function (event) {
 $(document).ready(function () {
   $('#randomToken').mask('000000', { placeholder: '000000' })
 });
-
-

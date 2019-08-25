@@ -157,7 +157,8 @@ MICHAEL
 - Ver detalle de libreria ..... En proceso
 - Cambiar subida de archivos ..... OK
 - Registro de usuarios .... OK
-- Login
+- Login ...... OK
+- Permisos de usuarios
 - Registrar libreria libre
 - Registrar sucursal
 - Editar librería

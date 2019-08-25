@@ -5,29 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/base.css">
-  <title>Sign In</title>
+  <title>TitanDev - Login</title>
 </head>
 
 <body class="center">
   <img src="../img/titandev-logo.png" alt="logo" title="logo">
   <h1>Bienvenido</h1>
 
+  <div class="login-box-alert center" style="display: none">
+    <h4>Han ocurrido los siguientes errores:</h4>
+    <ul></ul>
+  </div>
+
   <div class="login-box">
-    <form>
+    <form name="frmLogin" id="frmLogin" method="POST">
       <div class="row">
         <div class="col-12">
-          <label for="txtEmail">Email</label><br><br>
-          <input type="text" id="txtEmail">
+          <label for="email">Email</label><br><br>
+          <input type="text" name="email" id="email">
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <label for="passPassword">Contraseña</label><br><br>
-          <input type="password" id="passPassword">
+          <label for="password">Contraseña</label><br><br>
+          <input type="password" name="password" id="password">
         </div>
       </div>
 
-      <p class="center"><button type="button" class="button-primary" id="btnSignIn">Iniciar Sesión</button></p><br>
+      <p class="center"><button type="submit" class="button-primary" id="btnLogin">Iniciar Sesión</button></p><br>
       <p class="center"><a href="./register.html">No es usuario aún? Regístrate acá</a></p>
     </form>
   </div>

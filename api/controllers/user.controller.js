@@ -3,13 +3,14 @@
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
+const appConfig = require('../../config/config.json');
 const { UserModel } = require('../db/models/user.model');
 
 const transport = nodemailer.createTransport({
-  service: 'gmail',
+  service: appConfig.email.service,
   auth: {
-    user: 'info.titandev@gmail.com',
-    pass: 'cenfotec123'
+    user: appConfig.email.user,
+    pass: appConfig.email.password
   }
 });
 
@@ -166,7 +167,8 @@ module.exports.activate = function (req, res) {
             if (error) {
               errors.push({
                 field: 'email',
-                message: 'Ha ocurrido un error al activar el usuario. Vuelvalo a intentarlo en unos minutos.'
+                message: 'Ha ocurrido un error al activar el usuario. Vuelvalo a intentarlo en unos minutos.',
+                detail: error
               });
               res.status(400).json(errors);
             } else {
@@ -206,9 +208,80 @@ module.exports.get_token = function (req, res) {
     )
 }
 
+module.exports.login = function (req, res) {
+  let errors = [];
+
+  //Validate data
+  if (req.body.email == '') {
+    errors.push({
+      field: 'email',
+      message: 'El campo e-mail es requerido.'
+    });
+  }
+
+  if (req.body.password == '') {
+    errors.push({
+      field: 'password',
+      message: 'El campo contraseña es requerido.'
+    });
+  }
+
+  if (errors.length > 0) {
+    res.status(400).json(errors);
+  } else {
+    UserModel.findOne({ email: req.body.email, password: req.body.password, active: true }, function (error, user) {
+      if (error) {
+        errors.push({
+          field: 'email',
+          message: 'Ha ocurrido un error al Iniciar Sesión. Vuelvalo a intentarlo en unos minutos.',
+          detail: error
+        });
+
+        res.status(400).json(errors);
+      }
+
+      if (user) {
+        req.session.user = user;
+
+        res.status(200).json({
+          success: true,
+          code: 200,
+          message: 'Inicio de sesión satisfactorio',
+        });
+      } else {
+        errors.push({
+          field: 'email',
+          message: 'El usuario o contraseña son incorrectos.',
+          detail: error
+        });
+
+        res.status(400).json(errors);
+      }
+    });
+  }
+}
+
+module.exports.logout = function (req, res) {
+  req.session.destroy();
+
+  res.status(200).json({
+    success: true,
+    code: 200,
+    message: 'Cierre de sesión satisfactorio.',
+  });
+}
+
+module.exports.checkSession = function (req, res) {
+  if (req.session && req.session.user) {
+    return res.status(200).send();
+  } else {
+    return res.status(401).send();
+  }
+}
+
 function sendEmail(email, subject, message) {
   const messageOptions = {
-    from: 'info.titandev@gmail.com',
+    from: appConfig.email.email,
     to: email,
     subject: subject,
     html: message
