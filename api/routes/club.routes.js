@@ -29,8 +29,8 @@ router.route('/:id_club')
         clubsController.findClubID(req, res);
         });
 
-router.route('/:id_club')
-    .get(function(req, res){
+router.route('/update')
+    .post(function(req, res){
         clubsController.update(req, res);
         });
 
