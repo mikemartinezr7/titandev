@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body style="display: none" id="hideAll">
   <div id="topmenu-container">
     <div class="topmenu-item">
       <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
@@ -43,7 +43,7 @@
 
     <div id="content">
       <div id="user">
-        <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/edit.html">(Editar)</a></h1>
+        <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/update.html">(Editar)</a></h1>
 
         <h3>Ubicación</h3>
         <div class="row">
@@ -84,7 +84,7 @@
   </div>
 
   <script id="userTemplate" type="text/x-jQuery-tmpl">
-    <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/edit.html">(Editar)</a></h1>
+    <h1>${firstName} ${middleName} ${firstLastName} ${secondLastName} <a href="../users/update.html">(Editar)</a></h1>
 
     <h3>Ubicación</h3>
       <div class="row">
@@ -120,6 +120,14 @@
         </div>
       </div>
   </script>
+
+  <script type="text/javascript">
+    document.getElementById("hideAll").style.display = "none";
+</script>
+
+<script>
+    window.onload = function () { document.getElementById("hideAll").style.display = "block"; }
+</script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>

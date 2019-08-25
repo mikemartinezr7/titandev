@@ -14,6 +14,11 @@ router.route('/')
     usersController.list(req, res);
   });
 
+router.route('/')
+  .put(function (req, res) {
+    usersController.update(req, res);
+  });
+
 router.route('/password')
   .get(function (req, res) {
     usersController.get_password(req, res);

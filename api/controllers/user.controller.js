@@ -70,22 +70,23 @@ module.exports.create = function (req, res) {
   });
 }
 
-module.exports.list = function(req,res){
-    let searchText = req.query.search;
-    let searchCriteria = {};
+module.exports.list = function (req, res) {
 
-    if (searchText && searchText != ""){
-        searchCriteria = { email: new RegExp(searchText, 'i')}
+  let searchText = req.query.search;
+  let searchCriteria = {};
+
+  if (searchText && searchText != "") {
+    searchCriteria = { email: new RegExp(searchText, 'i') }
+  }
+
+  UserModel.find(searchCriteria).populate('favoriteGenres', 'name').then(
+    function (error, users) {
+      if (error) {
+        res.status(400).send(error)
+      }
+      res.status(200).send(users);
     }
-
-    UserModel.find(searchCriteria).populate('favoriteGenres','name').then(
-        function(error, users){
-            if (error) {
-                res.status(400).send(error)
-            }
-            res.status(200).send(users);
-        }
-    );
+  );
 };
 
 module.exports.get_password = function (req, res) {
@@ -118,6 +119,20 @@ module.exports.save_password = function (req, res) {
       }
     });
 }
+
+module.exports.update = function (req, res) {
+  UserModel.findByIdAndUpdate(req.body._id, { $set: req.body },{new: true}).populate('favoriteGenres', 'name').exec(
+    function (error,user) {
+      if (error) {
+        res.json({ success: false, msg: 'No se pudo actualizar el perfil.' });
+        console.log(error)
+      } else {
+        req.session.user = user
+        res.json({ success: true, msg: 'El perfil se actualizó exitosamente' });
+      }
+    }
+  );
+};
 
 module.exports.activate = function (req, res) {
   let email = req.body.email;

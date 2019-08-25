@@ -301,6 +301,7 @@ function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCou
     if(inputFavoriteAuthor.value !=""){
         if(findAuthor()==true){
             inputFavoriteAuthor.classList.add('error')
+            bError=true
         }else{
             inputFavoriteAuthor.classList.remove('error')
         }
@@ -308,6 +309,7 @@ function validate(pFirstName,pLastName,pGender,pID,pIDType,pEmail,pProvince,pCou
     if(inputFavoriteBook.value !=""){
         if(findBook()==true){
             inputFavoriteBook.classList.add('error')
+            bError=true
         }else{
             inputFavoriteBook.classList.remove('error')
         }
