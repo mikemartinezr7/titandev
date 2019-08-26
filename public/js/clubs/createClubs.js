@@ -8,6 +8,11 @@ const slt_startTime = document.querySelector('#slt_startTime');
 const slt_endTime = document.querySelector('#slt_endTime');
 const slt_day = document.querySelector('#slt_day');
 const input_branch = document.querySelector('#txt_branch');
+let btnCancel = document.querySelector('#btnCancel');
+
+btnCancel.addEventListener('click', function () {
+  window.location.href = '/clubs/listClubs.html'
+})
 
 create_button.addEventListener('click', get_data);
 

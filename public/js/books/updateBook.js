@@ -86,6 +86,11 @@ const input_isbn = document.querySelector('#txt_isbn');
 const input_price = document.querySelector('#txt_price');
 const input_quantity = document.querySelector('#txt_quantity');
 const update_button = document.querySelector('#btn_update');
+let btnCancel = document.querySelector('#btnCancel');
+
+btnCancel.addEventListener('click', function () {
+  window.location.href = '/books/listBooks.html'
+})
 
 let get_param = (param) => {
   var url_string = window.location.href;

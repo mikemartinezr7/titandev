@@ -74,6 +74,11 @@ const slt_endTime = document.querySelector('#slt_endTime');
 const slt_day = document.querySelector('#slt_day');
 const input_branch = document.querySelector('#txt_branch');
 const update_button = document.querySelector('#btn_update');
+let btnCancel = document.querySelector('#btnCancel');
+
+btnCancel.addEventListener('click', function () {
+  window.location.href = '/clubs/listClubs.html'
+})
 
 let get_param = (param) => {
     var url_string =  window.location.href;

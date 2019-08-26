@@ -15,6 +15,11 @@ const slt_language = document.querySelector('#slt_language');
 const input_isbn = document.querySelector('#txt_isbn');
 const input_price = document.querySelector('#txt_price');
 const input_quantity = document.querySelector('#txt_quantity');
+let btnCancel = document.querySelector('#btnCancel');
+
+btnCancel.addEventListener('click', function () {
+  window.location.href = '/books/listBooks.html'
+})
 
 register_button.addEventListener('click', get_data);
 
