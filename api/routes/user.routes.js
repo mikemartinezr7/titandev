@@ -64,9 +64,14 @@ router.route('/randomToken')
     usersController.get_token(req, res);
   });
 
-router.route('/subscribe')
+router.route('/branches')
   .post(function (req,res){
     usersController.addBranch(req,res)
+  })
+
+  router.route('/branches')
+  .delete(function (req,res){
+    usersController.removeBranch(req,res)
   })
 
 module.exports = router;

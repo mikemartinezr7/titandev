@@ -441,11 +441,11 @@ module.exports.pwdRecoveryEmail = function (req, res) {
             let templateContent = fs.readFileSync(templatePath, { 'encoding': 'utf8' });
             let message = templateContent;
             let url = req.protocol + '://' + req.get('host') + '/users/pwdrecovery.html';
-        
+
             message = message.replace('##EMAIL##', userUpdated.email);
             message = message.replace('##PIN##', userUpdated.randomToken);
             message = message.replace(/##URL##/g, url);
-        
+
             //Send email to registered user
             sendEmail(user.email, '[TitanBooks] Confirmación de cuenta', message);
 
@@ -468,37 +468,72 @@ module.exports.pwdRecoveryEmail = function (req, res) {
   }
 }
 
-module.exports.addBranch = function(req,res){
+module.exports.addBranch = function (req, res) {
   let id = req.body._id;
   let branchId = req.body.branchId;
   let errors = [];
 
   UserModel.updateOne(
-    {_id: id},
-    {$push: {branches: branchId}}
-    ).exec(function(error){
-      if(error){
-        errors.push({
-          field: 'email',
-          message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
-          detail: error
-        });
-        console.log(error)
-        res.status(400).json(errors);
-      }else{
-        UserModel.findOne({ _id: id }).populate('branches').exec(function(error,user){
-          if(error){
-            errors.push({
-              field: 'email',
-              message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
-              detail: error
-            });
-            res.status(400).json(errors);
-          }else{
-            req.session.user = user
-            res.status(200).send(user);
-          }
-        })
-      }
-    })
+    { _id: id },
+    { $push: { branches: branchId } }
+  ).exec(function (error) {
+    if (error) {
+      errors.push({
+        field: 'email',
+        message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+        detail: error
+      });
+      console.log(error)
+      res.status(400).json(errors);
+    } else {
+      UserModel.findOne({ _id: id }).populate('branches').exec(function (error, user) {
+        if (error) {
+          errors.push({
+            field: 'email',
+            message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+            detail: error
+          });
+          res.status(400).json(errors);
+        } else {
+          req.session.user = user
+          res.status(200).send(user);
+        }
+      })
+    }
+  })
+}
+
+module.exports.removeBranch = function (req, res) {
+  let id = req.body._id;
+  let branchId = req.body.branchId;
+  let errors = [];
+
+  UserModel.updateOne(
+    { _id: id },
+    { $pull: { branches: branchId } }
+  ).exec(function (error) {
+    if (error) {
+      errors.push({
+        field: 'email',
+        message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+        detail: error
+      });
+      console.log(error)
+      res.status(400).json(errors);
+    } else {
+      UserModel.findOne({ _id: id }).populate('branches').exec(function (error, user) {
+        if (error) {
+          errors.push({
+            field: 'email',
+            message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+            detail: error
+          });
+          res.status(400).json(errors);
+        } else {
+          req.session.user = user
+          res.status(200).send(user);
+        }
+      })
+    }
+  })
 }
