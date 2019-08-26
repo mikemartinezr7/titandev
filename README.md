@@ -158,21 +158,21 @@ MICHAEL
 - Cambiar subida de archivos ..... OK
 - Registro de usuarios .... OK
 - Login ...... OK
-- Permisos de usuarios
-- Registrar libreria libre
+- Registrar libreria libre .... OK
+- Foto de perfil de usuario ..... OK
 - Registrar sucursal
-- Editar librería
+- Modificar catálogo de sucursal 
 - Editar sucursal
+- Editar librería
 - Agregar location por mapa en librerias
 - Eliminar sucursal 
-- Modificar catálogo de sucursal 
 - Editar promoción 
 - Eliminar promoción
+- Permisos de usuarios
 - Aprobar/Rechazar las solicitudes de registro enviadas por los administradores de librerías.
 - Expulsar usuarios por mal comportamiento.
 - Cerrar cuentas de Administradores de Librerías 
 - Ver los registros de todos los catálogos.
-- Agregar mensajes de error en las paginas
 - 404 page
 
 - Crear pagina de landing page

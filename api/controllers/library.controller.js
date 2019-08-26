@@ -1,16 +1,28 @@
 'use strict';
 const path = require('path');
+const fs = require('fs');
+const nodemailer = require('nodemailer');
+const appConfig = require('../../config/config.json');
 
 const LibraryModel = require('../db/models/library.model');
 const { UserModel } = require('../db/models/user.model');
 
+const transport = nodemailer.createTransport({
+  service: appConfig.email.service,
+  auth: {
+    user: appConfig.email.user,
+    pass: appConfig.email.password
+  }
+});
+
 const controller = {
   list: function (req, res) {
     let searchText = req.query.search;
-    let searchCriteria = {};
+    let searchCriteria = { active: true };
 
     if (searchText && searchText != '') {
       searchCriteria = { $or:[
+        { active: true }, 
         { commercialName: new RegExp(searchText, 'i') }, 
         { brandName: new RegExp(searchText, 'i') },
         { province: new RegExp(searchText, 'i') },
@@ -34,8 +46,6 @@ const controller = {
   },
 
   create: function (req, res) {
-    console.log(req.body);
-
     let newUser = new UserModel({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -107,6 +117,18 @@ const controller = {
                 detail: error
               });
             } else {
+              let templatePath = path.join(appRoot, '/public/users/template.html');
+              let templateContent = fs.readFileSync(templatePath, { 'encoding': 'utf8' });
+              let message = templateContent;
+              let url = req.protocol + '://' + req.get('host') + '/users/activate.html';
+
+              message = message.replace('##EMAIL##', user.email);
+              message = message.replace('##PIN##', user.randomToken);
+              message = message.replace(/##URL##/g, url);
+
+              //Send email to registered user
+              sendEmail(user.email, '[TitanBooks] Confirmación de cuenta', message);
+
               res.status(200).json({
                 success: true,
                 code: 200,
@@ -138,6 +160,21 @@ const controller = {
       res.end();
     });
   }
+}
+
+function sendEmail(email, subject, message) {
+  const messageOptions = {
+    from: appConfig.email.email,
+    to: email,
+    subject: subject,
+    html: message
+  };
+
+  transport.sendMail(messageOptions, function (err, info) {
+    if (err) {
+      console.log(err);
+    }
+  });
 }
 
 module.exports = controller;

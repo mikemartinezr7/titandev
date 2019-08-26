@@ -37,6 +37,11 @@ const LibrarySchema = mongoose.Schema({
     type: String,
     require: false
   },
+  active: {
+    type: Boolean,
+    require: true,
+    default: false
+  },
   admin: [UserSchema]
 });
 

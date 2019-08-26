@@ -20,167 +20,166 @@
     <ul></ul>
   </div>
 
-  <form id="frmRegisterUser" class="form">
+  <form id="frmRegisterUser" id="frmRegisterUser" class="form">
     <fieldset class="center">
       <legend>Datos generales:</legend>
-        <div>&nbsp;</div>
-            <div class="row">
-                <div class="col-2">
-                  <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
-                  <input type="text" id="txtFirstName">
-                </div>
-                <div class="col-2">
-                  <label for="txtMiddleName">Segundo nombre</label>
-                  <input type="text" id="txtMiddleName">
-                </div>
-                <div class="col-2">
-                  <label for="txtLastName">Primer apellido <span class="red">*</span></label>
-                  <input type="text" id="txtLastName">
-                </div>
-                <div class="col-2">
-                  <label for="txtSecondLastName">Segundo apellido</label>
-                  <input type="text" id="txtSecondLastName">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <label for="sltGender">Género <span class="red">*</span></label>
-                  <select id="sltGender">
-                    <option value=""></option>
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                    <option value="O">Otro</option>
-                    <option value="P">Prefiero no decir</option>
-                  </select>
-                </div>
-                <div class="col-4">
-                  <label for="idType">Tipo de identificación <span class="red">*</span></label>
-                  <select name="idType" id="idType" class="required">
-                    <option value=""></option>
-                    <option value="nacional">Nacional</option>
-                    <option value="residente">Residente</option>
-                    <option value="nacionalizado">Nacionalizado</option>
-                    <option value="extranjero">Extranjero</option>
-                  </select>
-                </div>
-                <div class="col-4">
-                  <label for="txtID">Identificación <span class="red">*</span></label>
-                  <input type="text" id="txtID">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
-                  <input type="text" id="txtEmail">
-                </div>
-                <div class="col-6">
-                  <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
-                  <input type="text" id="txtNickname">
-                </div>
-              </div>
-            </fieldset>
-            <p>&nbsp;</p>
-        
-            <fieldset class="center">
-              <legend>Ubicación:</legend>
-              <div class="row">
-                <div class="col-4">
-                  <label for="sltProvince">Provincia</label>
-                  <select id="sltProvince"></select>
-                </div>
-                <div class="col-4">
-                  <label for="sltCounty">Cantón</label>
-                  <select id="sltCounty"></select>
-                </div>
-                <div class="col-4">
-                  <label for="sltDistrict">Distrito</label>
-                  <select id="sltDistrict">
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
-                  <textarea id="txtAdditionalDetails" name="txtAdditionalDetails" rows="10"></textarea>
-                </div>
-              </div>
-            </fieldset>
-            <p>&nbsp;</p>
-        
-            <fieldset class="center">
-              <legend>Preferencias:</legend>
-              <div class="row">
-                <div class="col-6">
-                  <label>Géneros favoritos <span class="red">*</span></label>
-                  <div id="myGenre">
+      <div>&nbsp;</div>
+      <div class="row">
+        <div class="col-2">
+          <label for="txtFirstName">Primer nombre <span class="red">*</span></label>
+          <input type="text" id="txtFirstName">
+        </div>
+        <div class="col-2">
+          <label for="txtMiddleName">Segundo nombre</label>
+          <input type="text" id="txtMiddleName">
+        </div>
+        <div class="col-2">
+          <label for="txtLastName">Primer apellido <span class="red">*</span></label>
+          <input type="text" id="txtLastName">
+        </div>
+        <div class="col-2">
+          <label for="txtSecondLastName">Segundo apellido</label>
+          <input type="text" id="txtSecondLastName">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sltGender">Género <span class="red">*</span></label>
+          <select id="sltGender">
+            <option value=""></option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Otro</option>
+            <option value="P">Prefiero no decir</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="idType">Tipo de identificación <span class="red">*</span></label>
+          <select name="idType" id="idType" class="required">
+            <option value=""></option>
+            <option value="nacional">Nacional</option>
+            <option value="residente">Residente</option>
+            <option value="nacionalizado">Nacionalizado</option>
+            <option value="extranjero">Extranjero</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="txtID">Identificación <span class="red">*</span></label>
+          <input type="text" id="txtID">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="txtEmail">Correo electrónico <span class="red">*</span></label>
+          <input type="text" id="txtEmail">
+        </div>
+        <div class="col-6">
+          <label for="txtNickname">Sobrenombre <span class="red">*</span></label>
+          <input type="text" id="txtNickname">
+        </div>
+      </div>
+    </fieldset>
+    <p>&nbsp;</p>
 
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label>Foto</label><br>
-                  <button type="button" class="button-secondary" id="btnChooseImage">Subir imagen</button>
-                  <figure>
-                    <img src="../img/no-avatar.jpg" alt="no photo" width="150" height="150" id="image_preview">
-                  </figure>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <div class="autocomplete">
-                    <label for="txtFavoriteBook">Libro favorito</label>
-                    <input type="text" id="txtFavoriteBook">
-                </div>
-                </div>
-                <div class="col-4">
-                  <div class="autocomplete">
-                    <label for="txtFavoriteAuthor">Autor favorito</label>
-                    <input type="text" id="txtFavoriteAuthor">
-                  </div>
-                </div>
-                <div class="col-4">
-                  <input type="checkbox" id="Exchange"><label for="Exchange"> Deseo intercambiar libros</label>
-                </div>
-              </div>
-            </fieldset>
-            <p>&nbsp;</p>
-            <button type="button" id="btnRegister" class="button-primary">Registrar</button>
-            <button type="reset" id="btnReset" class="button-secondary">Limpiar</button>
-            <p>&nbsp;</p>
+    <fieldset class="center">
+      <legend>Ubicación:</legend>
+      <div class="row">
+        <div class="col-4">
+          <label for="sltProvince">Provincia</label>
+          <select id="sltProvince"></select>
+        </div>
+        <div class="col-4">
+          <label for="sltCounty">Cantón</label>
+          <select id="sltCounty"></select>
+        </div>
+        <div class="col-4">
+          <label for="sltDistrict">Distrito</label>
+          <select id="sltDistrict">
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="txtAdditionalDetails">Otras señas <span class="red">*</span></label>
+          <textarea id="txtAdditionalDetails" name="txtAdditionalDetails" rows="10"></textarea>
+        </div>
+      </div>
+    </fieldset>
+    <p>&nbsp;</p>
+
+    <fieldset class="center">
+      <legend>Preferencias:</legend>
+      <div class="row">
+        <div class="col-12">
+          <label>Géneros favoritos <span class="red">*</span></label>
+          <div id="myGenre">
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button type="button" class="button-secondary" id="btnChooseImage">Subir imagen</button>
+          <figure>
+            <img src="../img/no-avatar.jpg" alt="no photo" width="150" height="150" id="image_preview">
+          </figure>
+        </div>
+        <div class="col-4">
+          <div class="autocomplete">
+            <label for="txtFavoriteBook">Libro favorito</label>
+            <input type="text" id="txtFavoriteBook">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="autocomplete">
+            <label for="txtFavoriteAuthor">Autor favorito</label>
+            <input type="text" id="txtFavoriteAuthor">
+          </div>
+        </div>
+        <div class="col-4">
+          <input type="checkbox" id="Exchange"><label for="Exchange"> Deseo intercambiar libros</label>
+        </div>
+      </div>
+    </fieldset>
+    <p>&nbsp;</p>
+    <button type="button" id="btnRegister" class="button-primary">Registrar</button>
+    <button type="reset" id="btnReset" class="button-secondary">Limpiar</button>
+    <p>&nbsp;</p>
   </form>
-</body>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script type="text/javascript" src="../js/provinces.js"></script>
   <script type="text/javascript" src="../js/users/register.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
   <script type="text/javascript">
     document.getElementById("hideAll").style.display = "none";
-  </script> 
+  </script>
 
-<script>
- window.onload = function() 
-  { document.getElementById("hideAll").style.display = "block"; }
-    </script>
+  <script>
+    window.onload = function () { document.getElementById("hideAll").style.display = "block"; }
+  </script>
 
   <!--Desabilita Enter para enviar la información-->
   <script type="text/javascript">
     window.addEventListener('keydown', function (e) { if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) { if (e.target.nodeName === 'INPUT' && e.target.type !== 'textarea') { e.preventDefault(); return false; } } }, true);
   </script>
 
-<!--Autocompleta los autores/libros para los campo de autor favorito y libro favorito-->
-<script>
+  <!--Autocompleta los autores/libros para los campo de autor favorito y libro favorito-->
+  <script>
     autocomplete(document.getElementById("txtFavoriteAuthor"), authorArray);
-</script>
+  </script>
 
-<script>
+  <script>
     autocomplete(document.getElementById("txtFavoriteBook"), bookArray);
-</script>
+  </script>
 
   <!-- Scripts cloudinary -->
   <script type="text/javascript" src="../js/images.js"></script>
   <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js'></script>
   <script type="text/javascript" src="https://widget.cloudinary.com/global/all.js"></script>
+</body>
 
 </html>

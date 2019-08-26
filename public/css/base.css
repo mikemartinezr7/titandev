@@ -360,6 +360,10 @@ legend {
   -webkit-animation: bounceIn 0.8s;
 }
 
+.box-alert ul {
+  list-style: none;
+}
+
 .box button {
   height: 29px;
 }

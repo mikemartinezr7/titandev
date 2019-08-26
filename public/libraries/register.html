@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/base.css">
+  <title>Titandev - Registrar Librería nueva</title>
+</head>
+
+<body class="center">
+  <img src="../img/titandev-logo.png" alt="logo" title="logo">
+  <h2>Registrar Librería</h2>
+  <p>Llene los siguientes formularios con los datos respectivos.</p>
+  <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
+  <p>&nbsp;</p>
+
+  <div class="box-alert center" style="display: none">
+    <h4>Los siguientes campos necesitan ser revisados:</h4>
+    <ul></ul>
+  </div>
+
+  <form name="frmAddUser" id="frmAddUser" method="POST" class="form">
+    <fieldset class="center">
+      <legend>Datos generales:</legend>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="commercialName">Nombre comercial <span class="red">*</span> </label>
+          <input type="text" name="commercialName" id="commercialName" class="required">
+        </div>
+        <div class="col-6">
+          <label for="brandName">Marca: </label>
+          <input type="text" name="brandName" id="brandName">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="province">Provincia <span class="red">*</span></label>
+          <select name="province" id="province" class="required"></select>
+        </div>
+        <div class="col-4">
+          <label for="county">Canton <span class="red">*</span></label>
+          <select name="county" id="county" class="required"></select>
+        </div>
+        <div class="col-4">
+          <label for="district">Distrito <span class="red">*</span></label>
+          <select name="district" id="district" class="required"></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="address">Señas particulares <span class="red">*</span></label>
+        <textarea name="address" id="address" rows="10" class="required"></textarea>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="location">Ubicación por Mapa</label>
+          <input type="text" name="location" id="location" class="required">
+        </div>
+        <div class="col-6">
+          <label for="image">Imagen</label><br>
+          <button type="button" id="btnChooseImage" class="button_image">Subir imagen</button>
+          <figure class="image_holder">
+            <img src="../img/image-default.png" alt="select image" id="image_preview" width="200" height="100">
+          </figure>
+        </div>
+      </div>
+    </fieldset>
+    <p>&nbsp;</p>
+
+    <fieldset class="center">
+      <legend>Datos de administrador:</legend>
+
+      <div class="row">
+        <div class="col-2">
+          <label for="firstName">Primer Nombre <span class="red">*</span> </label>
+          <input type="text" name="firstName" id="firstName" class="required">
+        </div>
+
+        <div class="col-2">
+          <label for="middleName">Segundo Nombre </label>
+          <input type="text" name="middleName" id="middleName">
+        </div>
+
+        <div class="col-2">
+          <label for="firstLastName">Primer Apellido <span class="red">*</span> </label>
+          <input type="text" name="firstLastName" id="firstLastName" class="required">
+        </div>
+
+        <div class="col-2">
+          <label for="secondLastName">Segundo Apellido</label>
+          <input type="text" name="secondLastName" id="secondLastName" class="required">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="idType">Tipo de identificación <span class="red">*</span></label>
+          <select name="idType" id="idType" class="required">
+            <option value=""></option>
+            <option value="nacional">Nacional</option>
+            <option value="residente">Residente</option>
+            <option value="nacionalizado">Nacionalizado</option>
+            <option value="extranjero">Extranjero</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="id">Numero de identificacion <span class="red">*</span></label>
+          <input type="text" name="id" id="id" class="required">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="gender">Genero <span class="red">*</span></label>
+          <select name="gender" id="gender" class="required">
+            <option value=""></option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Otro</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="birthDate">Fecha de Nacimiento</label>
+          <input type="date" name="birthDate" id="birthDate" class="required">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="email">Email <span class="red">*</span></label>
+          <input type="text" name="email" id="email" class="required email">
+        </div>
+        <div class="col-6">
+          <label for="password">Contraseña</label>
+          <input type="password" name="password" id="password" class="required">
+        </div>
+      </div>
+    </fieldset>
+
+    <p>&nbsp;</p>
+    <input type="submit" id="btnSubmit" value="Aceptar" class="button-primary">
+    <input type="reset" id="btnReset" value="Limpiar" class="button-secondary">
+    <p>&nbsp;</p>
+  </form>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js"></script>
+  <script type="text/javascript" src="https://widget.cloudinary.com/global/all.js"></script>
+  <script type="text/javascript" src="../js/images.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <script type="text/javascript" src="../js/libraries.js"></script>
+  <script type="text/javascript" src="../js/provinces.js"></script>
+</body>
+
+</html>

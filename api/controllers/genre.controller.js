@@ -30,7 +30,7 @@ module.exports.list = function (req, res) {
       $or: [
         { name: new RegExp(search_criteria, 'i') },
       ]
-    }).then(function (genres) {
+    }).sort({name:1}).then(function (genres) {
       if (genres.length > 0) {
         res.json({ success: true, genres_list: genres });
       } else {
