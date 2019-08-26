@@ -80,7 +80,7 @@ module.exports.list = function (req, res) {
     searchCriteria = { email: new RegExp(searchText, 'i') }
   }
 
-  UserModel.find(searchCriteria).populate('favoriteGenres', 'name').exec(
+  UserModel.find(searchCriteria).populate('favoriteGenres', 'name').populate('branches').exec(
     function (error, users) {
       if (error) {
         res.status(400).send(error)
@@ -122,7 +122,7 @@ module.exports.save_password = function (req, res) {
 }
 
 module.exports.update = function (req, res) {
-  UserModel.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }).populate('favoriteGenres', 'name').exec(
+  UserModel.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }).populate('favoriteGenres', 'name').populate('branches').exec(
     function (error, user) {
       if (error) {
         res.json({ success: false, msg: 'No se pudo actualizar el perfil.' });
@@ -254,7 +254,7 @@ module.exports.login = function (req, res) {
   if (errors.length > 0) {
     res.status(400).json(errors);
   } else {
-    UserModel.findOne({ email: req.body.email, password: req.body.password, active: true }).populate('favoriteGenres', 'name').exec(function (error, user) {
+    UserModel.findOne({ email: req.body.email, password: req.body.password, active: true }).populate('favoriteGenres', 'name').populate('branches').exec(function (error, user) {
       if (error) {
         errors.push({
           field: 'email',
@@ -466,4 +466,39 @@ module.exports.pwdRecoveryEmail = function (req, res) {
       }
     });
   }
+}
+
+module.exports.addBranch = function(req,res){
+  let id = req.body._id;
+  let branchId = req.body.branchId;
+  let errors = [];
+
+  UserModel.updateOne(
+    {_id: id},
+    {$push: {branches: branchId}}
+    ).exec(function(error){
+      if(error){
+        errors.push({
+          field: 'email',
+          message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+          detail: error
+        });
+        console.log(error)
+        res.status(400).json(errors);
+      }else{
+        UserModel.findOne({ _id: id }).populate('branches').exec(function(error,user){
+          if(error){
+            errors.push({
+              field: 'email',
+              message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+              detail: error
+            });
+            res.status(400).json(errors);
+          }else{
+            req.session.user = user
+            res.status(200).send(user);
+          }
+        })
+      }
+    })
 }

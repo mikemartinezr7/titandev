@@ -106,7 +106,12 @@ let UserSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     default: false
-  }
+  },
+  branches: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Branch',
+    required: false
+  }]
 });
 
 let UserModel = mongoose.model('User', UserSchema);

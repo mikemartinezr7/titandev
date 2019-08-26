@@ -195,7 +195,7 @@ GIO
 - Abandonar un club de lectura
 - Publicar comentarios en el blog de los clubes de lectura virtuales
 
-- Suscribir sucursal
+- Suscribir sucursal (BACK-END listo)
 - Cancelar suscripción de una sucursal
 
 

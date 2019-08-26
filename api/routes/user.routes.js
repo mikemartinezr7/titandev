@@ -64,4 +64,9 @@ router.route('/randomToken')
     usersController.get_token(req, res);
   });
 
+router.route('/subscribe')
+  .post(function (req,res){
+    usersController.addBranch(req,res)
+  })
+
 module.exports = router;
