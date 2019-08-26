@@ -79,7 +79,7 @@ module.exports.list = function (req, res) {
     searchCriteria = { email: new RegExp(searchText, 'i') }
   }
 
-  UserModel.find(searchCriteria).populate('favoriteGenres', 'name').then(
+  UserModel.find(searchCriteria).populate('favoriteGenres', 'name').exec(
     function (error, users) {
       if (error) {
         res.status(400).send(error)
