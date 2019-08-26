@@ -185,10 +185,19 @@ LUA
 - Crear texto de landing page
 
 GIO
-- Crear password 
-- Visualizar perfil de usuario
-- Recuperar contrasena
+- Buscar libro para intercambio
+- Enviar Solicitud de intercambio de libro
+- Aceptar solicitud de intercambio de libro
+- Rechazar solicitud de intercambio de libro
+- Calificar al usuario del intercambio
+
+- Registrarse en club de lectura
+- Abandonar un club de lectura
+- Publicar comentarios en el blog de los clubes de lectura virtuales
+
 - Suscribir sucursal
+- Cancelar suscripción de una sucursal
+
 
 ROGER
 - Agregar foto a autores
