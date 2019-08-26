@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TitanDev - Registrar Sucursal de Librería</title>
+  <link rel="stylesheet" type="text/css" href="../../css/base.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div id="topmenu-container">
+    <div class="topmenu-item">
+      <span class="helper"><img src="../../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
+      <span class="helper"><img src="../../img/titandev-text.png" alt="TitanDev Logo" width="118" height="18"></span>
+    </div>
+    <div class="topmenu-item"><a href="../../about.html">Sobre nosotros</a></div>
+    <div class="topmenu-item"><a href="../../aboutapp.html">Nuestro Producto</a></div>
+    <div class="topmenu-item user-profile">
+      <span class="helper">
+        <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="../../img/user-portrait.jpeg"
+            alt="Usuario" height="30" width="30"></a>
+      </span>
+      <div id="profile-menu" style="display: none">
+        <ul>
+          <li><a href="../../profile.html">Perfil</a></li>
+          <li><a href="../../users/logout.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="content-container">
+    <div id="leftmenu" class="left-menu-close">
+      <ul>
+        <li><a href="../../index.html"><img src="../../img/home.png" alt="Home"><span
+              class="left-menu-item-text hidden">Home</span></a></li>
+        <li><a href="../../libraries/index.html"><img src="../../img/library.png" alt="Librerias"><span
+              class="left-menu-item-text hidden">Librerías</span></a></li>
+        <li><a href="../../books/listBooks.html"><img src="../../img/book.png" alt="Libros"><span
+              class="left-menu-item-text hidden">Libros</span></a></li>
+        <li><a href="../../authors/authorsList.html"><img src="../../img/author.png" alt="Autores"><span
+              class="left-menu-item-text hidden">Autores</span></a></li>
+        <li><a href="../../clubs/listClubs.html"><img src="../../img/clubs.png" alt="Clubes de lectura"><span
+              class="left-menu-item-text hidden">Clubes de lectura</span></a></li>
+        <li><a href="../../Genre/index.html"><img src="../../img/genre.png" alt="Genero"><span
+              class="left-menu-item-text hidden">Generos</span></a></li>
+        <li><a href="../../users/register.html"><img src="../../img/user.png" alt="Usuario"><span
+              class="left-menu-item-text hidden">Usuario</span></a></li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <h2>Sucursal</h2>
+      <h3>Crear una nueva sucursal</h3>
+      <p>Llene los siguientes formularios con los datos respectivos.</p>
+      <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
+
+      <div class="box-alert" style="display: none">
+        <h4>Los siguientes campos necesitan ser revisados:</h4>
+        <ul></ul>
+      </div>
+
+      <form name="frmAddBranch" id="frmAddBranch" method="POST" class="form">
+        <fieldset>
+          <legend>Datos generales:</legend>
+
+          <div class="row">
+            <div class="col-6">
+              <label for="name">Nombre <span class="red">*</span> </label>
+              <input type="text" name="name" id="name" class="required">
+            </div>
+            <div class="col-6">
+              <label for="name">Email <span class="red">*</span> </label>
+              <input type="text" name="email" id="email" class="required">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <label for="province">Provincia <span class="red">*</span></label>
+              <select name="province" id="province" class="required"></select>
+            </div>
+            <div class="col-4">
+              <label for="county">Canton <span class="red">*</span></label>
+              <select name="county" id="county" class="required"></select>
+            </div>
+            <div class="col-4">
+              <label for="district">Distrito <span class="red">*</span></label>
+              <select name="district" id="district" class="required"></select>
+            </div>
+          </div>
+
+          <div class="row">
+            <label for="address">Señas particulares <span class="red">*</span></label>
+            <textarea name="address" id="address" rows="10" class="required"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <label for="location">Ubicación por Mapa</label>
+              <input type="text" name="location" id="location" class="required">
+            </div>
+            <div class="col-6">
+              <label for="location">Teléfono</label>
+              <input type="text" name="phone" id="phone" class="required">
+            </div>
+          </div>
+        </fieldset>
+
+        <input type="submit" id="btnSubmit" value="Aceptar" class="button-primary">
+        <input type="reset" id="btnReset" value="Limpiar" class="button-secondary">
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <script type="text/javascript" src="../../js/layout.js"></script>
+  <script type="text/javascript" src="../../js/branches.js"></script>  
+  <script type="text/javascript" src="../../js/libraries.js"></script>
+  <script type="text/javascript" src="../../js/provinces.js"></script>
+</body>
+
+</html>

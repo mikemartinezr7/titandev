@@ -3,13 +3,21 @@
 const express = require('express');
 
 const router = express.Router();
-const controller = require('../controllers/library.controller');
+const libraryController = require('../controllers/library.controller');
+const branchController = require('../controllers/branch.controller');
 
 router.route('/')
-  .get(controller.list)
-  .post(controller.create);
+  .get(libraryController.list)
+  .post(libraryController.create);
 
 router.route('/:id')
-  .get(controller.detail);
+  .get(libraryController.detail);
+
+router.route('/:id/branch')
+  .get(branchController.list)
+  .post(branchController.create);
+
+router.route('/:id/branch/:id')
+  .get(branchController.detail);
 
 module.exports = router;

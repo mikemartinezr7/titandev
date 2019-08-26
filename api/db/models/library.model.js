@@ -1,8 +1,10 @@
 'use strict';
 
 const mongoose = require('mongoose');
-mongoose.set('useCreateIndex', true);
 const { UserSchema } =  require('./user.model');
+const { BranchSchema } =  require('./branch.model');
+
+mongoose.set('useCreateIndex', true);
 
 const LibrarySchema = mongoose.Schema({
   commercialName: {
@@ -42,7 +44,10 @@ const LibrarySchema = mongoose.Schema({
     require: true,
     default: false
   },
-  admin: [UserSchema]
+  admin: [UserSchema],
+  branches: [BranchSchema]
 });
 
-module.exports = mongoose.model('Library', LibrarySchema);
+let LibraryModel = mongoose.model('Library', LibrarySchema);
+
+module.exports = { LibrarySchema, LibraryModel };

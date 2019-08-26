@@ -5,7 +5,6 @@
   <title>TitanDev - Perfil de Librería</title>
   <link rel="stylesheet" type="text/css" href="../css/base.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="../js/OpenLayers.js"></script>
 </head>
 
 <body onload="loadLibrary()">
@@ -18,7 +17,8 @@
     <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
     <div class="topmenu-item user-profile">
       <span class="helper">
-          <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="./img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+        <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="../img/user-portrait.jpeg"
+            alt="Usuario" height="30" width="30"></a>
       </span>
       <div id="profile-menu" style="display: none">
         <ul>
@@ -64,25 +64,33 @@
         </div>
 
         <div class="row">
-          <div class="user-box">
-            <div class="user-box-top"></div>
-            <div class="user-box-bottom">
-              <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
-              <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</h4>
-              <p>Propietario</p>
-              <p><strong>Email:</strong> ${admin[0].email}</p>
+          <div class="col-4">
+            <div class="user-box">
+              <div class="user-box-top"></div>
+              <div class="user-box-bottom">
+                <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
+                <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
+                </h4>
+                <p>Propietario</p>
+                <p><strong>Email:</strong> ${admin[0].email}</p>
+              </div>
             </div>
-
           </div>
 
-          <div class="box">
-            Sucursales
+          <div class="col-4" style="float: right">
+            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="600">
           </div>
+        </div>
+
+        <div class="row">
           <div class="box">
-              Clubes de lectura
+            <p>Sucursales</p>
+            <a href="./branches/add.html?id=${_id}">Crear nueva sucursal</a>
           </div>
-          <div>
-            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="500">
+        </div>
+        <div class="row">
+          <div class="box">
+            Clubes de lectura
           </div>
         </div>
       </div>
@@ -102,38 +110,40 @@
         </div>
 
         <div class="row">
-          <div class="user-box">
-            <div class="user-box-top"></div>
-            <div class="user-box-bottom">
-              <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
-              <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</h4>
-              <p>Propietario</p>
-              <p><strong>Email:</strong> ${admin[0].email}</p>
+          <div class="col-4">
+            <div class="user-box">
+              <div class="user-box-top"></div>
+              <div class="user-box-bottom">
+                <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
+                <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
+                </h4>
+                <p>Propietario</p>
+                <p><strong>Email:</strong> ${admin[0].email}</p>
+              </div>
             </div>
-
           </div>
 
-          <div class="box">
-            Sucursales
-          </div>
-          <div class="box">
-              Clubes de lectura
-          </div>
-          <div>
-            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="500">
+          <div class="col-4" style="float: right">
+            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="600">
           </div>
         </div>
-      </div>
+
+        <div class="row">
+          <div class="box">
+            <p>Sucursales</p>
+            <a href="./branches/add.html?id=${_id}">Crear nueva sucursal</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            Clubes de lectura
+          </div>
+        </div>
     </script>
   </div>
 
-  <script>
-      map = new OpenLayers.Map("map");
-      map.addLayer(new OpenLayers.Layer.OSM());
-      map.zoomToMaxExtent();
-  </script>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="../js/layout.js"></script>
   <script type="text/javascript" src="../js/libraries.js"></script>

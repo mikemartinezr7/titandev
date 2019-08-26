@@ -3,6 +3,10 @@
 const mongoose = require('mongoose');
 
 const BranchSchema = mongoose.Schema({
+  library: {
+    type: String,
+    required: [true, 'El campo "Código de librería" es requerido'],
+  },
   name: {
     type: String,
     required: [true, 'El campo "Nombre" es requerido'],
@@ -44,4 +48,6 @@ const BranchSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Branch', BranchSchema);
+let BranchModel = mongoose.model('Branch', BranchSchema);
+
+module.exports = { BranchSchema, BranchModel };

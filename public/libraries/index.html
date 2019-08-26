@@ -17,7 +17,8 @@
     <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
     <div class="topmenu-item user-profile">
       <span class="helper">
-          <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="./img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+        <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="../img/user-portrait.jpeg"
+            alt="Usuario" height="30" width="30"></a>
       </span>
       <div id="profile-menu" style="display: none">
         <ul>
@@ -60,10 +61,12 @@
       <div id="libraries">
         <div class="box-library">
           <div class="library-image">
-            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto">
+            <a href="detail.html?id=${_id}"><img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto"></a>
           </div>
           <div class="library-details">
-            <h3>Libreria de Prueba ${commercialName}</h3>
+            <a href="detail.html?id=${_id}">
+              <h3>${commercialName}</h3>
+            </a>
             <div class="no-border">
               <img src="../img/location.png" alt="Ubicacion">
               <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
@@ -76,40 +79,45 @@
             </div>
           </div>
           <div class="library-details-rigth">
-            <a class="detail-button" href="detail.html?id=${id}">Ir a Librería</a>
+            <a class="detail-button" href="detail.html?id=${_id}">Ir a Librería</a>
           </div>
         </div>
       </div>
 
-  <script id="libraryTemplate" type="text/x-jQuery-tmpl">
-    <div class="box-library">
-        <div class="library-image">
-          <img src="${image}" alt="Hotel foto">
-        </div> 
-        <div class="library-details">
-          <h3>${commercialName}</h3>
-          <div class="no-border">
-            <img src="../img/location.png" alt="Ubicacion">
-            <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+      <script id="libraryTemplate" type="text/x-jQuery-tmpl">
+        <div class="box-library">
+            <div class="library-image">
+              <a href="detail.html?id=${_id}"><img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto"></a>
+            </div>
+            <div class="library-details">
+              <a href="detail.html?id=${_id}">
+                <h3>${commercialName}</h3>
+              </a>
+              <div class="no-border">
+                <img src="../img/location.png" alt="Ubicacion">
+                <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
+              </div>
+              <div class="no-border">
+                <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas,
+                <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+              <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
+                </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
+              </div>
+            </div>
+            <div class="library-details-rigth">
+              <a class="detail-button" href="detail.html?id=${_id}">Ir a Librería</a>
+            </div>
           </div>
-          <div>
-              <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas, 
-              <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
-          <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario: </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}</div>
-        </div>
-        <div class="library-details-rigth">
-          <a href="detail.html?id=${_id}">Ir a Librería</a>
-        </div>
-      </div>
-  </script>
+      </script>
 
-  <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
+      <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
     <div id="emptyLibraries">No hay librerias registradas actualmente</div>
   </script>
     </div>
   </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="../js/libraries.js"></script>
   <script type="text/javascript" src="../js/layout.js"></script>

@@ -4,7 +4,7 @@ const fs = require('fs');
 const nodemailer = require('nodemailer');
 const appConfig = require('../../config/config.json');
 
-const LibraryModel = require('../db/models/library.model');
+const { LibraryModel } = require('../db/models/library.model');
 const { UserModel } = require('../db/models/user.model');
 
 const transport = nodemailer.createTransport({
@@ -75,7 +75,8 @@ const controller = {
       address: req.body.address,
       location: req.body.location,
       image: req.body.image,
-      admin: newUser
+      admin: newUser,
+      branches: []
     });
 
     let errors = [];

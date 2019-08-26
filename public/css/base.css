@@ -291,6 +291,15 @@ legend {
   height: 150px;
 }
 
+.library-details a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.library-details a:hover {
+  text-decoration: underline;
+}
+
 .library-details .no-border {
   border: 0;
 }
@@ -311,6 +320,7 @@ legend {
   text-align: center;
   width: 20%;
   min-height: 168px;
+  line-height: 168px;
 }
 
 .library-details-rigth a {
@@ -319,9 +329,8 @@ legend {
   height: 40px;
   width: 150px;
   font-size: 14px;
-  display: inline-block;
   text-decoration: none;
-  display: block;
+  padding: 10px 40px;
 }
 
 .library-details-rigth a:hover {
