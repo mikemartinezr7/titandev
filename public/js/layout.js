@@ -1,5 +1,11 @@
 $(document).ready(function () {
-  $.get('/api/user/session').fail(function (response) {
+  $.get('/api/user/session', function (data) {
+    $('#user-profile-trigger span').html(data.firstName + ' ' + data.firstLastName);
+    
+    if (data.avatar != '') {
+      $('#user-profile-trigger img').attr('src', data.avatar);
+    }
+  }).fail(function (response) {
     window.location.href = 'http://' + window.location.host + '/users/signin.html';
   });
 });

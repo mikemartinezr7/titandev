@@ -18,10 +18,11 @@ const transport = nodemailer.createTransport({
 const controller = {
   list: function (req, res) {
     let searchText = req.query.search;
-    let searchCriteria = {};
+    let searchCriteria = { active: true };
 
     if (searchText && searchText != '') {
       searchCriteria = { $or:[
+        { active: true }, 
         { commercialName: new RegExp(searchText, 'i') }, 
         { brandName: new RegExp(searchText, 'i') },
         { province: new RegExp(searchText, 'i') },
