@@ -22,7 +22,7 @@
       </span>
       <div id="profile-menu" style="display: none">
         <ul>
-          <li><a href="../profile.html">Perfil</a></li>
+          <li><a href="../users/profile.html">Perfil</a></li>
           <li><a href="../users/logout.html">Logout</a></li>
         </ul>
       </div>
@@ -51,56 +51,63 @@
 
     <div id="content">
       <div id="library">
-        <h1>${commercialName}</h1>
+          <h1>${commercialName}</h1>
 
-        <h3>Ubicación</h3>
-        <div class="row">
-          <div class="col-12 box">
-            <p>
-              <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}, ${address}
-            </p>
-            <div id="map"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <div class="user-box">
-              <div class="user-box-top"></div>
-              <div class="user-box-bottom">
-                <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
-                <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
-                </h4>
-                <p>Propietario</p>
-                <p><strong>Email:</strong> ${admin[0].email}</p>
-              </div>
+          <h3>Ubicación</h3>
+          <div class="row">
+            <div class="box">
+              <p>
+                <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}, ${address}
+              </p>
+              <div id="map"></div>
             </div>
           </div>
-
-          <div class="col-4" style="float: right">
-            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="600">
+  
+          <div class="row">
+            <div class="box">
+              <table class="notable">
+                <tr>
+                  <td>
+                    <div class="user-box">
+                      <div class="user-box-top"></div>
+                      <div class="user-box-bottom">
+                        <img src="../img/user.png" alt="Usuario" width="100" height="100"><br>
+                        <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName}
+                          ${admin[0].secondLastName}
+                        </h4>
+                        <p>Propietario</p>
+                        <p><strong>Email:</strong> ${admin[0].email}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <img src="${image}" alt="Libreria foto" class="image" width="600">
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="box">
-            <p>Sucursales <a href="./branches/add.html?id=${_id}" style="float: right">Crear nueva sucursal</a></p>
-
-            {{each(i,v) branches}}
+  
+          <div class="row">
+            <div class="box">
+              <p>Sucursales <a href="./branches/add.html?id=${_id}" style="float: right">Crear nueva sucursal</a></p>
+  
+              {{each(i,v) branches}}
               <div class="branch">
                 <p><strong>${v.name}</strong></p>
-                <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address} </p>
+                <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address}
+                </p>
                 <p><strong>Email:</strong> ${v.email}</p>
                 <p><strong>Teléfono:</strong> ${v.phone}</p>
               </div>
-            {{/each}}
+              {{/each}}
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="box">
-            Clubes de lectura
+          <div class="row">
+            <div class="box">
+              Clubes de lectura
+            </div>
           </div>
-        </div>
       </div>
     </div>
 
@@ -109,7 +116,7 @@
 
         <h3>Ubicación</h3>
         <div class="row">
-          <div class="col-12 box">
+          <div class="box">
             <p>
               <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}, ${address}
             </p>
@@ -118,21 +125,27 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
-            <div class="user-box">
-              <div class="user-box-top"></div>
-              <div class="user-box-bottom">
-                <img src="../img/user-portrait.jpeg" alt="Usuario" width="100" height="100"><br>
-                <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
-                </h4>
-                <p>Propietario</p>
-                <p><strong>Email:</strong> ${admin[0].email}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-4" style="float: right">
-            <img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto" class="image" width="600">
+          <div class="box">
+            <table class="notable">
+              <tr>
+                <td>
+                  <div class="user-box">
+                    <div class="user-box-top"></div>
+                    <div class="user-box-bottom">
+                      <img src="../img/user.png" alt="Usuario" width="100" height="100"><br>
+                      <h4>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName}
+                        ${admin[0].secondLastName}
+                      </h4>
+                      <p>Propietario</p>
+                      <p><strong>Email:</strong> ${admin[0].email}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <img src="${image}" alt="Libreria foto" class="image" width="600">
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
 
@@ -141,12 +154,13 @@
             <p>Sucursales <a href="./branches/add.html?id=${_id}" style="float: right">Crear nueva sucursal</a></p>
 
             {{each(i,v) branches}}
-              <div class="branch">
-                <p><strong>${v.name}</strong></p>
-                <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address} </p>
-                <p><strong>Email:</strong> ${v.email}</p>
-                <p><strong>Teléfono:</strong> ${v.phone}</p>
-              </div>
+            <div class="branch">
+              <p><strong>${v.name}</strong></p>
+              <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address}
+              </p>
+              <p><strong>Email:</strong> ${v.email}</p>
+              <p><strong>Teléfono:</strong> ${v.phone}</p>
+            </div>
             {{/each}}
           </div>
         </div>

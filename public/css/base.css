@@ -667,3 +667,15 @@ table tbody td {
   border-radius: 14px; 
   margin-bottom: 10px;
 }
+
+.notable {
+  border: none!important;
+}
+
+table tbody tr {
+  border: none!important;
+}
+
+table tbody tr:hover {
+  background-color: transparent!important;
+}

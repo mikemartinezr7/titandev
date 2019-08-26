@@ -22,7 +22,7 @@
       </span>
       <div id="profile-menu" style="display: none">
         <ul>
-          <li><a href="../profile.html">Perfil</a></li>
+          <li><a href="../users/profile.html">Perfil</a></li>
           <li><a href="../users/logout.html">Logout</a></li>
         </ul>
       </div>
@@ -61,7 +61,7 @@
       <div id="libraries">
         <div class="box-library">
           <div class="library-image">
-            <a href="detail.html?id=${_id}"><img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto"></a>
+            <a href="detail.html?id=${_id}"><img src="../img/image-default.png" alt="Hotel foto"></a>
           </div>
           <div class="library-details">
             <a href="detail.html?id=${_id}">
@@ -89,7 +89,13 @@
       <script id="libraryTemplate" type="text/x-jQuery-tmpl">
         <div class="box-library">
             <div class="library-image">
-              <a href="detail.html?id=${_id}"><img src="../img/global-library-main_0_0-1.jpg" alt="Hotel foto"></a>
+              <a href="detail.html?id=${_id}">
+                {{if image == "" }}
+                  <img src="../img/image-default.png" alt="Libreria foto">
+                {{else}}
+                  <img src="${image}" alt="Libreria foto">
+                {{/if}}
+              </a>
             </div>
             <div class="library-details">
               <a href="detail.html?id=${_id}">

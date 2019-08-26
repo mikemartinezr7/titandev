@@ -121,7 +121,7 @@ function loadLibrary() {
       if (library.image == undefined || library.image == '') {
         library.image = '../img/image-default.png'
       } else {
-        library.image = '../uploads/libraries/' + library.image;
+        library.image = library.image;
       }
 
       $('#library').empty();
