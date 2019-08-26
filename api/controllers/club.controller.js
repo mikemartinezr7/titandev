@@ -83,3 +83,15 @@ module.exports.findClubID = function (req, res) {
         }
     ); 
 };
+
+module.exports.delete_club = function(req, res){
+    club_model.findByIdAndRemove(req.body.id,
+        function (error){
+          if (error){
+          res.json({success: false, msg: 'No se pudo eliminar el club'});
+          }else{
+          res.json({success: true, msg: 'El club se eliminó exitosamente'});
+        }
+      }
+    )
+  };

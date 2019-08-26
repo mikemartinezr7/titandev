@@ -79,7 +79,7 @@ module.exports.findBookID = function (req, res) {
 };
 
 module.exports.update = function(req, res){
-  book_model.findByIdAndUpdate(req.body.id, {$set: req.body}),
+  book_model.findByIdAndUpdate(req.body.id, {$set: req.body},
   function (error) {
     if (error) {
       res.json({ success: false, msg: 'No se pudo actualizar el libro' })
@@ -88,14 +88,17 @@ module.exports.update = function(req, res){
       res.json({ success: true, msg: 'El libro se actualizó exitosamente' });
     }
   }
+  )
 };
 
-module.exports.delete = function(req, res){
-  book_model.findByIdAndRemove(req.body._id, function(error){
-    if(error){
-      res.json({success : false, msg: 'No se pudo eliminar el libro'})
-    } else {
-      res.json({success : true, msg: 'Libro eliminado exitosamente'})
+module.exports.delete_book = function(req, res){
+  book_model.findByIdAndRemove(req.body.id,
+      function (error){
+        if (error){
+        res.json({success: false, msg: 'No se pudo eliminar el libro'});
+        }else{
+        res.json({success: true, msg: 'El libro se eliminó exitosamente'});
+      }
     }
-  });
-};  
+  )
+};

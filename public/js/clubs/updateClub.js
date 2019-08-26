@@ -50,7 +50,9 @@ let update_club = (pname, ptype, pgenre, pstartTime, pendTime, pday, pbranch, pi
             type: 'success',
             title: 'Club actualizado correctamente',
             confirmButtonText: 'Entendido'
-        });
+        }).then(function (){
+            window.location.href="/clubs/listClubs.html"
+        })
     });
 
     request.fail(function(res){
@@ -157,45 +159,45 @@ function validate(){
 
     if(input_name.value == '' ){
         bError = true;
-        input_name.classList.add('input_error');
+        input_name.classList.add('error');
     }else{
-        input_name.classList.remove('input_error');}
+        input_name.classList.remove('error');}
 
     if(slt_type.value == ''){
         bError = true;
-        slt_type.classList.add('input_error');
+        slt_type.classList.add('error');
     }else{
-        slt_type.classList.remove('input_error');}
+        slt_type.classList.remove('error');}
     
     if(slt_genre.value == ''){
         bError = true;
-        slt_genre.classList.add('input_error');
+        slt_genre.classList.add('error');
     }else{
-        slt_genre.classList.remove('input_error');}
+        slt_genre.classList.remove('error');}
     
     if(slt_type.value == 'Presencial' && slt_startTime.value == ''){
         bError = true;
-        slt_startTime.classList.add('input_error');
+        slt_startTime.classList.add('error');
     }else{
-        slt_startTime.classList.remove('input_error');}
+        slt_startTime.classList.remove('error');}
     
     if(slt_type.value == 'Presencial' && slt_endTime.value == ''){
         bError = true;
-        slt_endTime.classList.add('input_error');
+        slt_endTime.classList.add('error');
     }else{
-        slt_endTime.classList.remove('input_error');}
+        slt_endTime.classList.remove('error');}
 
     if(slt_type.value == 'Presencial' && slt_day.value == ''){
         bError = true;
-        slt_day.classList.add('input_error');
+        slt_day.classList.add('error');
     }else{
-        slt_day.classList.remove('input_error');}
+        slt_day.classList.remove('error');}
 
     if(slt_type.value == 'Presencial' && input_branch.value == ''){
         bError = true;
-        input_branch.classList.add('input_error');
+        input_branch.classList.add('error');
     }else{
-        input_branch.classList.remove('input_error');}
+        input_branch.classList.remove('error');}
     
     return bError;
 };
