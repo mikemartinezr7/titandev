@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/base.css">
-  <title>Titandev - Confirmar Cuenta</title>
+  <title>Titandev - Confirmar Email</title>
 </head>
 
 <body class="center">
   <img src="../img/titandev-logo.png" alt="logo" title="logo">
   <h1>Bienvenido de vuelta</h1>
-  <h3>Confirmación de cuenta</h3>
-  <p>Estás aquí porque recibiste un correo electrónico con un PIN de confirmación de 6 dígitos</p>
-  <p>Ingresa los datos enviados por correo electrónico en el siguiente formulario</p>
+  <h3>Confirmar Email</h3>
+  <p>Ingresa tu correo electrónico en el siguiente formulario</p>
   <br><br>
 
   <div class="login-box-alert center" style="display: none">
@@ -29,33 +28,14 @@
           <input type="text" name="email" id="email">
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="randomToken">PIN de 6 dígitos</label>
-          <input type="text" name="randomToken" id="randomToken">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="password">Contraseña</label>
-          <input type="password" name="password" id="password">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <label for="passConfirm">Confirmar Contraseña</label>
-          <input type="password" name="passConfirm" id="passConfirm">
-        </div>
-      </div>
-
-      <button type="submit" id="btnActivate" class="button-primary">Confirmar Cuenta</button>
+      <button type="submit" id="btnActivate" class="button-primary">Confirmar Email</button>
     </form>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  <script src="../js/users/activate.js"></script>
+  <script src="../js/users/emailconfirm.js"></script>
 </body>
 
 </html>

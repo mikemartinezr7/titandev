@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const appConfig = require('../../config/config.json');
 const { UserModel } = require('../db/models/user.model');
+const randToken = require('rand-token').generator({ chars: '0-9' });
 
 const transport = nodemailer.createTransport({
   service: appConfig.email.service,
@@ -121,8 +122,8 @@ module.exports.save_password = function (req, res) {
 }
 
 module.exports.update = function (req, res) {
-  UserModel.findByIdAndUpdate(req.body._id, { $set: req.body },{new: true}).populate('favoriteGenres', 'name').exec(
-    function (error,user) {
+  UserModel.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }).populate('favoriteGenres', 'name').exec(
+    function (error, user) {
       if (error) {
         res.json({ success: false, msg: 'No se pudo actualizar el perfil.' });
         console.log(error)
@@ -316,4 +317,153 @@ function sendEmail(email, subject, message) {
       console.log(err);
     }
   });
+}
+
+module.exports.pwdrecovery = function (req, res) {
+  let email = req.body.email;
+  let token = req.body.randomToken;
+  let pass = req.body.password;
+  let passConfirm = req.body.passConfirm;
+  let errors = [];
+
+  //Validate data
+  if (email == '') {
+    errors.push({
+      field: 'email',
+      message: 'El campo e-mail es requerido.'
+    });
+  }
+
+  if (token == '') {
+    errors.push({
+      field: 'randomToken',
+      message: 'El campo PIN es requerido.'
+    });
+  }
+
+  if (pass == '') {
+    errors.push({
+      field: 'password',
+      message: 'El campo contraseña es requerido.'
+    });
+  }
+
+  if (passConfirm == '') {
+    errors.push({
+      field: 'passConfirm',
+      message: 'El campo confirmar contraseña es requerido.'
+    });
+  }
+
+  if (pass != passConfirm) {
+    errors.push({
+      field: 'password',
+      message: 'Las contraseñas no coinciden.'
+    });
+  }
+
+  if (errors.length > 0) {
+    res.status(400).json(errors);
+  } else {
+    UserModel.findOne({ email: req.body.email }, function (error, user) {
+      if (error) {
+        console.log(error);
+      }
+
+      if (user) {
+        if (user.randomToken == token) {
+          UserModel.findByIdAndUpdate(user._id, { password: req.body.password }, function (error, userUpdated) {
+            if (error) {
+              errors.push({
+                field: 'email',
+                message: 'Ha ocurrido un error al guardar la contraseña. Vuelvalo a intentarlo en unos minutos.',
+                detail: error
+              });
+              res.status(400).json(errors);
+            } else {
+              res.status(200).json({
+                success: true,
+                code: 200,
+                message: 'La contraseña fue actualizada correctamente.',
+                detail: userUpdated
+              });
+            }
+          });
+        } else {
+          errors.push({
+            field: 'randomToken',
+            message: 'El PIN digitado no es válido. Revisa el PIN enviado al email y e inténtalo de nuevo.'
+          });
+          res.status(400).json(errors);
+        }
+      } else {
+        errors.push({
+          field: 'email',
+          message: 'El email digitado no se encuentra registrado en la base de datos.'
+        });
+        res.status(400).json(errors);
+      }
+    });
+  }
+}
+
+module.exports.pwdRecoveryEmail = function (req, res) {
+
+  let email = req.body.email;
+  let errors = [];
+
+  //Validate data
+  if (email == '') {
+    errors.push({
+      field: 'email',
+      message: 'El campo e-mail es requerido.'
+    });
+  }
+  if (errors.length > 0) {
+    res.status(400).json(errors);
+  } else {
+    UserModel.findOne({ email: req.body.email }, function (error, user) {
+      if (error) {
+        console.log(error);
+      }
+      if (user) {
+        UserModel.findByIdAndUpdate(user._id, { randomToken: randToken.generate(6) }, { new: true }).exec(function (error, userUpdated) {
+          if (error) {
+            errors.push({
+              field: 'email',
+              message: 'Ha ocurrido un error. Vuelve a intentarlo en unos minutos.',
+              detail: error
+            });
+            res.status(400).json(errors);
+          } else {
+
+            let templatePath = path.join(appRoot, '/public/users/templaterecovery.html');
+            let templateContent = fs.readFileSync(templatePath, { 'encoding': 'utf8' });
+            let message = templateContent;
+            let url = req.protocol + '://' + req.get('host') + '/users/pwdrecovery.html';
+        
+            message = message.replace('##EMAIL##', userUpdated.email);
+            message = message.replace('##PIN##', userUpdated.randomToken);
+            message = message.replace(/##URL##/g, url);
+        
+            //Send email to registered user
+            sendEmail(user.email, '[TitanBooks] Confirmación de cuenta', message);
+
+            res.status(200).json({
+              success: true,
+              code: 200,
+              message: 'Correo electrónico con PIN ha sido enviado.',
+              detail: userUpdated
+            });
+          }
+        });
+      } else {
+        errors.push({
+          field: 'email',
+          message: 'El email digitado no se encuentra registrado en la base de datos.'
+        });
+        res.status(400).json(errors);
+      }
+    });
+  }
 }
