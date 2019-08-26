@@ -72,7 +72,9 @@
               <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
             </div>
             <div class="no-border">
-              <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas,
+              {{if branches.length > 0 }}
+                <img src="../img/building.png" alt="Sucursal" width="16" height="16"> ${branches.length} sucursales asociadas,
+              {{/if}}
               <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
             <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
               </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
@@ -98,7 +100,9 @@
                 <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
               </div>
               <div class="no-border">
-                <img src="../img/building.png" alt="Sucursal" width="16" height="16"> 5 sucursales asociadas,
+                {{if branches.length > 0 }}
+                  <img src="../img/building.png" alt="Sucursal" width="16" height="16"> ${branches.length} sucursales asociadas,
+                {{/if}}
                 <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
               <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
                 </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
@@ -111,8 +115,8 @@
       </script>
 
       <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">
-    <div id="emptyLibraries">No hay librerias registradas actualmente</div>
-  </script>
+        <div id="emptyLibraries">No hay librerias registradas actualmente</div>
+      </script>
     </div>
   </div>
 

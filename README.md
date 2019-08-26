@@ -160,8 +160,8 @@ MICHAEL
 - Login ...... OK
 - Registrar libreria libre .... OK
 - Foto de perfil de usuario ..... OK
-- Registrar sucursal
-- Modificar catálogo de sucursal 
+- Registrar sucursal ..... OK
+- Modificar catálogo de sucursal
 - Editar sucursal
 - Editar librería
 - Agregar location por mapa en librerias

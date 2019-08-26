@@ -84,8 +84,16 @@
 
         <div class="row">
           <div class="box">
-            <p>Sucursales</p>
-            <a href="./branches/add.html?id=${_id}">Crear nueva sucursal</a>
+            <p>Sucursales <a href="./branches/add.html?id=${_id}" style="float: right">Crear nueva sucursal</a></p>
+
+            {{each(i,v) branches}}
+              <div class="branch">
+                <p><strong>${v.name}</strong></p>
+                <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address} </p>
+                <p><strong>Email:</strong> ${v.email}</p>
+                <p><strong>Teléfono:</strong> ${v.phone}</p>
+              </div>
+            {{/each}}
           </div>
         </div>
         <div class="row">
@@ -130,8 +138,16 @@
 
         <div class="row">
           <div class="box">
-            <p>Sucursales</p>
-            <a href="./branches/add.html?id=${_id}">Crear nueva sucursal</a>
+            <p>Sucursales <a href="./branches/add.html?id=${_id}" style="float: right">Crear nueva sucursal</a></p>
+
+            {{each(i,v) branches}}
+              <div class="branch">
+                <p><strong>${v.name}</strong></p>
+                <p><img src="../img/location.png" alt="Ubicacion"> ${v.province}, ${v.county}, ${v.district}, ${v.address} </p>
+                <p><strong>Email:</strong> ${v.email}</p>
+                <p><strong>Teléfono:</strong> ${v.phone}</p>
+              </div>
+            {{/each}}
           </div>
         </div>
         <div class="row">

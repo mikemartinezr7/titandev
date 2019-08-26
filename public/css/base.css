@@ -660,3 +660,10 @@ table tbody td {
 #slt_endTime{
   width: 150px
 }
+
+.branch {
+  background-color: #F6F8FA;
+  padding: 10px 30px;
+  border-radius: 14px; 
+  margin-bottom: 10px;
+}
