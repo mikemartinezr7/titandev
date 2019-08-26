@@ -92,13 +92,6 @@ app.use('/api/author', authorRouter);
 const categoryRouter = require ('./api/routes/category.routes');
 app.use('/api/category', categoryRouter);
 
-const productoRouter = require('./api/routes/producto.routes');
-app.use('/api/producto', productoRouter);
-
-const carritoRouter = require('./api/routes/carrito.routes');
-app.use('/api/carrito', carritoRouter);
-
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
