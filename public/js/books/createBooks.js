@@ -141,17 +141,23 @@ pisbn, pprice, pquantity){
     })
             
     request.done(function(res){
-        console.log('Libro agregado a la base de datos')
         swal.fire({
             type : 'success',
             title: 'Libro agregado a la base de datos',
             confirmButtonText: 'Entendido' 
-        });
+        }).then(function (){
+            window.location.href="/books/listBooks.html"
+        })
     });
 
     request.fail(function(res){
-        console.log('No se pudo agregar el libro')
-    });
-                
+        swal.fire({
+            type : 'error',
+            title: 'No se pudo crear el libro',
+            confirmButtonText: 'Entendido' 
+        }).then(function (){
+            window.location.href="/books/listBooks.html"
+        })
+    });               
 };
   

@@ -29,6 +29,16 @@ router.route('/activate')
     usersController.activate(req, res);
   });
 
+router.route('/pwdrecovery')
+  .post(function (req, res) {
+    usersController.pwdrecovery(req, res);
+  });
+
+router.route('/pwdrecoveryemail')
+  .post(function (req, res) {
+    usersController.pwdRecoveryEmail(req, res);
+  });
+
 router.route('/login')
   .post(function (req, res) {
     usersController.login(req, res);

@@ -4,17 +4,16 @@ const category = require('../db/models/category.model');
 
 module.exports.create = function(req,res){
   let add_category = new category({
-      categoryname : req.body.categoryname,
-      details : req.body.details
+      name : req.body.name
     });
 
     add_category.save(function(error){
         if(error){
-            res.json({success: false, msj : 'La Categoria no se ha registrado'});
+            res.json({success: false, msj : 'La categoría no se ha registrado'});
         }
         else{
             res.json({
-                success: true, msj : 'Categoria agregada'});
+                success: true, msj : 'Categoría agregada'});
           }
         }
     );
@@ -27,9 +26,9 @@ module.exports.list = function (req, res) {
   
     category.find({
       $or: [
-        { categoryname: new RegExp(search_criteria, 'i') },
+        { name: new RegExp(search_criteria, 'i') },
       ]
-    }).then(function (categories) {
+    }).populate('genres','name').then(function (categories) {
       if (categories.length > 0) {
         res.json({ success: true, categories_list: categories });
       } else {

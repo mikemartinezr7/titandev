@@ -9,7 +9,7 @@ $('#frmActivateUser').on('submit', function (event) {
   }
 
   $.ajax({
-    url: '/api/user/activate',
+    url: '/api/user/pwdrecovery',
     type: 'POST',
     data: JSON.stringify(jsonData),
     contentType: 'application/json',
@@ -24,7 +24,7 @@ $('#frmActivateUser').on('submit', function (event) {
 
       Swal.fire({
         title: 'Bienvenido',
-        text: 'El usuario ha sido activado correctamente. Ingresa tus datos de ingreso en la página de inicio de sesión',
+        text: 'La contraseña fue guardada. Ingresa tus datos de ingreso en la página de inicio de sesión',
         type: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',

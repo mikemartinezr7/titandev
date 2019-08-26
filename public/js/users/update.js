@@ -27,8 +27,6 @@ let btnCancel = document.querySelector('#btnCancel');
 let sltGender = document.querySelector('#sltGender');
 let sltidType = document.querySelector('#idType')
 
-let avatarPortrait = document.querySelector('#avatarPortrait');
-
 btnCancel.addEventListener('click', function () {
   window.location.href = '/users/profile.html'
 })
@@ -66,9 +64,6 @@ inputEmail.value = user.email
 inputNickname.value = user.nickname
 inputID.value = user.id
 inputAvatar.src = user.avatar
-
-avatarPortrait.src = user.avatar
-
 
 let option_gender = document.querySelectorAll('#sltGender option');
 for (let i = 0; i < option_gender.length; i++) {
@@ -501,7 +496,7 @@ function update(pFavoriteGenre) {
       favoriteBook: inputFavoriteAuthor.value,
       favoriteAuthor: inputFavoriteBook.value,
       email: inputEmail.value,
-      avatar: inputAvatar.value,
+      avatar: inputAvatar.src,
       nickname: inputNickname.value,
       exchange: inputExchange.checked
     },
