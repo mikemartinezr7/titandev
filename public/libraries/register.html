@@ -58,7 +58,8 @@
       <div class="row">
         <div class="col-6">
           <label for="location">Ubicación por Mapa</label>
-          <input type="text" name="location" id="location" class="required">
+          <input type="text" name="location" id="location" placeholher="Mueva el marcador para ingresar coordenadas">
+          <div id="mapa"></div>
         </div>
         <div class="col-6">
           <label for="image">Imagen</label><br>
@@ -157,6 +158,8 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js"></script>
   <script type="text/javascript" src="https://widget.cloudinary.com/global/all.js"></script>
   <script type="text/javascript" src="../js/images.js"></script>
+  <script type="text/javascript" src="../js/maps.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9SMLr_wnOIc87B6PBLqLT5MdGWfLp27A&callback=mapaInicial"></script>
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 

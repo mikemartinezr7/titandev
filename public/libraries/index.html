@@ -61,11 +61,18 @@
       <div id="libraries">
         <div class="box-library">
           <div class="library-image">
-            <a href="detail.html?id=${_id}"><img src="../img/image-default.png" alt="Hotel foto"></a>
+            <a href="detail.html?id=${_id}">
+              {{if image == "" }}
+                <img src="../img/image-default.png" alt="Libreria foto">
+              {{else}}
+                <img src="${image}" alt="Libreria foto">
+              {{/if}}
+            </a>
           </div>
           <div class="library-details">
             <a href="detail.html?id=${_id}">
               <h3>${commercialName}</h3>
+              <a href="edit.html?id=${_id}">Editar</a>
             </a>
             <div class="no-border">
               <img src="../img/location.png" alt="Ubicacion">
@@ -76,7 +83,8 @@
                 <img src="../img/building.png" alt="Sucursal" width="16" height="16"> ${branches.length} sucursales asociadas,
               {{/if}}
               <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
-            <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
+            <div>
+              <img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
               </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
             </div>
           </div>
@@ -88,36 +96,38 @@
 
       <script id="libraryTemplate" type="text/x-jQuery-tmpl">
         <div class="box-library">
-            <div class="library-image">
-              <a href="detail.html?id=${_id}">
-                {{if image == "" }}
-                  <img src="../img/image-default.png" alt="Libreria foto">
-                {{else}}
-                  <img src="${image}" alt="Libreria foto">
-                {{/if}}
-              </a>
+          <div class="library-image">
+            <a href="detail.html?id=${_id}">
+              {{if image == "" }}
+                <img src="../img/image-default.png" alt="Libreria foto">
+              {{else}}
+                <img src="${image}" alt="Libreria foto">
+              {{/if}}
+            </a>
+          </div>
+          <div class="library-details">
+            <a href="detail.html?id=${_id}">
+              <h3>${commercialName}</h3>
+              <a href="edit.html?id=${_id}">Editar</a>
+            </a>
+            <div class="no-border">
+              <img src="../img/location.png" alt="Ubicacion">
+              <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
             </div>
-            <div class="library-details">
-              <a href="detail.html?id=${_id}">
-                <h3>${commercialName}</h3>
-              </a>
-              <div class="no-border">
-                <img src="../img/location.png" alt="Ubicacion">
-                <strong>Ubicacion: </strong> ${province}, ${county}, ${district}, ${address}
-              </div>
-              <div class="no-border">
-                {{if branches.length > 0 }}
-                  <img src="../img/building.png" alt="Sucursal" width="16" height="16"> ${branches.length} sucursales asociadas,
-                {{/if}}
-                <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
-              <div><img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
-                </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
-              </div>
-            </div>
-            <div class="library-details-rigth">
-              <a class="detail-button" href="detail.html?id=${_id}">Ir a Librería</a>
+            <div class="no-border">
+              {{if branches.length > 0 }}
+                <img src="../img/building.png" alt="Sucursal" width="16" height="16"> ${branches.length} sucursales asociadas,
+              {{/if}}
+              <img src="../img/clubs.png" alt="Sucursal" width="16" height="16"> 3 clubes de lectura registrados</div>
+            <div>
+              <img src="../img/user.png" alt="Usuario" width="16" height="16"> <strong>Propietario:
+              </strong>${admin[0].firstName} ${admin[0].middleName} ${admin[0].firstLastName} ${admin[0].secondLastName}
             </div>
           </div>
+          <div class="library-details-rigth">
+            <a class="detail-button" href="detail.html?id=${_id}">Ir a Librería</a>
+          </div>
+        </div>
       </script>
 
       <script id="emptylibraryTemplate" type="text/x-jQuery-tmpl">

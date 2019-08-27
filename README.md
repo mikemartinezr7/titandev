@@ -164,14 +164,14 @@ MICHAEL
 - Modificar catálogo de sucursal
 - Editar sucursal
 - Editar librería
-- Agregar location por mapa en librerias
-- Eliminar sucursal 
-- Editar promoción 
+- Agregar location por mapa en librerias .... OK
+- Eliminar sucursal
+- Editar promoción
 - Eliminar promoción
 - Permisos de usuarios
 - Aprobar/Rechazar las solicitudes de registro enviadas por los administradores de librerías.
 - Expulsar usuarios por mal comportamiento.
-- Cerrar cuentas de Administradores de Librerías 
+- Cerrar cuentas de Administradores de Librerías
 - Ver los registros de todos los catálogos.
 - 404 page
 

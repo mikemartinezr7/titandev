@@ -11,7 +11,8 @@ router.route('/')
   .post(libraryController.create);
 
 router.route('/:id')
-  .get(libraryController.detail);
+  .get(libraryController.detail)
+  .put(libraryController.edit);
 
 router.route('/:id/branch')
   .get(branchController.list)

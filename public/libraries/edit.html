@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body onload="loadLibraryForEdit()">
   <div id="topmenu-container">
     <div class="topmenu-item">
       <span class="helper"><img src="../img/logo-white.png" alt="TitanDev Logo" width="30" height="30"></span>
@@ -17,7 +17,7 @@
     <div class="topmenu-item"><a href="../aboutapp.html">Nuestro Producto</a></div>
     <div class="topmenu-item user-profile">
       <span class="helper">
-          <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="./img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
+          <a id="user-profile-trigger"><span>John Malkovich</span> &nbsp; <img src="../img/user-portrait.jpeg" alt="Usuario" height="30" width="30"></a>
       </span>
       <div id="profile-menu" style="display: none">
         <ul>
@@ -49,7 +49,7 @@
 
     <div id="content">
       <h2>Librerías</h2>
-      <h3>Crear una nueva librería</h3>
+      <h3>Editar información de librería</h3>
       <p>Llene los siguientes formularios con los datos respectivos.</p>
       <p>Los datos con el símbolo <span class="red">(*)</span> son requeridos.</p>
 
@@ -58,7 +58,7 @@
         <ul></ul>
       </div>
 
-      <form name="frmAddUser" id="frmAddUser" method="POST" class="form">
+      <form name="frmEditLibrary" id="frmEditLibrary" method="POST" class="form">
         <fieldset>
           <legend>Datos generales:</legend>
 
@@ -96,7 +96,8 @@
           <div class="row">
             <div class="col-6">
               <label for="location">Ubicación por Mapa</label>
-              <input type="text" name="location" id="location" class="required">
+              <input type="text" name="location" id="location" placeholher="Mueva el marcador para ingresar coordenadas">
+              <div id="mapa"></div>
             </div>
             <div class="col-6">
               <label for="image">Imagen</label><br>
@@ -113,6 +114,7 @@
 
           <div class="row">
             <div class="col-2">
+              <input type="hidden" name="userid" id="userid">
               <label for="firstName">Primer Nombre <span class="red">*</span> </label>
               <input type="text" name="firstName" id="firstName" class="required">
             </div>
@@ -178,7 +180,7 @@
           </div>
         </fieldset>
 
-        <input type="submit" id="btnSubmit" value="Aceptar" class="button-primary">
+        <input type="submit" id="btnSubmit" value="Editar" class="button-primary">
         <input type="reset" id="btnReset" value="Limpiar" class="button-secondary">
       </form>
     </div>
@@ -191,6 +193,8 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js"></script>
   <script type="text/javascript" src="https://widget.cloudinary.com/global/all.js"></script>
   <script type="text/javascript" src="../js/images.js"></script>
+  <script type="text/javascript" src="../js/maps.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHcdVjtoxvl1rDEGuvwgZMP2f9xNBFaqQ&callback=mapaInicial"></script>
   
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   

@@ -13,7 +13,7 @@ $('#frmAddBranch').on('submit', function (event) {
   for (const [key, value] of formData.entries()) {
     jsonData[key] = value;
   }
-  
+
   $.ajax({
     url: '/api/library/' + paramId + '/branch',
     type: 'POST',
@@ -70,4 +70,9 @@ $('#frmAddBranch').on('submit', function (event) {
   });
 
   $('#btnSubmit').prop('disabled', false);
+});
+
+
+$(document).ready(function () {
+  $('#phone').mask('0000-00-00', { placeholder: '0000-00-00' });
 });

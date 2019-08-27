@@ -20,6 +20,7 @@ $('#frmLogin').on('submit', function (event) {
       $('#btnLogin').prop('disabled', true);
     },
     success: function (data) {
+      $('#btnLogin').prop('disabled', false);
       window.location.href = 'http://' + window.location.host;
     },
     error: function (response) {
@@ -42,9 +43,8 @@ $('#frmLogin').on('submit', function (event) {
         });
 
         $('.login-box-alert').show();
+        $('#btnLogin').prop('disabled', false);
       }
     }
   });
-
-  $('#btnLogin').prop('disabled', false);
 });
