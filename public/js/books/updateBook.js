@@ -73,6 +73,8 @@ let update_book = (pname, pimage, pgenre, pauthor, pdescription, pyear, peditori
 
 //**CONTROLADOR *//
 
+$('#txt_isbn').mask('000-0-00-000000-0', { placeholder: '000-0-00-000000-0' });
+
 const input_name = document.querySelector('#txt_name');
 const cover = document.querySelector('#image_preview')
 const slt_genre = document.querySelector('#slt_genre');
