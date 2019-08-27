@@ -1,6 +1,6 @@
 'use strict';
 
-const book_model = require('../db/models/book.model');
+const {book_model} = require('../db/models/book.model');
 
 module.exports.create = function (req, res) {
   let new_book = new book_model(
@@ -46,6 +46,7 @@ module.exports.list = function (req, res) {
       { isbn: new RegExp(search_criteria, 'i') }
     ]
   }).then(function (books) {
+    console.log(books)
     if (books.length > 0) {
       res.json({ success: true, books_list: books });
     } else {

@@ -18,4 +18,5 @@ let schema_books = mongoose.Schema({
     status : {type: String, required : true}
 });
 
-module.exports = mongoose.model('Book', schema_books); 
+let book_model = mongoose.model('Book', schema_books)
+module.exports = {book_model, schema_books};

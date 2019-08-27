@@ -2,6 +2,8 @@
 
 //*CONTROLADOR*//
 
+$('#txt_isbn').mask('000-0-00-000000-0', { placeholder: '000-0-00-000000-0' });
+
 const register_button = document.querySelector('#btn_register');
 const input_name = document.querySelector('#txt_name');
 const cover = document.querySelector('#image_preview')
@@ -100,7 +102,7 @@ function validate(){
     }else{
         slt_language.classList.remove('error');}
     
-    if(input_isbn.value == '' || regExpNumeros.test(input_price.value) == false || input_isbn.value<13){
+    if(input_isbn.value == '' || regExpNumeros.test(input_price.value) == false){
         bError = true;
         input_isbn.classList.add('error');
     }else{
