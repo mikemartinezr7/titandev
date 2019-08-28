@@ -61,7 +61,7 @@ const controller = {
       email: req.body.email,
       password: req.body.password,
       type: 'library',
-      active: false
+      active: true
     });
 
     let image = '';

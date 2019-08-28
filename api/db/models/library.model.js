@@ -42,7 +42,7 @@ const LibrarySchema = mongoose.Schema({
   active: {
     type: Boolean,
     require: true,
-    default: false
+    default: true
   },
   admin: [UserSchema],
   branches: [BranchSchema]
