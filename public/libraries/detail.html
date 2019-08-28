@@ -59,7 +59,7 @@
               <p>
                 <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}, ${address}
               </p>
-              <div id="map"></div>
+              <div id="mapa"></div>
             </div>
           </div>
   
@@ -120,7 +120,8 @@
             <p>
               <img src="../img/location.png" alt="Ubicacion"> ${province}, ${county}, ${district}, ${address}
             </p>
-            <div id="map"></div>
+            <div id="mapa"></div>
+            <input type="hidden" name="location" id="location">
           </div>
         </div>
 
@@ -177,6 +178,8 @@
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
   <script type="text/javascript" src="../js/layout.js"></script>
   <script type="text/javascript" src="../js/libraries.js"></script>
+  <script type="text/javascript" src="../js/maps.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHcdVjtoxvl1rDEGuvwgZMP2f9xNBFaqQ&callback=mapaInicial"></script>
 </body>
 
 </html>

@@ -209,6 +209,7 @@ function loadLibrary() {
 
       $('#library').empty();
       $('#libraryTemplate').tmpl(library).appendTo('#library');
+      mapaEdicion(library.location);
     }).fail(function (response) {
       $('#library').empty();
       $('#emptylibraryTemplate').tmpl({}).appendTo('#library');

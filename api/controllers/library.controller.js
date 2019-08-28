@@ -21,8 +21,7 @@ const controller = {
     let searchCriteria = { active: true };
 
     if (searchText && searchText != '') {
-      searchCriteria = { $or:[
-        { active: true }, 
+      searchCriteria = { active: true , $or:[
         { commercialName: new RegExp(searchText, 'i') }, 
         { brandName: new RegExp(searchText, 'i') },
         { province: new RegExp(searchText, 'i') },
@@ -32,7 +31,7 @@ const controller = {
         { 'admin.firstName': new RegExp(searchText, 'i') },
         { 'admin.middleName': new RegExp(searchText, 'i') },
         { 'admin.firstLastName': new RegExp(searchText, 'i') },
-        { 'admin.secondLastName': new RegExp(searchText, 'i') },
+        { 'admin.secondLastName': new RegExp(searchText, 'i') }
       ]};
     }
 
@@ -40,7 +39,7 @@ const controller = {
       if (error) {
         res.status(400).send(error);
       }
-
+      
       res.status(200).json(libraries);
     });
   },

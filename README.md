@@ -161,9 +161,9 @@ MICHAEL
 - Registrar libreria libre .... OK
 - Foto de perfil de usuario ..... OK
 - Registrar sucursal ..... OK
-- Modificar catálogo de sucursal
+- Modificar catálogo de sucursal 
 - Editar sucursal
-- Editar librería
+- Editar librería .... OK
 - Agregar location por mapa en librerias .... OK
 - Eliminar sucursal
 - Editar promoción
